@@ -14,17 +14,25 @@
   &-title {
     font-size: 42px;
     letter-spacing: -1px;
-    line-height: 1;
-    margin-bottom: 1em;
+    // line-height: 1;
+    margin-bottom: .5em;
 
     @include breakpoint(large) {
       font-size: 36px;
     }
   }
 
-  // &-item &-title {
-  //   font-size: 24px;
-  // }
+  .archives &-title {
+    margin-bottom: 1.5em;
+  }
+
+  .archives &-header &-title {
+    font-size: 24px;
+  }
+
+  &-meta {
+    color: _palette(fg);
+  }
 
   &-link {
     border-bottom: 0;
@@ -36,10 +44,10 @@
 
   &-content {
     padding: 0;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 
     p:last-child {
-      margin-bottom: 0;
+      margin: 0;
     }
 
     aside {

@@ -8,7 +8,8 @@ layout: default
 
 <section class="page">
   <header class="page-header">
-    <span class="page-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}{% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %} • {{ minutes }} minute read</span>
+    {% if page.thumb %}{% picture {{ page.thumb }} %}{% endif %}
+    <span class="page-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %} • {{ minutes }} minute read</span>
     <h1 class="page-title">{{ page.title }}</h1>
   </header>
 
@@ -18,7 +19,7 @@ layout: default
 
   <footer class="page-footer">
     {% if site.show_sharing_icons %}
-      {% include share_buttons.html %}
+      {% include share-buttons.html %}
     {% endif %}
   </footer>
 </section>

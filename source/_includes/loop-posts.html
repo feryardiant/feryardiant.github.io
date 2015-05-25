@@ -2,6 +2,8 @@
 {% if post.thumb %}
   <a href="{{ post.url | prepend: site.baseurl }}" class="image fit thumb">{{ post.thumb | image }}</a>
 {% endif %}
+  <!-- <span class="page-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.meta %} • {{ post.meta }}{% endif %}{% if post.tags %} • {{ post.tags | join: ', ' }}{% endif %} • {{ minutes }} minute read</span> -->
+  <span class="page-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.tags %} • {{ post.tags | join: ', ' }}{% endif %} • {{ minutes }} minute read</span>
   <h3 class="page-title"><a class="page-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
   <div class="page-content">{% if post.summary %}{{ post.summary }}{% else %}{{ post.excerpt }}{% endif %}</div>
 </article>

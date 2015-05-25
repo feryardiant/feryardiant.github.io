@@ -84,9 +84,9 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: _palette(fg-bold);
-  font-weight: _font(weight-bold);
+  font-weight: _font(weight-light);
   line-height: 1em;
-  margin: 0 0 (_size(element-margin) * 0.5) 0;
+  margin: 0 0 (_size(element-margin) * .5) 0;
 
   a {
     color: inherit;
@@ -115,25 +115,25 @@ h4 {
 }
 
 h5 {
-  font-size: 0.9em;
+  font-size: .9em;
   line-height: 1.5em;
 }
 
 h6 {
-  font-size: 0.7em;
+  font-size: .7em;
   line-height: 1.5em;
 }
 
 sub {
-  font-size: 0.8em;
+  font-size: .8em;
   position: relative;
-  top: 0.5em;
+  top: .5em;
 }
 
 sup {
-  font-size: 0.8em;
+  font-size: .8em;
   position: relative;
-  top: -0.5em;
+  top: -.5em;
 }
 
 hr {
@@ -152,7 +152,7 @@ blockquote {
   border-left: solid 6px _palette(border);
   font-style: italic;
   margin: 0 0 _size(element-margin) 0;
-  padding: 0.5em 0 0.5em 1.5em;
+  padding: .5em 0 .5em 1.5em;
 }
 
 code {
@@ -160,15 +160,15 @@ code {
   border-radius: _size(border-radius);
   border: solid 2px _palette(border);
   font-family: _font(family-fixed);
-  font-size: 0.9em;
-  margin: 0 0.25em;
-  padding: 0.25em 0.65em;
+  font-size: .9em;
+  margin: 0 .25em;
+  padding: .25em .65em;
 }
 
 pre {
   -webkit-overflow-scrolling: touch;
   font-family: _font(family-fixed);
-  font-size: 0.9em;
+  font-size: 1em;
   margin: 0 0 _size(element-margin) 0;
 
   code {
@@ -203,26 +203,26 @@ header {
   p {
     color: _palette(fg-light);
     position: relative;
-    margin: 0 0 (_size(element-margin) * 0.75) 0;
+    margin: 0 0 (_size(element-margin) * .75) 0;
   }
 
   h2 + p {
     font-size: 1.25em;
-    margin-top: (_size(element-margin) * -0.5);
+    margin-top: (_size(element-margin) * -.5);
     line-height: 1.5em;
   }
 
   h3 + p {
     font-size: 1.1em;
-    margin-top: (_size(element-margin) * -0.4);
+    margin-top: (_size(element-margin) * -.4);
     line-height: 1.5em;
   }
 
   h4 + p,
   h5 + p,
   h6 + p {
-    font-size: 0.9em;
-    margin-top: (_size(element-margin) * -0.3);
+    font-size: .9em;
+    margin-top: (_size(element-margin) * -.3);
     line-height: 1.5em;
   }
 
@@ -242,9 +242,9 @@ form {
 label {
   color: _palette(fg-bold);
   display: block;
-  font-size: 0.9em;
+  font-size: .9em;
   font-weight: _font(weight-bold);
-  margin: 0 0 (_size(element-margin) * 0.5) 0;
+  margin: 0 0 (_size(element-margin) * .5) 0;
 }
 
 input[type="text"],
@@ -259,7 +259,7 @@ textarea {
   color: inherit;
   display: block;
   outline: 0;
-  padding: 0 0.75em;
+  padding: 0 .75em;
   text-decoration: none;
   width: 100%;
 
@@ -304,7 +304,7 @@ select {
 }
 
 textarea {
-  padding: 0.75em;
+  padding: .75em;
 }
 
 input[type="checkbox"],
@@ -324,8 +324,8 @@ input[type="radio"] {
     display: inline-block;
     font-size: 1em;
     font-weight: _font(weight);
-    padding-left: (_size(element-height) * 0.6) + 0.75em;
-    padding-right: 0.75em;
+    padding-left: (_size(element-height) * .6) + .75em;
+    padding-right: .75em;
     position: relative;
 
     &:before {
@@ -334,13 +334,13 @@ input[type="radio"] {
       border: solid 2px transparent;
       content: '';
       display: inline-block;
-      height: (_size(element-height) * 0.6);
+      height: (_size(element-height) * .6);
       left: 0;
-      line-height: (_size(element-height) * 0.575);
+      line-height: (_size(element-height) * .575);
       position: absolute;
       text-align: center;
       top: 0;
-      width: (_size(element-height) * 0.6);
+      width: (_size(element-height) * .6);
     }
   }
 
@@ -450,7 +450,7 @@ input[type="radio"] {
     display: block;
     height: 100%;
     left: 0;
-    opacity: 0.5;
+    opacity: .5;
     position: absolute;
     top: 0;
     width: 100%;
@@ -462,11 +462,11 @@ input[type="radio"] {
     &:after {
       @include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
       border-radius: _size(border-radius);
-      border: solid 3px rgba(255,255,255,0.5);
+      border: solid 3px rgba(255,255,255,.5);
       color: #fff;
       content: 'View';
       display: inline-block;
-      font-size: 0.8em;
+      font-size: .8em;
       font-weight: _font(weight-bold);
       left: 50%;
       line-height: 2.25em;
@@ -500,13 +500,13 @@ input[type="radio"] {
   &.left {
     float: left;
     margin: 0 1.5em 1em 0;
-    top: 0.25em;
+    top: .25em;
   }
 
   &.right {
     float: right;
     margin: 0 0 1em 1.5em;
-    top: 0.25em;
+    top: .25em;
   }
 
   &.left,
@@ -554,7 +554,7 @@ ol {
   padding-left: 1.25em;
 
   li {
-    padding-left: 0.25em;
+    padding-left: .25em;
   }
 }
 
@@ -564,7 +564,7 @@ ul {
   padding-left: 1em;
 
   li {
-    padding-left: 0.5em;
+    padding-left: .5em;
   }
 
   &.alt {
@@ -573,7 +573,7 @@ ul {
 
     li {
       border-top: solid 2px _palette(border);
-      padding: 0.5em 0;
+      padding: .5em 0;
 
       &:first-child {
         border-top: 0;
@@ -610,7 +610,7 @@ ul {
 
     li {
       display: inline-block;
-      padding: 0 (_size(element-margin) * 0.5) 0 0;
+      padding: 0 (_size(element-margin) * .5) 0 0;
       vertical-align: middle;
 
       &:last-child {
@@ -620,14 +620,14 @@ ul {
 
     &.small {
       li {
-        padding: 0 (_size(element-margin) * 0.25) 0 0;
+        padding: 0 (_size(element-margin) * .25) 0 0;
       }
     }
 
     &.vertical {
       li {
         display: block;
-        padding: (_size(element-margin) * 0.5) 0 0 0;
+        padding: (_size(element-margin) * .5) 0 0 0;
 
         &:first-child {
           padding-top: 0;
@@ -640,7 +640,7 @@ ul {
 
       &.small {
         li {
-          padding: (_size(element-margin) * 0.25) 0 0 0;
+          padding: (_size(element-margin) * .25) 0 0 0;
 
           &:first-child {
             padding-top: 0;
@@ -651,14 +651,14 @@ ul {
 
     &.fit {
       display: table;
-      margin-left: (_size(element-margin) * -0.5);
+      margin-left: (_size(element-margin) * -.5);
       padding: 0;
       table-layout: fixed;
-      width: calc(100% + #{(_size(element-margin) * 0.5)});
+      width: calc(100% + #{(_size(element-margin) * .5)});
 
       li {
         display: table-cell;
-        padding: 0 0 0 (_size(element-margin) * 0.5);
+        padding: 0 0 0 (_size(element-margin) * .5);
 
         > * {
           margin-bottom: 0;
@@ -666,11 +666,11 @@ ul {
       }
 
       &.small {
-        margin-left: (_size(element-margin) * -0.25);
-        width: calc(100% + #{(_size(element-margin) * 0.25)});
+        margin-left: (_size(element-margin) * -.25);
+        width: calc(100% + #{(_size(element-margin) * .25)});
 
         li {
-          padding: 0 0 0 (_size(element-margin) * 0.25);
+          padding: 0 0 0 (_size(element-margin) * .25);
         }
       }
     }
@@ -734,14 +734,14 @@ table {
   }
 
   td {
-    padding: 0.75em 0.75em;
+    padding: .75em .75em;
   }
 
   th {
     color: _palette(fg-bold);
-    font-size: 0.9em;
+    font-size: .9em;
     font-weight: _font(weight-bold);
-    padding: 0 0.75em 0.75em 0.75em;
+    padding: 0 .75em .75em .75em;
     text-align: left;
   }
 
@@ -816,7 +816,7 @@ input[type="button"],
   }
 
   &:active {
-    background-color: transparentize(_palette(accent1, bg), 0.9);
+    background-color: transparentize(_palette(accent1, bg), .9);
     border-color: _palette(accent1, bg);
     color: _palette(accent1, bg) !important;
   }
@@ -825,19 +825,19 @@ input[type="button"],
     padding-left: 1.35em;
 
     &:before {
-      margin-right: 0.5em;
+      margin-right: .5em;
     }
   }
 
   &.fit {
     display: block;
-    margin: 0 0 (_size(element-margin) * 0.5) 0;
+    margin: 0 0 (_size(element-margin) * .5) 0;
     min-width: 0;
     width: 100%;
   }
 
   &.small {
-    font-size: 0.8em;
+    font-size: .8em;
   }
 
   &.big {
@@ -875,16 +875,16 @@ input[type="button"],
   margin: 0 0 _size(element-margin) 0;
 
   .image {
-    margin: 0 0 (_size(element-margin) * 0.75) 0;
+    margin: 0 0 (_size(element-margin) * .75) 0;
   }
 
   h3 {
     font-size: 1em;
-    margin: 0 0 (_size(element-margin) * 0.25) 0;
+    margin: 0 0 (_size(element-margin) * .25) 0;
   }
 
   p {
-    font-size: 0.8em;
+    font-size: .8em;
     line-height: 1.5em;
     margin: 0;
   }
@@ -924,7 +924,7 @@ input[type="button"],
   }
 
   .image.avatar {
-    margin: 0 0 (_size(element-margin) * 0.5) 0;
+    margin: 0 0 (_size(element-margin) * .5) 0;
     width: 6.25em;
   }
 }
@@ -934,13 +934,13 @@ input[type="button"],
 #footer {
   bottom: 0;
   left: 0;
-  padding: 0 $size-header-pad ($size-header-pad + _size(element-margin)) 0;
+  padding: 0 $size-header-pad ($size-header-pad + _size(element-margin)) 1em;
   position: fixed;
   text-align: right;
   width: $size-header-width;
 
   .icons {
-    margin: (_size(element-margin) * 0.5) 0 0 0;
+    margin: (_size(element-margin) * .5) 0 0 0;
 
     a {
       color: _palette(accent2, fg-light);
@@ -949,17 +949,17 @@ input[type="button"],
 
   .copyright {
     color: _palette(accent2, fg-light);
-    font-size: 0.8em;
+    font-size: .8em;
     list-style: none;
-    margin: (_size(element-margin) * 0.5) 0 0 0;
+    margin: (_size(element-margin) * .5) 0 0 0;
     padding: 0;
 
     li {
       border-left: solid 1px _palette(accent2, border);
       display: inline-block;
       line-height: 1em;
-      margin-left: 0.75em;
-      padding-left: 0.75em;
+      margin-left: .75em;
+      padding-left: .75em;
 
       &:first-child {
         border-left: 0;
@@ -1007,7 +1007,7 @@ input[type="button"],
   -webkit-tap-highlight-color: rgba(255,255,255,0);
   background: #fff;
   border-radius: _size(border-radius);
-  box-shadow: 0 0.1em 0.15em 0 rgba(0,0,0,0.15);
+  box-shadow: 0 .1em .15em 0 rgba(0,0,0,.15);
   overflow: hidden;
   padding-bottom: 3em;
 
@@ -1018,7 +1018,7 @@ input[type="button"],
     height: 1em;
     left: 50%;
     line-height: 1em;
-    margin: -0.5em 0 0 -0.5em;
+    margin: -.5em 0 0 -.5em;
     position: absolute;
     top: 50%;
     width: 1em;
@@ -1032,7 +1032,7 @@ input[type="button"],
     background: #fff;
     bottom: 0;
     cursor: default;
-    font-size: 0.9em;
+    font-size: .9em;
     height: 3em;
     left: 0;
     line-height: 2.8em;
@@ -1047,7 +1047,7 @@ input[type="button"],
     @include icon;
     @include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
     -webkit-tap-highlight-color: rgba(255,255,255,0);
-    background: rgba(0,0,0,0.01);
+    background: rgba(0,0,0,.01);
     cursor: pointer;
     height: 100%;
     opacity: 0;
@@ -1060,7 +1060,7 @@ input[type="button"],
       font-size: 2.5em;
       height: 1em;
       line-height: 1em;
-      margin-top: -0.75em;
+      margin-top: -.75em;
       position: absolute;
       text-align: center;
       top: 50%;
@@ -1104,14 +1104,14 @@ input[type="button"],
     &:before {
       @include vendor('box-sizing', 'content-box');
       border-radius: 100%;
-      border: solid 3px rgba(255,255,255,0.5);
+      border: solid 3px rgba(255,255,255,.5);
       content: '\f00d';
       display: block;
       font-size: 1em;
       height: 1.75em;
       left: 50%;
       line-height: 1.75em;
-      margin: -0.875em 0 0 -0.875em;
+      margin: -.875em 0 0 -.875em;
       position: absolute;
       top: 50%;
       width: 1.75em;
@@ -1121,7 +1121,7 @@ input[type="button"],
   &:hover {
     .nav-next,
     .nav-previous {
-      opacity: 0.5;
+      opacity: .5;
 
       &:hover {
         opacity: 1.0;
@@ -1129,7 +1129,7 @@ input[type="button"],
     }
 
     .closer {
-      opacity: 0.5;
+      opacity: .5;
 
       &:hover {
         opacity: 1.0;
@@ -1145,7 +1145,7 @@ body.is-touch {
   .image {
     &.thumb {
       &:before {
-        opacity: 0.5 !important;
+        opacity: .5 !important;
       }
 
       &:after {
@@ -1296,18 +1296,18 @@ body.is-touch {
     width: 100%;
 
     .icons {
-      margin: 0 0 (_size(element-margin) * 0.5) 0;
+      margin: 0 0 (_size(element-margin) * .5) 0;
     }
 
     .copyright {
-      margin: 0 0 (_size(element-margin) * 0.5) 0;
+      margin: 0 0 (_size(element-margin) * .5) 0;
 
       li {
         border-left-width: 1px;
         display: inline-block;
         line-height: 1em;
-        margin-left: 0.75em;
-        padding-left: 0.75em;
+        margin-left: .75em;
+        padding-left: .75em;
       }
     }
   }
@@ -1420,7 +1420,7 @@ body.is-touch {
 
       li {
         display: block;
-        padding: (_size(element-margin) * 0.5) 0 0 0;
+        padding: (_size(element-margin) * .5) 0 0 0;
         text-align: center;
         width: 100%;
 
@@ -1442,7 +1442,7 @@ body.is-touch {
 
       &.small {
         li {
-          padding: (_size(element-margin) * 0.25) 0 0 0;
+          padding: (_size(element-margin) * .25) 0 0 0;
 
           &:first-child {
             padding-top: 0;

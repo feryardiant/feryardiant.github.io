@@ -4,13 +4,13 @@ description:   "Open source enthusiast who love combination between code and cof
 author:        Fery Wardiyanto
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:
+google_analytics: UA-51394056-1
 google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
 # Disqus post comments
-disqus_shortname:
+disqus_shortname: fa-octo
 
 # Personal settings
 show_portfolio: false

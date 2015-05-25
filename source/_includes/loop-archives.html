@@ -1,3 +1,4 @@
 <article class="12u$ page-item">
+  <span class="page-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.tags %} • {{ post.tags | join: ', ' }}{% endif %}</span>
   <h3 class="page-title"><a class="page-link block" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
 </article>
