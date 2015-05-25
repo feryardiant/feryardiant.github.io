@@ -14,6 +14,6 @@ insert_final_newline = true
 indent_style = space
 indent_size = 2
 
-[sources/**.{rb,scss,css,js,json,yml,html}]
+[source/**.{rb,scss,css,js,json,yml,html}]
 indent_style = space
 indent_size = 2

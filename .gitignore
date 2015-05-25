@@ -1,5 +1,5 @@
 dist
-sources/asset/emoji
+source/asset/emoji
 .sass-cache
 .bundle
 *.old
