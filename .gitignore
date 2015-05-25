@@ -1,0 +1,5 @@
+dist
+sources/asset/emoji
+.sass-cache
+.bundle
+*.old

@@ -1,0 +1,144 @@
+# Site settings
+title:         Fery Wardiyanto's Blog
+description:   "Open source enthusiast who love combination between code and coffee."
+author:        Fery Wardiyanto
+
+# Analytics and webmaster tools stuff goes here
+google_analytics:
+google_verify:
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:
+
+# Disqus post comments
+disqus_shortname:
+
+# Personal settings
+show_portfolio: false
+address:        'Somewhere in.<br>Pekalongan, Indonesia'
+gravatar:       f1d26a5fe1c5ecc75c660c89ceb6d68e
+email:          ferywardiyanto@gmail.com
+twitter:        feryardiant
+github:         feryardiant
+googleplus:     ferywardiyanto
+linkedin:       feryardiant
+dribbble:       feryardiant
+
+# Post sharing icons
+show_sharing_icons: true
+share_text: 'Share this post!'
+# Change to 'true' to enable individual icons
+share_facebook: true
+share_twitter: true
+share_googleplus: true
+share_linkedin: false
+share_digg: false
+share_tumblr: false
+share_reddit: false
+share_stumbleupon: false
+share_hackernews: false
+
+# Server
+baseurl:       "" # the subpath of your site, e.g. /posts/
+url:           //feryardiant.github.io # the base hostname & protocol for your site
+encoding:      UTF-8
+timezone:      Asia/Jakarta
+
+# Build settings
+git_branch:    master
+source:        source
+destination:   dist
+markdown:      kramdown
+highlighter:   pygments
+permalink:     /posts/:year/:month/:title.html
+paginate:      6
+paginate_path: /posts/page/:num
+
+collections:
+  works:
+    source:    _works
+    output:    true
+    permalink: /works/:path.html
+
+defaults:
+- scope:
+    path: _works
+    type: works
+  values:
+    layout: works
+
+# Plugins
+# plugins:
+#   - twitter_tag
+gems:
+  - jekyll-picture-tag
+  - jekyll-sitemap
+  - jekyll-assets
+  - jekyll-archives
+  - jekyll-gist
+  - autoprefixer-rails
+  - jemoji
+
+emoji:
+  src: /asset
+
+# http://ixti.net/jekyll-assets/
+assets:
+  dirname: asset
+  baseurl: /asset/
+  sources:
+    - asset/_scripts
+    - asset/_styles
+    - asset/_images
+  js_compressor: uglifier
+  css_compressor: sass
+  cachebust: hard
+  cache: false
+  gzip: [ text/css, application/javascript ]
+  debug: false
+
+jekyll-archives:
+  enabled: ['year', 'month', 'tags']
+  layouts:
+    tag: archive-tags
+    year: archive-years
+    month: archive-months
+  permalinks:
+    tag: '/posts/tags/:name.html'
+    year: '/posts/:year/'
+    month: '/posts/:year/:month/'
+
+picture:
+  ppi: [1, 1.5]
+  source: asset/_images
+  output: asset/images
+  markup: picture
+  presets:
+    # Full width pictures
+    default:
+      ppi: [1, 1.5]
+      attr:
+        class: "image fit thumb"
+        itemprop: image
+      source_lrg:
+        media: "(min-width: 40em)"
+        width: 720
+      source_med:
+        media: "(min-width: 30em)"
+        width: 450
+      source_default:
+        width: 350
+        height: 200
+    # Half width pictures
+    half:
+      ppi: [1, 1.5]
+      attr:
+        data-location: "{{location}}"
+        data-active: nil
+      source_lrg:
+        media: "(min-width: 40em)"
+        width: 400
+      source_med:
+        media: "(min-width: 30em)"
+        width: 250
+      source_default:
+        width: 350

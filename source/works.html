@@ -1,0 +1,9 @@
+---
+layout: page
+title: All My Works
+menu: Portfolio
+permalink: /works/
+---
+<div class="row">
+  {% for work in site.works %}{% include loop-works.html %}{% endfor %}
+</div>

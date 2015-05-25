@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<section id="about">
+  <header class="major">
+    <h2>Hallo, perkenalkan nama saya Fery Wardiyanto.</h2>
+  </header>
+  <p>Saya masih terdaftar sebagai mahasiswa aktif (lebih tepatnya belum lulus) di STMIK Widya Pratama Pekalongan angkatan 2009, disela aktifitas kuliah saya juga seorang freelance Web Developer. Saya sangan menyukai dunia open source dan sempat beberapa kali turut berkontribusi dalam beberapa project yang saya gunakan.</p>
+  <ul class="actions">
+    <li><a href="{{ '/about.html' | prepend: site.baseurl }}" class="button">Learn More</a></li>
+  </ul>
+</section> <!-- /#about -->
+{% if site.show_portfolio %}
+<section id="works">
+  <h2>Recent Work</h2>
+  <div class="row">
+    {% for work in site.works limit:6 %}{% include loop-works.html %}{% endfor %}
+  </div>
+  <ul class="actions">
+    <li><a href="{{ '/works/' | prepend: site.baseurl }}" class="button">Full Portfolio</a></li>
+  </ul>
+</section> <!-- /#works -->
+{% endif %}
+
+<section id="posts">
+  <h2>Recent Posts</h2>
+  <div class="row">
+    {% for post in site.posts limit:5 %}{% include loop-posts.html %}{% endfor %}
+  </div>
+  <ul class="actions">
+    <li><a href="{{ '/posts/' | prepend: site.baseurl }}" class="button">Full Posts</a></li>
+  </ul>
+</section> <!-- /#posts -->
+
+<section id="contact">
+  <h2>Get In Touch</h2>
+  <p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+  <div class="row">
+  <div class="8u 12u$(small)">
+    <form action="https://formspree.io/{{ site.email }}" method="POST">
+      <div class="row uniform 50%">
+        <div class="6u 12u$(small)"><input type="text" name="name" id="name" placeholder="Full Name" /></div>
+        <div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email Address" /></div>
+        <div class="12u$"><textarea name="content" id="message" placeholder="What would you like to say?" rows="4"></textarea></div>
+      </div>
+    </form>
+    <ul class="actions">
+      <li><input type="submit" value="Send Message" /></li>
+    </ul>
+  </div>
+  <div class="4u$ 12u$(small)">
+    <ul class="labeled-icons">
+      <li>
+        <h3 class="icon fa-home"><span class="label">Address</span></h3>
+        <address>{{ site.address }}</address>
+      </li>
+      <li>
+        <h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </li>
+    </ul>
+  </div>
+
+  </div>
+</section> <!-- /#contact -->

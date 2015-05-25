@@ -1,0 +1,68 @@
+/**
+ * Page content
+ */
+.page {
+
+  &-heading {
+    font-size: 20px;
+  }
+
+  &-header {
+    margin-bottom: 0;
+  }
+
+  &-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 1em;
+
+    @include breakpoint(large) {
+      font-size: 36px;
+    }
+  }
+
+  // &-item &-title {
+  //   font-size: 24px;
+  // }
+
+  &-link {
+    border-bottom: 0;
+  }
+
+  // &-meta {
+  //   color: $grey-color;
+  // }
+
+  &-content {
+    padding: 0;
+    margin-bottom: 2em;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    aside {
+      span {
+        display: block;
+      }
+
+      li {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  &-footer {
+    font-size: 20px;
+  }
+
+  #works &-title {
+    font-size: 24px;
+  }
+
+  #works &-content {
+    font-size: 0.8em;
+    line-height: 1.5em;
+  }
+}

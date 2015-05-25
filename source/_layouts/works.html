@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<section class="page">
+  <header class="page-header">
+    <span class="page-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %}</span>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.thumb %}{% picture {{ page.thumb }} alt="{{ page.title }}" %}{% endif %}
+  </header>
+
+  <article class="page-content">
+    <div class="row">
+      <div class="8u">{{ content }}</div>
+      <aside class="4u">
+        <ul class="labeled-icons">
+          <li>
+            <h3 class="icon fa-building"><span class="label">Client</span></h3>
+            <a href="{{ page.home }}" rel="nofollow" target="_blank">{{ page.client }}</a>
+          </li>
+          <li>
+            <h3 class="icon fa-calendar"><span class="label">Date</span></h3>
+            {{ page.date | date: "%b %-d, %Y" }}
+          </li>
+          {% if page.tags %}
+          <li>
+            <h3 class="icon fa-tags"><span class="label">Tags</span></h3>
+            {{ page.tags | join: ', ' }}
+          </li>
+          {% endif %}
+        </ul>
+      </aside>
+    </div>
+  </article>
+
+  <footer class="page-footer">
+    {% if site.show_sharing_icons %}
+      {% include share_buttons.html %}
+    {% endif %}
+  </footer>
+</section>
