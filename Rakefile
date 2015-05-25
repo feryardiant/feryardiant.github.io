@@ -140,6 +140,7 @@ task :deploy, [:message] do |t, args|
     raise "Please add a branch."
   else
     Rake::Task[:build].invoke
+    FileUtils.cp '.gitignore', DEST
     Dir.chdir(DEST) do
       system "git add -A"
       system "git commit -m \"#{message}\""
