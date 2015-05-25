@@ -1,0 +1,9 @@
+---
+layout: page
+title: Recent posts
+menu: Blog
+permalink: /posts/
+---
+<div class="row">
+  {% for work in site.posts %}{% include loop-posts.html %}{% endfor %}
+</div>

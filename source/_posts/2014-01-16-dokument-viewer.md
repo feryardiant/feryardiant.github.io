@@ -1,15 +1,13 @@
 ---
+layout: post
 title: Bikin dokument viewer menggunakan sendiri PDF.JS dan WebODF
-date: 2014-01-16 15:58:03+00:00
+date: 2014-01-16 15:58:03 +0700
 comments: true
+thumb:
+tags: [Playgrounds, Document Viewer]
 excerpt:
   'Berhadapan dengan project yang dituntut untuk dapat menampilkan berbagai macam dokumen membuat saya penasaran dan berkeinginan untuk membuat semacam Document Viewer sendiri, karena sebelumnya saya slalu menggunakan dan mengkombinasikan source program buatan orang lain. Terutama untuk dokumen teks seperti: .PDF, .ODT, .ODS, .DOC dsb.'
-layout: post
-tags:
-- Playgrounds
-- Document Viewer
 ---
-
 Berhadapan dengan project yang dituntut untuk dapat menampilkan berbagai macam dokumen membuat saya penasaran dan berkeinginan untuk membuat semacam Document Viewer sendiri, karena sebelumnya saya slalu menggunakan dan mengkombinasikan source program buatan orang lain. Terutama untuk dokumen teks seperti: .PDF, .ODT, .ODS, .DOC dsb.
 
 Walau begitu saya masih belum banyak pengalaman untuk menangani jenis dokumen-dokumen tersebut. Berdasarkan hasil googling, cukup banyak yang merekomendasikan [Viewer.JS](viewerjs.org). Kelihatannya cukup menjanjikan, dimana Viewer.js menkombinasikan beberapa tool open-source sebagai basisnya seperti [Mozilla PDF.JS](http://mozilla.github.io/pdf.js) dan [WebODF](http://webodf.org).<!-- more -->

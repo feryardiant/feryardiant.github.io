@@ -1,16 +1,13 @@
 ---
+layout: post
 title: Facebook Autotag
-date: 2014-01-30 13:35:56+00:00
+date: 2014-01-30 13:35:56 +0700
 comments: true
+thumb: facebook.jpg
+tags: [Tulisan, Facebook, Spam]
 excerpt:
   'Facebook belakangan ini mulai marak dengan kasus autotag, dimana setiap orang akan secara otomatis mention/summon semua friendlist nya kedalam komentar. Seperti yang saya alami beberapa waktu lalu, saya di-mention oleh beberapa teman ke beberapa post. Setelah saya coba check post tersebut ternyata hanya post bodoh yang nggak ada gunanya sama sekali, antara lain <em>Hack password teman</em>, <em>Melihat isi inbox dari akun FB temen</em> bahkan ada jg yg pake modus <em>Memperoleh ribuan follower cewek-cewek seksi</em>. WHAT THE FUCKING IS THIS SHIT!'
-layout: post
-tags:
-- Tulisan
-- Facebook
-- Spam
 ---
-
 Belakangan ini mulai marak dengan kasus autotag di Facebook, dimana setiap orang akan secara otomatis mention/summon semua friendlist nya kedalam komentar. Seperti yang saya alami beberapa waktu lalu, saya di-mention oleh beberapa teman ke beberapa post. Setelah saya coba check post tersebut ternyata hanya post bodoh yang nggak ada gunanya sama sekali, antara lain _Hack password teman_, _Melihat isi inbox dari akun FB temen_ bahkan ada juga yang pake modus _Memperoleh ribuan follower cewek-cewek seksi_. WHAT THE FUCKING IS THIS SHIT!
 
 Semua dikemas dalam bentuk tutorial. Dimana mereka mengarahkan untuk membuka sebuah link, dan  semuanya mengarahkan ke link yang berbeda tapi dengan isi yang sama yaitu sebuah script javascript yang di encode menggunakan hexadesimal (saya kurang tau encoder apa yang mereka gunakan). Setelah itu, script tersebut harus di-copas ke browser console. Setelah script tersebut dijalankan barulah mereka dapat melihat hasilnya. Dan hasilnya adalah script tersebut memanggil semua daftar teman yang ada untuk di-mention dalam komentar post tersebut.

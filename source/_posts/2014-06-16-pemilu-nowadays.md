@@ -3,11 +3,9 @@ layout: post
 title: "Pemilu nowadays"
 date: 2014-06-16 04:30:08 +0700
 comments: true
-tags:
-- Tulisan
-- Opinion
+thumb:
+tags: [Tulisan, Opinion]
 ---
-
 Dari beberapa post & comment yang bahas pemilu kali ini kok keliatannya para pendukung kubu "*ichiban*" pada gampang terprofokasi yak? atau mereka memang nggak bisa bedain antara sisi positip & negatip nya info di media pubik?
 
 Ditambah kalo ada info dari kubu sebelah. Mau info positip atau negatip ujung2nya *return false* semua. dikasi klarifikasi dibilang "*pinter ngeles*", diliatin kinerja dibilang "*pencitraan*", gikasih retorika dibilang "*umbar janji*".
