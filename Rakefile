@@ -9,9 +9,6 @@ require 'yaml'
 
 # == Configuration =============================================================
 
-# Set "rake serve" as default task
-task :default => :serve
-
 # Load the configuration file
 CONFIG = YAML.load_file("_config.yml")
 
@@ -52,7 +49,7 @@ end
 def get_slug(title)
   characters = /("|'|!|\?|:|\s\z)/
   whitespace = /\s/
-  "#{title.gsub(characters,"").gsub(whitespace,"-").downcase}.md"
+  "#{title.gsub(characters,"").gsub(whitespace,"-").downcase}"
 end
 
 # remove generated site
@@ -62,8 +59,6 @@ def cleanup
 end
 
 # == Tasks =====================================================================
-
-# load 'tasks/emoji.rake'
 
 # @usage: rake install
 desc "Emoji task"
@@ -76,9 +71,9 @@ task :install do
   $stderr.puts "All emoji has been generated in " + emoji_dir
 end
 
-# @usage: rake new[post,"Post title"]
+# @usage: rake new["post","Post title","md"]
 desc "Create a new $post in _posts"
-task :new, [:type, :title] do |t, args|
+task :new, [:type, :title, :ext] do |t, args|
   if args.type
     type = args.type
   else
@@ -89,6 +84,12 @@ task :new, [:type, :title] do |t, args|
     title = args.title
   else
     title = stdin("Enter a title for your post: ")
+  end
+
+  if args.ext
+    ext = args.ext
+  else
+    ext = 'md'
   end
 
   case type
@@ -106,7 +107,7 @@ task :new, [:type, :title] do |t, args|
   end
 
   date = Time.now.strftime('%Y-%m-%d') + '-' if type == 'post'
-  filename = "#{CONFIG['source']}#{path}#{date}#{get_slug(title)}.md"
+  filename = "#{CONFIG['source']}#{path}#{date}#{get_slug(title)}.#{ext}"
 
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
@@ -166,3 +167,6 @@ desc "Build the site"
 task :build do
   system "jekyll build"
 end
+
+# Set "rake serve" as default task
+task :default => :serve
