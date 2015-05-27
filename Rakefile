@@ -65,10 +65,10 @@ end
 
 # load 'tasks/emoji.rake'
 
+# @usage: rake install
 desc "Emoji task"
 task :install do
   require 'gemoji'
-  require 'fileutils'
 
   emoji_dir = CONFIG['source'] + CONFIG['emoji']['src']
 
@@ -76,8 +76,8 @@ task :install do
   $stderr.puts "All emoji has been generated in " + emoji_dir
 end
 
-# usage new [post,"Post title"]
-desc "Create a new post in _posts"
+# @usage: rake new[post,"Post title"]
+desc "Create a new $post in _posts"
 task :new, [:type, :title] do |t, args|
   if args.type
     type = args.type
@@ -126,7 +126,7 @@ task :new, [:type, :title] do |t, args|
   end
 end
 
-# rake deploy["Commit message"]
+# @usage: rake deploy["Commit message"]
 desc "Deploy the site to a remote git repo"
 task :deploy, [:message] do |t, args|
   message = args[:message]
@@ -149,19 +149,19 @@ task :deploy, [:message] do |t, args|
   end
 end
 
-# rake clean
+# @usage: rake clean
 desc 'Clean up generated site'
 task :clean do
   cleanup
 end
 
-# rake serve
+# @usage: rake serve
 desc "Build and watch the site"
 task :serve do
   system "jekyll serve -w"
 end
 
-# rake build
+# @usage: rake build
 desc "Build the site"
 task :build do
   system "jekyll build"
