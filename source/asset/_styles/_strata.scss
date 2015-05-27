@@ -902,7 +902,7 @@ input[type="button"],
   color: _palette(accent2, fg);
   height: 100%;
   left: 0;
-  padding: ($size-header-pad * 2) $size-header-pad 0 0;
+  padding: ($size-header-pad * 1.5) $size-header-pad 0 2em;
   position: fixed;
   text-align: right;
   top: 0;
@@ -934,7 +934,7 @@ input[type="button"],
 #footer {
   bottom: 0;
   left: 0;
-  padding: 0 $size-header-pad ($size-header-pad + _size(element-margin)) 1em;
+  padding: 0 $size-header-pad ($size-header-pad + _size(element-margin)) 2em;
   position: fixed;
   text-align: right;
   width: $size-header-width;

@@ -1,9 +1,16 @@
 ---
 layout: page
+lang: en
 title: About Me
 menu: About
 permalink: /about.html
 ---
-Hallo, perkenalkan nama saya Fery Wardiyanto. Saya masih terdaftar sebagai mahasiswa aktif (lebih tepatnya belum lulus) di STMIK Widya Pratama Pekalongan angkatan 2009, disela aktifitas kuliah saya juga seorang freelance Web Developer dengan brand yang saya bangun sendiri pada akhir tahun 2014 lalu yaitu Creasi.co. Saya sangan menyukai dunia open source dan sempat beberapa kali turut berkontribusi dalam beberapa project yang saya gunakan.
+**Hi!** Nice to meet you. I'm [Fery Wardiyanto](//google.com/?s=Fery+Wardiyanto). I am web developer based on [Pekalongan, Indonesia](//www.google.co.id/maps/place/Pekalongan,Indonesia/). I always curious and try to learn new things and something may have bright prospect in the future in technology department.
 
-Dalam 3 tahun terakhir saya mengfokuskan diri dalam bidang Web Development khususnya PHP dan Javascript. Saya belum memiliki banyak portfolio, hanya beberapa lokal project dari SKPD setempat dan juga join project dengan rekanan. Antara lain adalah Aplikasi Pengelolaan Dokumen Perijinan di Badan Penanaman Modal dan Perizinan Terpadu Kab. Pekalongan dan Aplikasi Arsip di Dinas Kependudukan dan Catatan Sipil Kota Pekalongan.
+In last 3 years I found my real passion: Web Development. I have advantages to build application using __PHP__ and __Javascript__ and designing user interface with a diverse set of devices in mind, using tools and automation to speed up development times. I also know some about __Ruby__ and __Python__ but not too much.
+
+I love [open source](//github.com/feryardiant) and some times I give a contribution to projects or tools that I used to work with. Started with ask a silly question or give some feedback. Let see what can I do to fix it? Ah! I can fix it, give them PR.
+
+I also like swiming, watching [movie](//trakt.tv/users/feryardiant) and [anime](//myanimelist.net/animelist/feryardiant), listening [music](//soundcloud.com/feryardiant), reading [manga](//myanimelist.net/mangalist/feryardiant) in my free times.
+
+Currently I'm available as Freelance or remote worker, You can find out more about my projects and contributions in [Github](//github.com/feryardiant) or view my CV at [StackOverflow Careers](//careers.stackoverflow.com/feryardiant). Simply [shoot me an email](/#contact) if you interested in finding out even more.
