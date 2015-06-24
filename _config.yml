@@ -39,11 +39,12 @@ share_hackernews: false
 
 # Server
 baseurl:       "" # the subpath of your site, e.g. /posts/
-url:           https://feryardiant.github.io/ # the base hostname & protocol for your site
+url:           https://feryardiant.github.io # the base hostname & protocol for your site
 encoding:      UTF-8
 timezone:      Asia/Jakarta
 
 # Build settings
+git_remote:    git@github.com:feryardiant/feryardiant.github.io.git
 git_branch:    master
 source:        source
 destination:   dist

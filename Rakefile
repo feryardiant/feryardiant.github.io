@@ -12,17 +12,18 @@ require 'yaml'
 # Load the configuration file
 CONFIG = YAML.load_file("_config.yml")
 
-if CONFIG["destination"]
-  DEST = CONFIG["destination"]
-else
-  DEST = '_site'
-end
+# Setup default value
+GIT_REMOTE = CONFIG['git_remote']  ? CONFIG['git_remote']  : `git config --get remote.origin.url`
+GIT_BRANCH = CONFIG['git_branch']  ? CONFIG['git_branch']  : 'master'
+DEST_DIR   = CONFIG['destination'] ? CONFIG['destination'] : '_site'
+SOURCE_DIR = CONFIG['source']      ? CONFIG['source']      : '.'
+EDITOR     = CONFIG['editor']      ? CONFIG['editor']      : ENV['EDITOR']
 
 begin
   Bundler.setup(:default, :jekyll_plugins, :development)
 rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
+  puts e.message
+  puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
 
@@ -37,16 +38,22 @@ end
 # https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/Rakefile.rb#L82
 def ask(message, valid_options)
   if valid_options
-    answer = stdin("#{message} #{valid_options.to_s.gsub(/"/, '').gsub(/, /,'/')} ") while !valid_options.include?(answer)
+    options = valid_options.to_s.gsub(/"/, '').gsub(/, /,'/')
+    answer  = stdin("#{message} #{options} ") while !valid_options.include?(answer)
   else
-    answer = stdin(message)
+    answer  = stdin(message)
   end
   answer
 end
 
+def quit(message)
+  puts message
+  exit 1
+end
+
 # Transform the filename and date to a slug
 # https://github.com/gummesson/jekyll-rake-boilerplate/blob/master/Rakefile#L39
-def get_slug(title)
+def getSlug(title)
   characters = /("|'|!|\?|:|\s\z)/
   whitespace = /\s/
   "#{title.gsub(characters,"").gsub(whitespace,"-").downcase}"
@@ -63,33 +70,43 @@ end
 # @usage: rake install
 desc "Emoji task"
 task :install do
-  require 'gemoji'
+  changed = false
 
-  emoji_dir = CONFIG['source'] + CONFIG['emoji']['src']
+  if !Dir.exist?(DEST_DIR)
+    system "git clone #{GIT_REMOTE} -b #{GIT_BRANCH} #{DEST_DIR}"
+    changed = true
+  end
 
-  FileUtils.cp_r Emoji.images_path + "/emoji", emoji_dir
-  $stderr.puts "All emoji has been generated in " + emoji_dir
+  emoji_dir = SOURCE_DIR + CONFIG['emoji']['src']
+
+  if !Dir.exist?(emoji_dir)
+    require 'gemoji'
+    FileUtils.cp_r Emoji.images_path + "/emoji", emoji_dir
+    changed = true
+  end
+
+  if changed == true
+    puts "All emoji has been generated in " + emoji_dir
+    puts "You're ready to go sir"
+  else
+    puts "Everything's ready sir"
+  end
 end
 
 # @usage: rake new["post","Post title","md"]
-desc "Create a new $post in _posts"
+desc "Create a new thing"
 task :new, [:type, :title, :ext] do |t, args|
-  if args.type
-    type = args.type
-  else
-    type = 'post'
+  type = args.type  ? args.type  : stdin("Let me know the type sir [post|page|works]: ")
+
+  if type.nil? or type.empty?
+    quit "Fine! you silent, i'm quit."
   end
 
-  if args.title
-    title = args.title
-  else
-    title = stdin("Enter a title for your post: ")
-  end
+  title = args.title ? args.title : stdin("Give me the #{type} title sir: ")
+  ext   = args.ext   ? args.ext   : 'md'
 
-  if args.ext
-    ext = args.ext
-  else
-    ext = 'md'
+  if title.nil? or title.empty?
+    quit "C'mon! you must be have a title. :("
   end
 
   case type
@@ -101,21 +118,20 @@ task :new, [:type, :title, :ext] do |t, args|
     if CONFIG['collections'].include?("#{type}")
       path = "/#{CONFIG['collections']["#{type}"]['source']}/"
     else
-      puts "You gave me #{type} -- I have no idea what to do with that."
-      exit 1
+      quit "You ask me to create new '#{type}' that I don't know, sorry."
     end
   end
 
   date = Time.now.strftime('%Y-%m-%d') + '-' if type == 'post'
-  filename = "#{CONFIG['source']}#{path}#{date}#{get_slug(title)}.#{ext}"
+  filename = "#{SOURCE_DIR}#{path}#{date}#{getSlug(title)}.#{ext}"
 
   if File.exist?(filename)
-    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+    abort "rake aborted!" if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
 
-  tags = stdin("Enter tags to classify your post (comma separated): ")
-  puts "Creating new #{type}: #{filename}"
-  open(filename, 'w') do |post|
+  tags = stdin("Have an idea what the tags shoud be (comma separated): ")
+
+  open filename, 'w' do |post|
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
@@ -125,27 +141,25 @@ task :new, [:type, :title, :ext] do |t, args|
     post.puts "tags: [#{tags}]"
     post.puts "---"
   end
+
+  puts "new '#{type}' with '#{title}' has been created in #{filename} sir."
+  system "#{EDITOR} #{filename}" if ask("Do you want to open it?", ['y', 'n']) != 'n'
 end
 
 # @usage: rake deploy["Commit message"]
 desc "Deploy the site to a remote git repo"
 task :deploy, [:message] do |t, args|
-  message = args[:message]
-  branch = CONFIG["git_branch"]
+  message = args[:message] ? args[:message] : stdin("Please add a commit message: ")
 
-  if message.nil? or message.empty?
-    raise "Please add a commit message."
-  end
-
-  if branch.nil? or branch.empty?
-    raise "Please add a branch."
+  if GIT_BRANCH.nil? or GIT_BRANCH.empty?
+    quit "Please setup your git_branch in _config.yml."
   else
     Rake::Task[:build].invoke
     FileUtils.cp '.gitignore', DEST
-    Dir.chdir(DEST) do
+    Dir.chdir DEST do
       system "git add -A"
       system "git commit -m \"#{message}\""
-      system "git push origin #{branch}"
+      system "git push origin #{GIT_BRANCH}"
     end
   end
 end
