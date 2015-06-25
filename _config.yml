@@ -94,9 +94,8 @@ assets:
     - asset/_scripts
     - asset/_styles
     - asset/_images
-  gzip: [ text/css, application/javascript ]
   cachebust: hard
-  # cache: false
+  cache: true
 
 jekyll-archives:
   enabled: ['year', 'month', 'tags']

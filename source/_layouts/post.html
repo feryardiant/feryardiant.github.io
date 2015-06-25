@@ -8,7 +8,7 @@ layout: default
 
 <section class="page">
   <header class="page-header">
-    {% if page.thumb %}{% picture {{ page.thumb }} %}{% endif %}
+    {% if page.thumb %}{{ page.thumb | image }}{% endif %}
     <span class="page-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %} • {{ minutes }} minute read</span>
     <h1 class="page-title">{{ page.title }}</h1>
   </header>

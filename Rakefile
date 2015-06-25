@@ -149,13 +149,18 @@ end
 # @usage: rake build
 desc "Build the site"
 task :build do
+  dest = DEST_DIR
+  # Remove entirely existing asset folder
+  FileUtils.rm_r DEST_DIR + '/asset', :force => true
+  # Build new one
   system "bundle exec jekyll build"
+  # Copy some require file
+  FileUtils.cp '.gitignore', DEST_DIR
 end
 
 # @usage: rake deploy["Commit message"]
 desc "Deploy the site to a remote git repo"
 task :deploy, [:message] do |t, args|
-  # if !args.key?(:message)
   if args[:message].nil? or args[:message].empty?
     message = ENV['CI'] == 'true' ? `git log --oneline -1` : stdin("Please add a commit message: ")
   else
@@ -165,12 +170,7 @@ task :deploy, [:message] do |t, args|
   if GIT_BRANCH.nil? or GIT_BRANCH.empty?
     quit "Please setup your git_branch in _config.yml."
   else
-    FileUtils.rm_r DEST_DIR + '/asset', :force => true
-
     Rake::Task[:build].invoke
-    # Rake::Task[:install].invoke
-
-    FileUtils.cp '.gitignore', DEST_DIR
 
     if ENV['CI'] == 'true'
       system "git config --global user.email \"#{CONFIG['author']}\""

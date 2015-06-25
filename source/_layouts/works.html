@@ -5,7 +5,7 @@ layout: default
   <header class="page-header">
     <span class="page-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %}</span>
     <h1 class="page-title">{{ page.title }}</h1>
-    {% if page.thumb %}{% picture {{ page.thumb }} alt="{{ page.title }}" %}{% endif %}
+    {% if page.thumb %}{{ page.thumb | image }}{% endif %}
   </header>
 
   <article class="page-content">

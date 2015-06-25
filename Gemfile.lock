@@ -146,7 +146,7 @@ DEPENDENCIES
   jekyll
   jekyll-archives
   jekyll-assets
-  jekyll-picture-tag (~> 0.2.3)
+  jekyll-picture-tag
   jekyll-sitemap
   jemoji
   s3_website
