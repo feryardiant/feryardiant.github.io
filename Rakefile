@@ -78,7 +78,7 @@ task :install do
     changed = true
   end
 
-  emoji_dir = SOURCE_DIR + CONFIG['emoji']['src'] + '/emoji'
+  emoji_dir = DEST_DIR + CONFIG['emoji']['src'] + '/emoji'
 
   if !Dir.exist?(emoji_dir)
     FileUtils.cp_r Emoji.images_path + "/emoji/", emoji_dir
@@ -165,7 +165,11 @@ task :deploy, [:message] do |t, args|
   if GIT_BRANCH.nil? or GIT_BRANCH.empty?
     quit "Please setup your git_branch in _config.yml."
   else
+    FileUtils.rm_r DEST_DIR + '/asset', :force => true
+
     Rake::Task[:build].invoke
+    # Rake::Task[:install].invoke
+
     FileUtils.cp '.gitignore', DEST_DIR
 
     if ENV['CI'] == 'true'
@@ -173,6 +177,8 @@ task :deploy, [:message] do |t, args|
       system "git config --global user.name \"#{CONFIG['email']}\""
       system "bundle exec s3_website push"
     end
+
+    FileUtils.rm_r DEST_DIR + '/asset', :force => true
 
     Dir.chdir DEST_DIR do
       system "git add -A ."
