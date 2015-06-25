@@ -44,7 +44,7 @@ encoding:      UTF-8
 timezone:      Asia/Jakarta
 
 # Build settings
-git_remote:    git://github.com/feryardiant/feryardiant.github.io.git
+git_remote:    https://github.com/feryardiant/feryardiant.github.io.git
 git_branch:    master
 source:        source
 destination:   dist
@@ -84,18 +84,18 @@ emoji:
 
 # http://ixti.net/jekyll-assets/
 assets:
+  debug: false
   dirname: asset
   baseurl: /asset/
+  js_compressor: uglifier
+  css_compressor: sass
   sources:
     - asset/_scripts
     - asset/_styles
     - asset/_images
-  js_compressor: uglifier
-  css_compressor: sass
+  gzip: [ text/css, application/javascript ]
   cachebust: hard
   cache: false
-  gzip: [ text/css, application/javascript ]
-  debug: false
 
 jekyll-archives:
   enabled: ['year', 'month', 'tags']
