@@ -444,7 +444,7 @@ input[type="radio"] {
 
   &:before {
     @include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
-    background: url('/asset/images/overlay.png');
+    background: url('/asset/images/mask.png');
     border-radius: _size(border-radius);
     content: '';
     display: block;
@@ -486,7 +486,7 @@ input[type="radio"] {
       }
 
       &:before {
-        background: url('/asset/images/overlay.png'), url('/asset/images/overlay.png');
+        background: url('/asset/images/mask.png'), url('/asset/images/mask.png');
         opacity: 1.0;
       }
     }
@@ -895,7 +895,7 @@ input[type="button"],
 #header {
   background-color:   _palette(accent2, bg);
   background-attachment: scroll, fixed;
-  background-image: url('/asset/images/overlay.png'), url('/asset/images/bg.jpg');
+  background-image: url('/asset/images/mask.png'), url('/asset/images/background.jpg');
   background-position: top left, top center;
   background-repeat: repeat, no-repeat;
   background-size: auto, 100%;
@@ -1284,7 +1284,7 @@ body.is-touch {
   #footer {
     background-attachment:  scroll;
     background-color: palette(accent2, bg);
-    background-image: url('/asset/images/overlay.png'), url('/asset/images/bg.jpg');
+    background-image: url('/asset/images/mask.png'), url('/asset/images/background.jpg');
     background-position: top left, bottom center;
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
