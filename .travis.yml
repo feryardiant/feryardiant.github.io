@@ -4,7 +4,7 @@ matrix:
   fast_finish: true
 
 install:
-  - gem install
+  - bundle install
 
 before_script:
   - rake install
