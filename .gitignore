@@ -6,3 +6,4 @@ source/.jekyll-assets-cache
 .env
 vendor
 *.old
+*.zip

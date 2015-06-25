@@ -14,9 +14,9 @@ layout: default
 {% if site.show_portfolio %}
 <section id="works">
   <h2>Recent Work</h2>
-  <div class="row">
-    {% for work in site.works limit:6 %}{% include loop-works.html %}{% endfor %}
-  </div>
+
+  <div class="row">{% include loop-works.html %}</div>
+
   <ul class="actions">
     <li><a href="{{ '/works/' | prepend: site.baseurl }}" class="button">Full Portfolio</a></li>
   </ul>
@@ -25,9 +25,9 @@ layout: default
 
 <section id="posts">
   <h2>Recent Posts</h2>
-  <div class="row">
-    {% for post in site.posts limit:5 %}{% include loop-posts.html %}{% endfor %}
-  </div>
+
+  <div class="row">{% include loop-posts.html %}</div>
+
   <ul class="actions">
     <li><a href="{{ '/posts/' | prepend: site.baseurl }}" class="button">Full Posts</a></li>
   </ul>

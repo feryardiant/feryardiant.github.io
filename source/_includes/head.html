@@ -17,42 +17,11 @@
   <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js"></script>
-
 {% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
 {% if site.bing_verify %}<meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
 
-<!-- Open Graph -->
-<!-- From: //github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
-<meta property="og:locale" content="en_US">
-<meta property="og:type" content="article">
-<meta property="og:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}">
-<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:image" content="{% if page.thumb %}{{ site.url }}{{ page.thumb | asset_path }}{% else %}//gravatar.com/avatar/{{ site.gravatar }}?s=300{% endif %}">
-<meta property="og:site_name" content="{{ site.title | xml_escape }}">
-
-<!-- Icons -->
-<link rel="apple-touch-icon" sizes="57x57" href="{{ '/asset/favicons/apple-touch-icon-57x57.png' | prepend: site.url + site.baseurl }}">
-<link rel="apple-touch-icon" sizes="60x60" href="{{ '/asset/favicons/apple-touch-icon-60x60.png' | prepend: site.url + site.baseurl }}">
-<link rel="apple-touch-icon" sizes="72x72" href="{{ '/asset/favicons/apple-touch-icon-72x72.png' | prepend: site.url + site.baseurl }}">
-<link rel="apple-touch-icon" sizes="76x76" href="{{ '/asset/favicons/apple-touch-icon-76x76.png' | prepend: site.url + site.baseurl }}">
-<link rel="apple-touch-icon" sizes="114x114" href="{{ '/asset/favicons/apple-touch-icon-114x114.png' | prepend: site.url + site.baseurl }}">
-<link rel="apple-touch-icon" sizes="120x120" href="{{ '/asset/favicons/apple-touch-icon-120x120.png' | prepend: site.url + site.baseurl }}">
-<link rel="apple-touch-icon" sizes="144x144" href="{{ '/asset/favicons/apple-touch-icon-144x144.png' | prepend: site.url + site.baseurl }}">
-<link rel="apple-touch-icon" sizes="152x152" href="{{ '/asset/favicons/apple-touch-icon-152x152.png' | prepend: site.url + site.baseurl }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ '/asset/favicons/apple-touch-icon-180x180.png' | prepend: site.url + site.baseurl }}">
-<link rel="icon" type="image/png" href="{{ '/asset/favicons/favicon-16x16.png' | prepend: site.url + site.baseurl }}" sizes="16x16">
-<link rel="icon" type="image/png" href="{{ '/asset/favicons/favicon-32x32.png' | prepend: site.url + site.baseurl }}" sizes="32x32">
-<link rel="icon" type="image/png" href="{{ '/asset/favicons/favicon-96x96.png' | prepend: site.url + site.baseurl }}" sizes="96x96">
-<link rel="icon" type="image/png" href="{{ '/asset/favicons/favicon-194x194.png' | prepend: site.url + site.baseurl }}" sizes="194x194">
-<link rel="icon" type="image/png" href="{{ '/asset/favicons/android-chrome-192x192.png' | prepend: site.url + site.baseurl }}" sizes="192x192">
-<link rel="manifest" href="{{ '/manifest.json' | prepend: site.url + site.baseurl }}">
-<link rel="shortcut icon" href="{{ '/asset/favicons/favicon.ico' | prepend: site.url + site.baseurl }}">
-<meta name="msapplication-TileColor" content="#44aa00">
-<meta name="msapplication-TileImage" content="{{ '/asset/favicons/mstile-144x144.png' | prepend: site.url + site.baseurl }}">
-<meta name="msapplication-config" content="{{ '/browserconfig.xml' | prepend: site.url + site.baseurl }}">
-<meta name="theme-color" content="#44aa00">
+{% include head-opengraph.html %}
+{% include head-favicons.html %}
 
 <link href='//fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 <link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>

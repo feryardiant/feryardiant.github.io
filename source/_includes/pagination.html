@@ -1,0 +1,20 @@
+<ul class="actions">
+  <li>
+    {% if paginator.previous_page %}
+      {% if paginator.page == 2 %}
+        <a class="button" href="{{ site.baseurl }}/"><span aria-hidden="true">&larr;</span> Newer</a>
+      {% else %}
+        <a class="button" href="{{ site.paginate_path | replace:':num',paginator.previous_page }}"><span aria-hidden="true">&larr;</span> Newer</a>
+      {% endif %}
+    {% else %}
+      <span class="button disabled"><span aria-hidden="true">&larr;</span> Newer</span>
+    {% endif %}
+  </li>
+  <li>
+    {% if paginator.next_page %}
+      <a class="button" href="{{ site.paginate_path | replace:':num',paginator.next_page }}">Older <span aria-hidden="true">&rarr;</span></a>
+    {% else %}
+      <span class="button disabled">Older <span aria-hidden="true">&rarr;</span></span>
+    {% endif %}
+  </li>
+</ul>

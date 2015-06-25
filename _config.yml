@@ -51,8 +51,8 @@ destination:   dist
 markdown:      kramdown
 highlighter:   pygments
 permalink:     /posts/:year/:month/:title.html
-# paginate:      6
-# paginate_path: /posts/page/:num
+paginate:      1
+paginate_path: /posts/page/:num
 
 collections:
   works:
@@ -70,8 +70,8 @@ defaults:
 # Plugins
 # plugins:
 #   - twitter_tag
+
 gems:
-  - jekyll-picture-tag
   - jekyll-sitemap
   - jekyll-assets
   - jekyll-archives
@@ -100,46 +100,10 @@ assets:
 jekyll-archives:
   enabled: ['year', 'month', 'tags']
   layouts:
-    tag: archive-tags
-    year: archive-years
-    month: archive-months
+    tag:   archive/tags
+    year:  archive/years
+    month: archive/months
   permalinks:
-    tag: '/posts/tags/:name.html'
-    year: '/posts/:year/'
+    tag:   '/posts/tags/:name.html'
+    year:  '/posts/:year/'
     month: '/posts/:year/:month/'
-
-picture:
-  ppi: [1, 1.5]
-  source: asset/_images
-  output: asset/images
-  markup: picture
-  presets:
-    # Full width pictures
-    default:
-      ppi: [1, 1.5]
-      attr:
-        class: "image fit thumb"
-        itemprop: image
-      source_lrg:
-        media: "(min-width: 40em)"
-        width: 720
-      source_med:
-        media: "(min-width: 30em)"
-        width: 450
-      source_default:
-        width: 350
-        height: 200
-    # Half width pictures
-    half:
-      ppi: [1, 1.5]
-      attr:
-        data-location: "{{location}}"
-        data-active: nil
-      source_lrg:
-        media: "(min-width: 40em)"
-        width: 400
-      source_med:
-        media: "(min-width: 30em)"
-        width: 250
-      source_default:
-        width: 350

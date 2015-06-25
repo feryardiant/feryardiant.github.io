@@ -1,0 +1,9 @@
+<!-- Open Graph -->
+<!-- From: //github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}">
+<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{% if page.thumb %}{{ site.url }}{{ page.thumb | asset_path }}{% else %}//gravatar.com/avatar/{{ site.gravatar }}?s=300{% endif %}">
+<meta property="og:site_name" content="{{ site.title | xml_escape }}">

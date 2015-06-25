@@ -1,0 +1,3 @@
+{% if post.thumb %}
+  <a href="{{ post.url | prepend: site.baseurl }}" class="image fit thumb">{{ post.thumb | image }}</a>
+{% endif %}
