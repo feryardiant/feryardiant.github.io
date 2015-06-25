@@ -1,5 +1,6 @@
 dist
 source/asset/emoji
+source/.jekyll-assets-cache
 .sass-cache
 .bundle
 .env
