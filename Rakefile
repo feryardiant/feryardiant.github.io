@@ -162,17 +162,17 @@ task :deploy, [:message] do |t, args|
     message = args[:message]
   end
 
-  if ENV['CI'] == 'true'
-    system "git config --global user.email \"#{CONFIG['author']}\""
-    system "git config --global user.name \"#{CONFIG['email']}\""
-    system "bundle exec s3_website"
-  end
-
   if GIT_BRANCH.nil? or GIT_BRANCH.empty?
     quit "Please setup your git_branch in _config.yml."
   else
     Rake::Task[:build].invoke
     FileUtils.cp '.gitignore', DEST_DIR
+
+    if ENV['CI'] == 'true'
+      system "git config --global user.email \"#{CONFIG['author']}\""
+      system "git config --global user.name \"#{CONFIG['email']}\""
+      system "bundle exec s3_website"
+    end
 
     Dir.chdir DEST_DIR do
       system "git add -A ."
