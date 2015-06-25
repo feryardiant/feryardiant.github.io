@@ -1,7 +1,7 @@
 language: ruby
 
 rvm:
-  - 2.2.1
+- 2.2.1
 
 cache: bundler
 
@@ -9,13 +9,13 @@ matrix:
   fast_finish: true
 
 before_install:
-  - gem update --system
+- gem update --system
 
 before_script:
-  - rake install
+- rake install
 
 script:
-  - rake build
+- rake build
 
 after_script:
-  - rake deploy
+- rake deploy
