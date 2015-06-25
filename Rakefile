@@ -98,14 +98,14 @@ desc "Create a new thing"
 task :new, [:type, :title, :ext] do |t, args|
   type = args.type  ? args.type  : stdin("Let me know the type sir [post|page|works]: ")
 
-  if type.nil? or type.empty?
+  if type.nil? or type.blank?
     quit "Fine! you silent, i'm quit."
   end
 
   title = args.title ? args.title : stdin("Give me the #{type} title sir: ")
   ext   = args.ext   ? args.ext   : 'md'
 
-  if title.nil? or title.empty?
+  if title.nil? or title.blank?
     quit "C'mon! you must be have a title. :("
   end
 
@@ -149,13 +149,13 @@ end
 # @usage: rake deploy["Commit message"]
 desc "Deploy the site to a remote git repo"
 task :deploy, [:message] do |t, args|
-  if !args[:message].nil? or !args[:message].empty?
+  if !args[:message].nil? or !args[:message].blank?
     message = args[:message]
   else
     message = ENV['CI'] ? `git log --oneline -1` : stdin("Please add a commit message: ")
   end
 
-  if GIT_BRANCH.nil? or GIT_BRANCH.empty?
+  if GIT_BRANCH.nil? or GIT_BRANCH.blank?
     quit "Please setup your git_branch in _config.yml."
   else
     Rake::Task[:build].invoke
