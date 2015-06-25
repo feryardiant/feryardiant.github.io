@@ -71,17 +71,17 @@ end
 desc "Emoji task"
 task :install do
   changed = false
+  require 'gemoji'
 
   if !Dir.exist?(DEST_DIR)
     system "git clone #{GIT_REMOTE} -b #{GIT_BRANCH} #{DEST_DIR}"
     changed = true
   end
 
-  emoji_dir = SOURCE_DIR + CONFIG['emoji']['src']
+  emoji_dir = SOURCE_DIR + CONFIG['emoji']['src'] + '/emoji'
 
   if !Dir.exist?(emoji_dir)
-    require 'gemoji'
-    FileUtils.cp_r Emoji.images_path + "/emoji", emoji_dir
+    FileUtils.cp_r Emoji.images_path + "/emoji/", emoji_dir
     changed = true
   end
 
