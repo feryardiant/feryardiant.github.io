@@ -19,7 +19,8 @@ DEST_DIR   = CONFIG['destination'] ? CONFIG['destination'] : '_site'
 SOURCE_DIR = CONFIG['source']      ? CONFIG['source']      : '.'
 EDITOR     = CONFIG['editor']      ? CONFIG['editor']      : ENV['EDITOR']
 
-GIT_REMOTE.gsub!(':', '/').gsub!('@', '://')
+GIT_REMOTE.gsub!(':', '/')
+GIT_REMOTE.gsub!('@', '://')
 
 begin
   Bundler.setup(:default, :jekyll_plugins, :development)
@@ -151,7 +152,7 @@ end
 # @usage: rake deploy["Commit message"]
 desc "Deploy the site to a remote git repo"
 task :deploy, [:message] do |t, args|
-  if args[:message].present?
+  if args[:message]?
     message = args[:message]
   else
     message = ENV['CI'] ? `git log --oneline -1` : stdin("Please add a commit message: ")
