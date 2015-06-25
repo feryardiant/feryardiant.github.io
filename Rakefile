@@ -154,12 +154,12 @@ desc "Deploy the site to a remote git repo"
 task :deploy, [:message] do |t, args|
   # if !args.key?(:message)
   if args[:message].nil? or args[:message].empty?
-    message = ENV['CI'] ? `git log --oneline -1` : stdin("Please add a commit message: ")
+    message = ENV['CI'] == 'true' ? `git log --oneline -1` : stdin("Please add a commit message: ")
   else
     message = args[:message]
   end
 
-  if ENV['CI'] == true
+  if ENV['CI'] == 'true'
     system "git config --global user.email \"#{CONFIG['author']}\""
     system "git config --global user.name \"#{CONFIG['email']}\""
   end
