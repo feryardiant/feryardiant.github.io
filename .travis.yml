@@ -15,7 +15,8 @@ matrix:
 before_install:
 - gem update --system
 
-before_script:
+install:
+- bundle install
 - rake install
 
 script:
