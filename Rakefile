@@ -159,6 +159,11 @@ task :deploy, [:message] do |t, args|
     message = args[:message]
   end
 
+  if ENV['CI']?
+    system "git config --global user.email \"#{CONFIG['author']}\""
+    system "git config --global user.name \"#{CONFIG['email']}\""
+  end
+
   if GIT_BRANCH.nil? or GIT_BRANCH.empty?
     quit "Please setup your git_branch in _config.yml."
   else
