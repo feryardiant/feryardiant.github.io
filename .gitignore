@@ -2,4 +2,5 @@ dist
 source/asset/emoji
 .sass-cache
 .bundle
+vendor
 *.old

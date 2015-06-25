@@ -44,7 +44,7 @@ encoding:      UTF-8
 timezone:      Asia/Jakarta
 
 # Build settings
-git_remote:    https://github.com/feryardiant/feryardiant.github.io.git
+git_remote:    git://github.com/feryardiant/feryardiant.github.io.git
 git_branch:    master
 source:        source
 destination:   dist
