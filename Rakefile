@@ -171,7 +171,7 @@ task :deploy, [:message] do |t, args|
     if ENV['CI'] == 'true'
       system "git config --global user.email \"#{CONFIG['author']}\""
       system "git config --global user.name \"#{CONFIG['email']}\""
-      system "bundle exec s3_website"
+      system "bundle exec s3_website push"
     end
 
     Dir.chdir DEST_DIR do
