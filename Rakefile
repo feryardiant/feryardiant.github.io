@@ -159,7 +159,7 @@ task :deploy, [:message] do |t, args|
     message = args[:message]
   end
 
-  if ENV['CI']?
+  if ENV['CI'] == true
     system "git config --global user.email \"#{CONFIG['author']}\""
     system "git config --global user.name \"#{CONFIG['email']}\""
   end
