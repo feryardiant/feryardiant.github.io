@@ -152,18 +152,19 @@ end
 # @usage: rake deploy["Commit message"]
 desc "Deploy the site to a remote git repo"
 task :deploy, [:message] do |t, args|
-  if args[:message]?
-    message = args[:message]
-  else
+  # if !args.key?(:message)
+  if args[:message].nil? or args[:message].empty?
     message = ENV['CI'] ? `git log --oneline -1` : stdin("Please add a commit message: ")
+  else
+    message = args[:message]
   end
 
   if GIT_BRANCH.nil? or GIT_BRANCH.empty?
     quit "Please setup your git_branch in _config.yml."
   else
     Rake::Task[:build].invoke
-    FileUtils.cp '.gitignore', DEST
-    Dir.chdir(DEST) do
+    FileUtils.cp '.gitignore', DEST_DIR
+    Dir.chdir DEST_DIR do
       system "git add -A"
       system "git commit -m \"#{message}\""
       system "git push origin #{GIT_BRANCH}"
