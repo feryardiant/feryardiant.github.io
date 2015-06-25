@@ -19,9 +19,6 @@ DEST_DIR   = CONFIG['destination'] ? CONFIG['destination'] : '_site'
 SOURCE_DIR = CONFIG['source']      ? CONFIG['source']      : '.'
 EDITOR     = CONFIG['editor']      ? CONFIG['editor']      : ENV['EDITOR']
 
-GIT_REMOTE.gsub!(':', '/')
-GIT_REMOTE.gsub!('@', '://')
-
 begin
   Bundler.setup(:default, :jekyll_plugins, :development)
 rescue Bundler::BundlerError => e
