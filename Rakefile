@@ -169,7 +169,9 @@ task :deploy, [:message] do |t, args|
   else
     Rake::Task[:build].invoke
     FileUtils.cp '.gitignore', DEST_DIR
+    system "ls al"
     Dir.chdir DEST_DIR do
+      system "ls al"
       system "git add -A ."
       system "git commit -m \"#{message}\""
       system "git push origin #{GIT_BRANCH}"
