@@ -146,6 +146,12 @@ task :new, [:type, :title, :ext] do |t, args|
   system "#{EDITOR} #{filename}" if ask("Do you want to open it?", ['y', 'n']) != 'n'
 end
 
+# @usage: rake build
+desc "Build the site"
+task :build do
+  system "bundle exec jekyll build"
+end
+
 # @usage: rake deploy["Commit message"]
 desc "Deploy the site to a remote git repo"
 task :deploy, [:message] do |t, args|
@@ -166,11 +172,10 @@ task :deploy, [:message] do |t, args|
   else
     Rake::Task[:build].invoke
     FileUtils.cp '.gitignore', DEST_DIR
-    system "git branch"
-    system "ls -al"
+
+    system "bundle exec s3_website"
+
     Dir.chdir DEST_DIR do
-      system "git branch"
-      system "ls -al"
       system "git add -A ."
       system "git commit -m \"#{message}\""
       system "git push origin #{GIT_BRANCH}"
@@ -187,13 +192,7 @@ end
 # @usage: rake serve
 desc "Build and watch the site"
 task :serve do
-  system "jekyll serve -w"
-end
-
-# @usage: rake build
-desc "Build the site"
-task :build do
-  system "jekyll build"
+  system "bundle exec jekyll serve -w"
 end
 
 # Set "rake serve" as default task

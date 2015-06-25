@@ -8,6 +8,10 @@ group :development do
   gem 'gemoji'
 end
 
+group :deployment do
+  gem 's3_website'
+end
+
 group :jekyll_plugins do
   gem 'jekyll-picture-tag', '~> 0.2.3'
   gem 'jekyll-archives'

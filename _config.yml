@@ -86,7 +86,8 @@ emoji:
 assets:
   debug: false
   dirname: asset
-  baseurl: /asset/
+  baseurl: //d3q0106j08jqcn.cloudfront.net/
+  # baseurl: /asset/
   js_compressor: uglifier
   css_compressor: sass
   sources:
@@ -95,7 +96,7 @@ assets:
     - asset/_images
   gzip: [ text/css, application/javascript ]
   cachebust: hard
-  cache: false
+  # cache: false
 
 jekyll-archives:
   enabled: ['year', 'month', 'tags']
