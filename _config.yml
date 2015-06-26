@@ -39,7 +39,7 @@ share_hackernews: false
 
 # Server
 baseurl:       "" # the subpath of your site, e.g. /posts/
-url:           https://feryardiant.github.io # the base hostname & protocol for your site
+url:           //feryardiant.github.io # the base hostname & protocol for your site
 encoding:      UTF-8
 timezone:      Asia/Jakarta
 
