@@ -78,9 +78,15 @@ task :install do
     changed = true
   end
 
-  emoji_dir = DEST_DIR + CONFIG['emoji']['src'] + '/emoji'
+  # //assets.github.com/images/icons/
 
-  if !Dir.exist?(emoji_dir)
+  if CONFIG.key?('emoji') and CONFIG['emoji'].key?('src')
+    emoji_dir = CONFIG['emoji']['src'] + '/emoji'
+  else
+    emoji_dir = '/asset/emoji'
+  end
+
+  if !Dir.exist?(DEST_DIR + emoji_dir)
     FileUtils.cp_r Emoji.images_path + "/emoji/", emoji_dir
     changed = true
   end

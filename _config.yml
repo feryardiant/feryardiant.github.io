@@ -79,8 +79,8 @@ gems:
   - autoprefixer-rails
   - jemoji
 
-emoji:
-  src: /asset
+# emoji:
+#   src: /asset
 
 # http://ixti.net/jekyll-assets/
 assets:
