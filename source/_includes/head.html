@@ -7,7 +7,7 @@
 <meta name="author" content="{{ site.author }}">
 {% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
 
-<link rel="canonical" href="{{ page.url | prepend: site.url + site.baseurl | replace:'index.html','' }}">
+<link rel="canonical" href="http:{{ page.url | prepend: site.url + site.baseurl | replace:'index.html','' }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.url + site.baseurl }}" />
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
