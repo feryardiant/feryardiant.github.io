@@ -9,11 +9,14 @@ layout: default
 <section class="page">
   <header class="page-header">
     {% include page-thumbnail.html %}
-    <span class="page-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %} • {{ minutes }} minute read</span>
-    <h1 class="page-title">{{ page.title }}</h1>
+    <span class="page-meta">
+      <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      {% if page.tags %} • <span class="p-category">{{ page.tags | join: ', ' }}</span>{% endif %} • {{ minutes }} minute read
+    </span>
+    <h1 class="page-title entry-title">{{ page.title }}</h1>
   </header>
 
-  <article class="page-content">{{ content }}</article>
+  <article class="page-content entry-content">{{ content }}</article>
 
   <footer class="page-footer">
     {% if site.show_sharing_icons %}{% include share-buttons.html %}{% endif %}

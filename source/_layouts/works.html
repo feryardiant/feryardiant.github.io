@@ -1,10 +1,13 @@
 ---
 layout: default
 ---
-<section class="page">
+<section class="page h-entry">
   <header class="page-header">
-    <span class="page-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %}</span>
-    <h1 class="page-title">{{ page.title }}</h1>
+    <span class="page-meta">
+      <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      {% if page.tags %} • <span class="p-category">{{ page.tags | join: ', ' }}</span>{% endif %}
+    </span>
+    <h1 class="page-title entry-title">{{ page.title }}</h1>
     {% include page-thumbnail.html %}
   </header>
 

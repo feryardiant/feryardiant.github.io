@@ -1,10 +1,10 @@
 {% for page in site.works limit:6 %}
-  <article class="6u 12u$(xsmall) page-item">
+  <article class="6u 12u$(xsmall) page-item h-item">
     {% if page.thumb %}
     <a href="{{ page.url | prepend: site.baseurl }}" class="image fit thumb">{{ page.thumb | image }}</a>
     {% endif %}
     <span class="page-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.tags %} • {{ post.tags | join: ', ' }}{% endif %}</span>
-    <h3 class="page-title"><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h3>
-    <div class="page-content">{{ page.content | strip_html | truncatewords: 50 }}</div>
+    <h3 class="page-title entry-title"><a class="page-link u-url" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h3>
+    <div class="page-content p-summary">{{ page.content | strip_html | truncatewords: 50 }}</div>
   </article>
 {% endfor %}

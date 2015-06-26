@@ -1,9 +1,11 @@
 {% for page in site.posts limit:5 %}
-  <article class="12u$ page-item">
+  <article class="12u$ page-item h-item">
     {% include page-thumbnail.html %}
-    <!-- <span class="page-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.meta %} • {{ page.meta }}{% endif %}{% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %} • {{ minutes }} minute read</span> -->
-    <span class="page-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.tags %} • {{ page.tags | join: ', ' }}{% endif %}</span>
-    <h3 class="page-title"><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h3>
-    <div class="page-content">{% if page.summary %}{{ page.summary }}{% else %}{{ page.excerpt }}{% endif %}</div>
+    <span class="page-meta">
+      <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      {% if page.tags %} • <span class="p-category">{{ page.tags | join: ', ' }}</span>{% endif %}
+    </span>
+    <h3 class="page-title entry-title"><a class="page-link u-url" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h3>
+    <div class="page-content p-summary">{% if page.summary %}{{ page.summary }}{% else %}{{ page.excerpt }}{% endif %}</div>
   </article>
 {% endfor %}

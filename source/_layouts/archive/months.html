@@ -6,7 +6,7 @@ layout: default
     <h2 class="page-title">Archive of posts from {{ page.date | date: "%B %Y" }}</h2>
   </header>
 
-  <article class="page-content">
+  <article class="page-content entry-content">
     <div class="row">
       {% for post in page.posts %}{% include loop-archives.html %}{% endfor %}
     </div>
