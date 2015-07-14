@@ -54,9 +54,11 @@ end
 # Transform the filename and date to a slug
 # https://github.com/gummesson/jekyll-rake-boilerplate/blob/master/Rakefile#L39
 def getSlug(title)
-  characters = /("|'|!|\?|:|\s\z)/
-  whitespace = /\s/
-  "#{title.gsub(characters,"").gsub(whitespace,"-").downcase}"
+  slug = title
+    .gsub(/("|'|!|\?|\(|\)|:|\s\z)/, '')
+    .gsub(/\s/, '-')
+
+  "#{slug.downcase}"
 end
 
 # remove generated site
