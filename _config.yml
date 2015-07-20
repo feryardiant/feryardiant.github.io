@@ -17,42 +17,42 @@ show_portfolio: false
 address:        'Somewhere in.<br>Pekalongan, Indonesia'
 gravatar:       f1d26a5fe1c5ecc75c660c89ceb6d68e
 email:          ferywardiyanto@gmail.com
+googleplus:     ferywardiyanto
 twitter:        feryardiant
 github:         feryardiant
-googleplus:     ferywardiyanto
 linkedin:       feryardiant
 dribbble:       feryardiant
 
 # Post sharing icons
-show_sharing_icons: true
-share_text: 'Share this post!'
+show_sharing_icons:  true
+share_text:          'Share this post!'
 # Change to 'true' to enable individual icons
-share_facebook: true
-share_twitter: true
-share_googleplus: true
-share_linkedin: false
-share_digg: false
-share_tumblr: false
-share_reddit: false
-share_stumbleupon: false
-share_hackernews: false
+share_facebook:      true
+share_twitter:       true
+share_googleplus:    true
+share_linkedin:      false
+share_digg:          false
+share_tumblr:        false
+share_reddit:        false
+share_stumbleupon:   false
+share_hackernews:    false
 
 # Server
-baseurl:       "" # the subpath of your site, e.g. /posts/
-url:           //feryardiant.github.io # the base hostname & protocol for your site
-encoding:      UTF-8
-timezone:      Asia/Jakarta
+baseurl:         "" # the subpath of your site, e.g. /posts/
+url:             //feryardiant.me # the base hostname & protocol for your site
+encoding:        UTF-8
+timezone:        Asia/Jakarta
 
 # Build settings
-git_remote:    https://github.com/feryardiant/feryardiant.github.io
-git_branch:    master
-source:        source
-destination:   dist
-markdown:      kramdown
-highlighter:   pygments
-permalink:     /posts/:year/:month/:title.html
-paginate:      1
-paginate_path: /posts/page/:num
+git_remote:      https://github.com/feryardiant/feryardiant.github.io
+git_branch:      master
+source:          source
+destination:     dist
+markdown:        kramdown
+highlighter:     pygments
+permalink:       /posts/:year/:month/:title.html
+paginate:        1
+paginate_path:   /posts/page/:num
 
 collections:
   works:
