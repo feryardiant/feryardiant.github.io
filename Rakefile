@@ -19,6 +19,12 @@ DEST_DIR   = CONFIG['destination'] ? CONFIG['destination'] : '_site'
 SOURCE_DIR = CONFIG['source']      ? CONFIG['source']      : '.'
 EDITOR     = CONFIG['editor']      ? CONFIG['editor']      : ENV['EDITOR']
 
+if ENV.key?('CI') and (ENV['CI'] == 'true' or ENV['CI'] == 1)
+  IS_CI = true
+else
+  IS_CI = false
+end
+
 begin
   Bundler.setup(:default, :jekyll_plugins, :development)
 rescue Bundler::BundlerError => e
@@ -43,6 +49,7 @@ def ask(message, valid_options)
   else
     answer  = stdin(message)
   end
+
   answer
 end
 
@@ -81,20 +88,18 @@ task :install do
   end
 
   # //assets.github.com/images/icons/
-
   if CONFIG.key?('emoji') and CONFIG['emoji'].key?('src')
     emoji_dir = CONFIG['emoji']['src'] + '/emoji'
-  else
-    emoji_dir = '/asset/emoji'
-  end
 
-  if !Dir.exist?(DEST_DIR + emoji_dir)
-    FileUtils.cp_r Emoji.images_path + '/emoji/', DEST_DIR + emoji_dir
-    changed = true
+    if !Dir.exist?(SOURCE_DIR + emoji_dir)
+      FileUtils.cp_r Emoji.images_path + '/emoji/', SOURCE_DIR + emoji_dir
+      changed = true
+    end
+
+    puts "All emoji has been generated in " + emoji_dir
   end
 
   if changed == true
-    puts "All emoji has been generated in " + emoji_dir
     puts "You're ready to go sir"
   else
     puts "Everything's ready sir"
@@ -170,7 +175,7 @@ end
 desc "Deploy the site to a remote git repo"
 task :deploy, [:message] do |t, args|
   if args[:message].nil? or args[:message].empty?
-    message = ENV['CI'] == 'true' ? `git log --oneline -1` : stdin("Please add a commit message: ")
+    message = IS_CI ? `git log --oneline -1` : stdin("Please add a commit message: ")
   else
     message = args[:message]
   end
@@ -180,9 +185,9 @@ task :deploy, [:message] do |t, args|
   else
     Rake::Task[:build].invoke
 
-    if ENV['CI'] == 'true'
-      system "git config --global user.email \"#{CONFIG['author']}\""
-      system "git config --global user.name \"#{CONFIG['email']}\""
+    if IS_CI
+      system "git config --global user.email \"#{CONFIG['email']}\""
+      system "git config --global user.name \"#{CONFIG['author']}\""
     end
 
     system "bundle exec s3_website push"
