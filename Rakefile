@@ -68,12 +68,6 @@ def getSlug(title)
   "#{slug.downcase}"
 end
 
-# remove generated site
-def cleanup
-  puts 'Cleaned up :)'
-  # FileUtils.rm_r 'test', :force => true
-end
-
 # == Tasks =====================================================================
 
 # @usage: rake install
@@ -196,7 +190,7 @@ task :deploy, [:message] do |t, args|
     Dir.chdir DEST_DIR do
       system "git add -A ."
       system "git commit -m \"#{message}\""
-      system "git push origin #{GIT_BRANCH}"
+      system "git push #{GIT_REMOTE} #{GIT_BRANCH}"
     end
   end
 end
@@ -204,7 +198,8 @@ end
 # @usage: rake clean
 desc 'Clean up generated site'
 task :clean do
-  cleanup
+  puts 'Cleaned up :)'
+  # FileUtils.rm_r 'test', :force => true
 end
 
 # @usage: rake serve
