@@ -193,7 +193,7 @@ task :deploy, [:message] do |t, args|
     Dir.chdir DEST_DIR do
       system "git add -A ."
       system "git commit -m \"#{message}\""
-      system "git push origin #{GIT_BRANCH}"
+      system "git push -q origin #{GIT_BRANCH}"
     end
   end
 end
