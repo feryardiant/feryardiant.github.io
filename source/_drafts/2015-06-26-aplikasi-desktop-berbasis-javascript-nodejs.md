@@ -49,3 +49,4 @@ Dari beberapa yang sudah saya coba dapat saya tarik kesimpulan bahwa, walaupun b
 ### Web to Desktop?
 
 Sampailah pada 2 hari yang lalu ketika ada orang yang posting disalah satu fb grub soal [Whatsapp Desktop](http://whatsapp-desktop.com/). Awal nya gak terlalu tertarik sih tapi entah kenapa kepikiran _"Desktop? palingan [NodeJS](/tags/nodejs.html) juga, tapi kira-kira apa yang dipake??"_. Dan ternyata mereka pakai [NW.js](https://github.com/Aluxian/WhatsApp-Desktop/blob/master/package.json#L17) dan bukan full desktop app karna hanya pake [`iframe`](https://github.com/Aluxian/WhatsApp-Desktop/blob/master/src/app.html#L9) yang memuat full official [Whatsapp Web](https://web.whatsapp.com). __Boom!__
+
