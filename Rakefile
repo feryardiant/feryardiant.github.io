@@ -77,7 +77,10 @@ task :install do
   require 'gemoji'
 
   if !Dir.exist?(DEST_DIR)
-    system "git clone #{GIT_REMOTE} -b #{GIT_BRANCH} #{DEST_DIR}"
+    # deploy_url = repo.gsub %r{https://}, "https://#{ENV['GH_TOKEN']}@"
+    # https://evansosenko.com/posts/automatic-publishing-github-pages-travis-ci/
+    deploy_url = GIT_REMOTE.gsub %r{https://}, "https://#{ENV['GH_TOKEN']}@"
+    system "git clone #{deploy_url} -b #{GIT_BRANCH} #{DEST_DIR}"
     changed = true
   end
 

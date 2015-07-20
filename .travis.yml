@@ -1,27 +1,19 @@
 language: ruby
-
-# cache: bundler
+rvm:
+- 2.2.0
 cache:
   bundler: true
   directories:
-    - .bundle
-
-rvm:
-- 2.2.0
-
-env:
-  global:
-    secure: eBWykPCIs69EvlkJP/Wnvs/A8l3y4+66t0OdkInSNySu1iExbfsCmyzBLr3IoWO2IJI5owTASJWoCXDuO6i7bf9FmAt86OiHH00AS4XlN6xLgJQRl0Ogitte/RkYruEEgkHvSAy7M0GcEdH9xZGmlfz1elk8YOV2GvL2onNI4v1KskhtBt+L9uBlkL72c1ehDbkNW6kL8BsPIVKeZHoYQHB6pBXTzKE34oZGMV4SrIJMcQjL9B+LxHp7paj28iD7dug7S2j2E6crCiPwm3Owsh+pMwizRDigQgjNOzZoa+M3H/1nlrsc9zLbs3vOPHOYpagoJIVvVOMk1M443kMqORnoaWZ8h/e/IiTbr+I/DCTVhQDsw3QuKQ/RJDsVZMMo0mbRO4qtKJehuxuYGdQHzv4gDlksNxCKYWiu0q1m2I3qsAkPXmGvwd4Pnt9lJtFHwUrZtDnCAN4fftZU2WN0eUL4jvRb6+O6Ik+IQS52DieyZOyw+yCAH8oofzLOcOludqMJuGq4/mdluL4jOaZCRbfXsu43bKq0owSsPDGV20uqH5Dj5vVjCkRgd3dK7P6f83VZwtfZEwBlD5IPYTTZIw7kjixNTPyqNtzYL7hlLzd0S/cYzNLqowTTlDqrTs3musGcNmjNbXktD3AcYoOHZNH7QvR7R/m4ZYjKhkvODck=
-
+  - ".bundle"
 matrix:
   fast_finish: true
-
 before_install:
 - gem update --system
-
 install:
 - bundle install
 - rake install
-
 script:
 - rake deploy
+env:
+  global:
+    secure: hiyVkqmjyNmr0DGXlYw1SI/UgmkRYcdtttHze8IRoZDhghyzsAdErySZV/rmSlc2/qSVTBl6ZjKWHTpKb57ziwAwx7GsnUgexsCuXnuiTTpURA4XlxVXgWUXZo48jilyeve3wF6hmT/jYxkKmjhznzP9OGOGQeQaSWChKyayJ2Asd51kNlnrT1DtF8qQryc6JZKHJccZ/WtmvBajwptdipz9h2UBeWNRmj4L8W7v1ohHi/uNQMTKFJ1Ujtk4ze+3yltGg3cyG32qbe21lR6foUsxi/qrgLmHIw76WLF19VoOmF52Q2joeBTQtA1QHMSfj9dgTpYQmcut/QXuJNdcQsqeyMZ5o57yjHK3/hkn8Q/lMj1szvQ1H60wIhgU4TOiwm99iZO3uZJkSOfxEsGEzbf917Mu+WPRhboxAVaEi1rS/3+qRbTSCLotGw5bQApy56GpqK+MJ1IQNwC5FfzAJTpDxKGIXgF5ida5Mn5OmNGjV65yEvmDkJ9iUEIDp87UFPQgcmRymTVgpCT1YWPywNAUINI1itNX/OV66p47u+PIx5h5l498/4fU2OqtcLxoKTiIKQT1+FHSWaAMFgmevRFpDDyAbbtJgh9odZL0jwK/b7ViCbV33S/tsMAI1EETXJDcStMUy0DWJ6uJm7tfIG1Pa/S57CqrC7iQ9/JeYU8=
