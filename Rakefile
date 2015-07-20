@@ -89,7 +89,7 @@ task :install do
   end
 
   if !Dir.exist?(DEST_DIR + emoji_dir)
-    FileUtils.cp_r Emoji.images_path + "/emoji/", emoji_dir
+    FileUtils.cp_r Emoji.images_path + '/emoji/', DEST_DIR + emoji_dir
     changed = true
   end
 
