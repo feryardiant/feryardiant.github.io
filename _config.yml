@@ -1,7 +1,17 @@
 # Site settings
-title:         Fery Wardiyanto's Blog
-description:   "Opensource enthusiast, Freelance web developer, Linux user and Coffee addict."
-author:        Fery Wardiyanto
+title:       Fery Wardiyanto's Blog
+description: "Opensource enthusiast, Freelance web developer, Linux user and Coffee addict."
+author:      Fery Wardiyanto
+email:       hallo@feryardiant.me
+# email:       ferywardiyanto@gmail.com
+address:     'Somewhere in.<br>Pekalongan, Indonesia'
+gravatar:    f1d26a5fe1c5ecc75c660c89ceb6d68e
+
+# Server
+baseurl:     '' # the subpath of your site, e.g. /posts/
+url:         //feryardiant.me # the base hostname & protocol for your site
+encoding:    UTF-8
+timezone:    Asia/Jakarta
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: UA-51394056-1
@@ -9,19 +19,16 @@ google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
-# Disqus post comments
-disqus_shortname: fa-octo
-
 # Personal settings
 show_portfolio: false
-address:        'Somewhere in.<br>Pekalongan, Indonesia'
-gravatar:       f1d26a5fe1c5ecc75c660c89ceb6d68e
-email:          ferywardiyanto@gmail.com
 googleplus:     ferywardiyanto
 twitter:        feryardiant
 github:         feryardiant
 linkedin:       feryardiant
 dribbble:       feryardiant
+
+# Disqus post comments
+disqus_shortname: fa-octo
 
 # Post sharing icons
 show_sharing_icons:  true
@@ -36,12 +43,6 @@ share_tumblr:        false
 share_reddit:        false
 share_stumbleupon:   false
 share_hackernews:    false
-
-# Server
-baseurl:         "" # the subpath of your site, e.g. /posts/
-url:             //feryardiant.me # the base hostname & protocol for your site
-encoding:        UTF-8
-timezone:        Asia/Jakarta
 
 # Build settings
 git_remote:      https://github.com/feryardiant/feryardiant.github.io
