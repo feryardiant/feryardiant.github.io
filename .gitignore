@@ -4,6 +4,8 @@ source/.jekyll-assets-cache
 .sass-cache
 .bundle
 .env
+.directory
 vendor
+*.sublime-*
 *.old
 *.zip
