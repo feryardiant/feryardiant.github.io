@@ -1,15 +1,15 @@
 # Site settings
 title:       Fery Wardiyanto's Blog
-description: "Opensource enthusiast, Freelance web developer, Linux user and Coffee addict."
+description: "Ordinary full-stack web developer who love opensource"
 author:      Fery Wardiyanto
-email:       hallo@feryardiant.me
+email:       hallo@feryardiant.id
 # email:       ferywardiyanto@gmail.com
 address:     'Somewhere in.<br>Pekalongan, Indonesia'
 gravatar:    f1d26a5fe1c5ecc75c660c89ceb6d68e
 
 # Server
 baseurl:     '' # the subpath of your site, e.g. /posts/
-url:         //feryardiant.me # the base hostname & protocol for your site
+url:         //feryardiant.id # the base hostname & protocol for your site
 encoding:    UTF-8
 timezone:    Asia/Jakarta
 
@@ -87,7 +87,7 @@ gems:
 assets:
   debug: false
   dirname: asset
-  baseurl: //d3q0106j08jqcn.cloudfront.net/
+  baseurl: //d1nj4vvkp1r75l.cloudfront.net/
   # baseurl: /asset/
   js_compressor: uglifier
   css_compressor: sass
