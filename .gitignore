@@ -1,11 +1,32 @@
-dist
-source/asset/emoji
-source/.jekyll-assets-cache
-.sass-cache
-.bundle
-.env
+# Generic
+# --------------------------
+Thumbs.db
+Desktop.ini
+Icon?
 .directory
-vendor
-*.sublime-*
+*.cache
+*.log
 *.old
 *.zip
+._
+*~
+
+# IDE Project Configurations
+# --------------------------
+nbproject
+.idea
+.settings
+.vscode
+.project
+*.sublime-*
+
+# Developments
+# --------------------------
+node_modules
+dist
+.env.*
+.env
+
+# But Keep these
+# --------------------------
+!.gitkeep

@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /asset/
-Disallow: /404.html
-Disallow: /500.html
-Disallow: /readme.md
