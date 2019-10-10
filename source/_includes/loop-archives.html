@@ -1,7 +1,0 @@
-<article class="12u$ page-item h-item">
-  <span class="page-meta">
-    <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%b %-d, %Y" }}</time>
-    {% if page.tags %} • <span class="p-category">{{ page.tags | join: ', ' }}</span>{% endif %}
-  </span>
-  <h3 class="page-title entry-title"><a class="page-link block u-url" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-</article>
