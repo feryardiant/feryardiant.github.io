@@ -1,5 +1,0 @@
-site: dist/asset
-s3_id: <%= ENV['AWS_ID'] %>
-s3_secret: <%= ENV['AWS_SECRET'] %>
-s3_bucket: <%= ENV['S3_BUCKETNAME'] %>
-cloudfront_distribution_id: <%= ENV['CLOUDFRONT_DISTID'] %>
