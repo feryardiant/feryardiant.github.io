@@ -16,7 +16,13 @@ export default [
   {
     path: '/contact',
     name: 'contact',
-    component: () => import(/* webpackChunkName: "contact" */ '@/views/about.vue')
+    component: () => import(/* webpackChunkName: "contact" */ '@/views/contact.vue')
+  },
+
+  {
+    path: '/portfolio',
+    name: 'portfolio',
+    component: () => import(/* webpackChunkName: "portfolio" */ '@/views/portfolio.vue')
   },
 
   {
