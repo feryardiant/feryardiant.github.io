@@ -3,7 +3,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        appendData: '@import "@/global.scss";'
+        data: '@import "@/global.scss";'
       }
     }
   },
