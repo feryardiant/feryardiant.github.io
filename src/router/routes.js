@@ -10,25 +10,25 @@ export default [
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/about.vue')
+    component: () => import(/* webpackChunkName: "pages" */ '@/views/about.vue')
   },
 
   {
     path: '/contact',
     name: 'contact',
-    component: () => import(/* webpackChunkName: "contact" */ '@/views/contact.vue')
+    component: () => import(/* webpackChunkName: "pages" */ '@/views/contact.vue')
   },
 
   {
     path: '/portfolio',
     name: 'portfolio',
-    component: () => import(/* webpackChunkName: "portfolio" */ '@/views/portfolio.vue')
+    component: () => import(/* webpackChunkName: "pages" */ '@/views/portfolio.vue')
   },
 
   {
     path: '*',
     name: 'not-found',
-    component: () => import(/* webpackChunkName: "error-404" */ '@/views/not-found.vue'),
+    component: () => import(/* webpackChunkName: "errors" */ '@/views/not-found.vue'),
     meta: {
       title: 'Page not found',
       menu: false

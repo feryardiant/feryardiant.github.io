@@ -1,7 +1,16 @@
 {
   "functions": {
+    "source": "lib/functions",
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run lint"
     ]
+  },
+
+  "firestore": {
+    "rules": "lib/firestore.rules"
+  },
+
+  "storage": {
+    "rules": "lib/storage.rules"
   }
 }
