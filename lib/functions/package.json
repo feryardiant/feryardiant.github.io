@@ -34,6 +34,7 @@
   "eslintConfig": {
     "extends": "standard",
     "rules": {
+      "no-unused-vars": 0,
       "one-var": 0
     }
   }
