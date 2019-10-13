@@ -1,4 +1,5 @@
 const { default: ImageminPlugin } = require('imagemin-webpack-plugin')
+const manifest = require('./public/manifest.json')
 
 module.exports = {
   baseUrl: process.env.BASE_URL,
@@ -10,9 +11,12 @@ module.exports = {
     }
   },
   pwa: {
+    themeColor: manifest.theme_color,
+    themeColor: manifest.theme_color,
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: 'src/worker.js',
+      swDest: 'worker.js',
       exclude: ['CNAME']
     },
     iconPaths: {
