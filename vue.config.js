@@ -25,6 +25,15 @@ module.exports = {
     }
   },
   chainWebpack: config => {
+    config.plugin('html').tap(args => {
+      args[0].title = 'Fery Wardiyanto'
+      args[0].meta = {
+        description: 'Yet Another Personal Website'
+      }
+
+      return args
+    })
+
     config.plugin('imagemin').use(ImageminPlugin, [
       {
         disable: process.env.NODE_ENV !== 'production',
