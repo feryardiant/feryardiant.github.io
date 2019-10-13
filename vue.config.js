@@ -10,11 +10,17 @@ module.exports = {
     }
   },
   pwa: {
-    themeColor: '#fff',
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: 'src/worker.js',
       exclude: ['CNAME']
+    },
+    iconPaths: {
+      favicon16: 'img/favicon-16x16.png',
+      favicon32: 'img/favicon-32x32.png',
+      appleTouchIcon: 'img/mobile-icon-152x152.png',
+      maskIcon: 'img/safari-pinned-tab.svg',
+      msTileImage: 'img/msmobile-icon-144x144.png'
     }
   },
   devServer: {
