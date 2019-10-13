@@ -13,8 +13,8 @@ Disallow: /
 
 # global
 User-agent: *
-Disallow: CNAME
-Disallow: 404.html
+Disallow: /CNAME
+Disallow: /404.html
 Disallow: /img/
 Disallow: /css/
 Disallow: /js/

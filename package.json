@@ -30,6 +30,8 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "feather-icons": "^4.24.1",
+    "imagemin-lint-staged": "^0.4.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "lint-staged": "^9.4.2",
     "qs": "^6.9.0",
     "sass": "^1.18.0",
