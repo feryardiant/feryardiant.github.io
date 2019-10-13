@@ -2,7 +2,6 @@
 # --------------------------
 Thumbs.db
 Desktop.ini
-Icon?
 .directory
 *.cache
 *.log
@@ -13,12 +12,12 @@ Icon?
 
 # IDE Project Configurations
 # --------------------------
-nbproject
-.idea
-.settings
-.vscode
-.project
-*.sublime-*
+/nbproject
+/.idea
+/.settings
+/.vscode
+/.project
+/*.sublime-*
 
 # Developments
 # --------------------------

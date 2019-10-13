@@ -7,6 +7,14 @@ module.exports = {
       }
     }
   },
+  pwa: {
+    themeColor: '#fff',
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      swSrc: 'src/worker.js',
+      exclude: ['CNAME']
+    }
+  },
   chainWebpack: config => {
     // .
   }

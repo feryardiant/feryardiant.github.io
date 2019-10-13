@@ -4,7 +4,7 @@ import { sync } from 'vuex-router-sync'
 import App from './app.vue'
 import router from './router'
 import store from './store'
-import './worker'
+// import './worker'
 
 sync(store, router)
 

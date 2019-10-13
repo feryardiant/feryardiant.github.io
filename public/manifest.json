@@ -1,18 +1,6 @@
 {
-  "name": "blog",
-  "short_name": "blog",
-  "icons": [
-    {
-      "src": "./img/icons/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "./img/icons/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
+  "name": "Personal Website",
+  "short_name": "feryardiant-id",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
