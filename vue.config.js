@@ -13,10 +13,9 @@ module.exports = {
   pwa: {
     themeColor: manifest.theme_color,
     themeColor: manifest.theme_color,
-    workboxPluginMode: 'InjectManifest',
+    // workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-      swSrc: 'src/worker.js',
-      swDest: 'worker.js',
+      // swSrc: 'src/service-worker.js',
       exclude: ['CNAME']
     },
     iconPaths: {
