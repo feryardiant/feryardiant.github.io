@@ -8,13 +8,13 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - run: npm install
-    - run: npm run build
+    - env:
+        BASE_URL: 'https://feryardiant.id/'
+      run: npm run build
     - name: Deploy
       if: github.event_name == 'push' && github.ref == 'refs/heads/source'
       uses: JamesIves/github-pages-deploy-action@2.0.0
       env:
-        VUE_APP_NAME: 'Personal Blog'
-        VUE_APP_COLOR: '#409EFF'
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: master
         FOLDER: 'dist'
