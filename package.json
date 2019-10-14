@@ -27,6 +27,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "feather-icons": "^4.24.1",
+    "glob": "^7.1.4",
     "imagemin-lint-staged": "^0.4.0",
     "imagemin-webpack-plugin": "^2.4.2",
     "lint-staged": "^9.4.2",
@@ -46,6 +47,11 @@
   "gitHooks": {
     "pre-commit": "lint-staged",
     "commit-msg": "commitlint -e -V"
+  },
+  "vuePlugins": {
+    "service": [
+      "lib/build.plugin.js"
+    ]
   },
   "babel": {
     "presets": [
