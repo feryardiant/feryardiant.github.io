@@ -1,7 +1,11 @@
 {
-  "scope": "/",
-  "background_color": "#fff",
+  "name": "Fery Wardiyanto's Website",
   "short_name": "feryardiant-id",
+  "background_color": "#fff",
+  "theme_color": "#4a4s4a",
+  "display": "standalone",
+  "start_url": "./index.html",
+  "scope": "/",
   "icons": [
    {
     "src": "\/img\/icons\/mobile-icon-48x48.png",
