@@ -13,7 +13,6 @@ const qsConfig = {
 
 export default new Router({
   mode: 'history',
-  base: process.env.BASE_URL,
   linkActiveClass: '',
   linkExactActiveClass: 'is-active',
   parseQuery: query => Qs.parse(query, qsConfig),
