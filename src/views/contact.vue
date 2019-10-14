@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <main class="contact">
+    <main class="contact inner-container">
       <h1 class="title">Let's get in touch</h1>
 
-      <div class="columns">
-        <form class="column is-three-quarters-desktop">
+      <div class="columns content">
+        <form class="column is-three-quarters-tablet is-full-mobile">
           <div class="columns">
             <div class="column">
               <div class="field">
@@ -40,33 +40,29 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-primary">Submit</button>
+              <button type="submit" class="button is-primary">Submit</button>
             </div>
 
             <div class="control">
-              <reset class="button is-text">Cancel</reset>
+              <button type="reset" class="button is-text">Cancel</button>
             </div>
           </div>
         </form>
 
-        <div class="column else-where">
-          <h4>Me elsewhere</h4>
-          <a href="#" rel="nofolow">LinkedIn</a>
-          <a href="#" rel="nofolow">GitHub</a>
-          <a href="#" rel="nofolow">StackOverflow</a>
-          <a href="#" rel="nofolow">Twitter</a>
-          <a href="#" rel="nofolow">Instagram</a>
-          <a href="#" rel="nofolow">Facebook</a>
-        </div>
+        <social-links class="column" display="block"/>
       </div>
     </main>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.else-where {
-  a {
-    display: block;
+<script>
+import SocialLinks from '@/components/social-links'
+
+export default {
+  name: 'contact-page',
+
+  components: {
+    SocialLinks
   }
 }
-</style>
+</script>

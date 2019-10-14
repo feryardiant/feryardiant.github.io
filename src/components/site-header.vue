@@ -1,7 +1,7 @@
 <template>
   <header id="masthead">
     <div class="container">
-      <nav class="nav">
+      <nav class="nav inner-container">
         <router-link :to="{ name: 'home' }">
           <span>Home</span>
         </router-link>

@@ -1,8 +1,8 @@
 <template>
   <footer id="colopon">
     <div class="container">
-      <div class="wrapper">
-        <p class="credits">&copy; 2019 Fery Wardiyanto</p>
+      <div class="inner-container">
+        <p class="credits">&copy; {{ year }} Fery Wardiyanto</p>
         <ul class="pages">
           <li>
             <a href="#">Privacy</a>
@@ -15,7 +15,13 @@
 
 <script>
 export default {
-  name: 'site-footer'
+  name: 'site-footer',
+
+  data () {
+    return {
+      year: new Date().getFullYear()
+    }
+  }
 }
 </script>
 
@@ -24,7 +30,7 @@ export default {
   border-top: 2px solid $border;
 }
 
-.wrapper {
+.inner-container {
   display: flex;
   max-height: $footer-height;
 }

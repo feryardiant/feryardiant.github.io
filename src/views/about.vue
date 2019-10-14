@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <main class="about">
+    <main class="about inner-container">
       <h1 class="title">About Me</h1>
 
       <div class="content">
@@ -15,3 +15,9 @@
     </main>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'about-page'
+}
+</script>

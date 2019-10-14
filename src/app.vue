@@ -2,7 +2,7 @@
   <div id="app">
     <site-header></site-header>
 
-    <section id="site-content" class="content">
+    <section id="site-content">
       <router-view/>
     </section>
 
@@ -50,11 +50,18 @@ $content-height: $header-height + $footer-height;
   min-height: 100vh;
 }
 
-#site-content {
-  height: calc(100vh - #{$content-height});
+.inner-container {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-main {
-  padding: $gap 0 (2 * $gap);
+#site-content {
+  min-height: calc(100vh - #{$content-height});
+
+  .inner-container {
+    padding-top: (2 * $gap);
+    padding-bottom: (2 * $gap);
+  }
 }
+
 </style>

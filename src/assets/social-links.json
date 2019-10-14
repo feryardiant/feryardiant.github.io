@@ -1,0 +1,27 @@
+[
+  {
+    "url": "https://linkedin.com/in/feryardiant",
+    "label": "LinkedIn",
+    "icon": "linkedin"
+  },
+  {
+    "url": "https://github.com/feryardiant",
+    "label": "GitHub",
+    "icon": "github"
+  },
+  {
+    "url": "https://twitter.com/feryardiant",
+    "label": "Twitter",
+    "icon": "twitter"
+  },
+  {
+    "url": "https://instagram.com/feryardiant",
+    "label": "Instagram",
+    "icon": "instagram"
+  },
+  {
+    "url": "https://facebook.com/feryardiant.id",
+    "label": "Facebook",
+    "icon": "facebook"
+  }
+]
