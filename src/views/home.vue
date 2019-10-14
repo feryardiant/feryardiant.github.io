@@ -3,7 +3,7 @@
     <main class="home inner-container">
       <div class="columns">
         <figure class="image column is-one-third-desktop">
-          <img alt="Vue logo" class="image is-rounded" src="@/assets/avatar.png">
+          <img alt="Vue logo" class="image is-rounded" src="@/assets/img/avatar.png">
         </figure>
 
         <div class="column">
