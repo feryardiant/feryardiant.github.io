@@ -9,11 +9,11 @@ import './service-worker'
 
 sync(store, router)
 
-const isDev = process.env.NODE_ENV !== 'production'
+// const isDev = process.env.NODE_ENV !== 'production'
 Vue.use(VueGtm, {
   id: 'GTM-5G6FXJ7',
   enable: true,
-  debug: isDev,
+  debug: true,
   vueRouter: router
 })
 

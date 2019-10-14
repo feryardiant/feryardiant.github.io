@@ -28,6 +28,7 @@ export default {
 $column-gap: 2rem;
 $button-color: $white;
 
+@import url(https://fonts.googleapis.com/css?family=Fira+Code:400,600,700);
 @import "~bulma/sass/base/minireset.sass";
 @import "~bulma/sass/base/generic.sass";
 @import "~bulma/sass/base/helpers.sass";
