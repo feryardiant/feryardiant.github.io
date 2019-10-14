@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { sync } from 'vuex-router-sync'
+import VueGtm from 'vue-gtm'
 
 import App from './app.vue'
 import router from './router'
@@ -7,6 +8,13 @@ import store from './store'
 import './service-worker'
 
 sync(store, router)
+
+const isDev = process.env.NODE_ENV !== 'production'
+Vue.use(VueGtm, {
+  id: 'GTM-5G6FXJ7',
+  debug: isDev,
+  vueRouter: router
+})
 
 Vue.config.productionTip = false
 
