@@ -2,7 +2,7 @@
   "name": "Fery Wardiyanto's Website",
   "short_name": "feryardiant-id",
   "background_color": "#fff",
-  "theme_color": "#4a4s4a",
+  "theme_color": "#4a4a4a",
   "display": "standalone",
   "start_url": "./index.html",
   "scope": "/",
