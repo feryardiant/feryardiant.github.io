@@ -13,7 +13,7 @@ export default {
       type: String,
       required: true,
       validator (value) {
-        return feather.icons.hasOwnProperty(value)
+        return Object.prototype.hasOwnProperty.call(feather.icons, value)
       }
     },
 
