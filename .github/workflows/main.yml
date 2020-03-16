@@ -14,8 +14,8 @@ jobs:
     - name: Deploy
       if: github.event_name == 'push' && github.ref == 'refs/heads/source'
       uses: JamesIves/github-pages-deploy-action@releases/v3
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      with:
+        ACCESS_TOKEN: ${{ secrets.PAT }}
         BRANCH: master
         COMMIT_MESSAGE: 'build: generate github pages'
         FOLDER: 'dist'
