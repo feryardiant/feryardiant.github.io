@@ -11,48 +11,63 @@ const sg = require('@sendgrid/mail')
 const contacts = db.collection('contacts')
 const messages = db.collection('messages')
 
-exports.autoReply = firestore.document('messages/{messageId}').onCreate(async (snap, { params }) => {
+exports.autoReply = firestore.document('messages/{subject}').onWrite(async (change, { params }) => {
   if (!conf.sendgrid) {
     return
   }
 
-  const mail = snap.data()
   const replyEmail = 'noreply@feryardiant.id'
-
-  const subject = mail.subject.startsWith('Re: ') ? mail.subject.slice(4) : mail.subject
   const headers = {
     'In-Reply-To': params.messageId
   }
 
-  const reply = [
-    {
-      to: mail.from,
-      from: {
-        name: 'Fery Wardiyanto (auto-reply)',
-        email: replyEmail
-      },
-      replyTo: mail.to,
-      headers: headers,
-      subject: `Re: ${subject}`,
-      text: 'Hi there,\n\nThank you for reaching me out and this is auto-reply email, will be back to you ASAP.\n\nBest regards\nFery W.'
-    },
-    {
-      to: 'ferywardiyanto@gmail.com',
-      from: {
-        name: 'Fery Wardiyanto (auto-reply)',
-        email: replyEmail
-      },
-      replyTo: mail.from,
-      headers: headers,
-      subject: subject,
-      text: mail.content.text,
-      html: mail.content.html
-    }
-  ]
-
   try {
+    const message = messages.doc(params.subject)
+    const envelope = await message.get()
+    const contents = await message.collection('contents').where('replied', '==', false).get()
+
+    const mail = envelope.data()
+    const reply = [
+      {
+        to: 'ferywardiyanto@gmail.com',
+        from: {
+          name: 'Fery Wardiyanto (auto-reply)',
+          email: replyEmail
+        },
+        replyTo: mail.from,
+        headers: headers,
+        subject: params.subject,
+        text: content.text,
+        html: content.html
+      }
+    ]
+
+    if (!change.before.exists) {
+      reply.push({
+        to: mail.from,
+        from: {
+          name: 'Fery Wardiyanto (auto-reply)',
+          email: replyEmail
+        },
+        replyTo: mail.to,
+        headers: headers,
+        subject: `Re: ${params.subject}`,
+        text: 'Hi there,\n\nThank you for reaching me out and this is auto-reply email, will be back to you ASAP.\n\nBest regards\nFery W.'
+      })
+    }
+
     sg.setApiKey(conf.sendgrid.key)
     await sg.send(reply)
+
+    if (contents.size > 0) {
+      await db.runTransaction(trans => {
+        return Promise.all(contents.forEach(content => {
+          return trans.update(message.collection('contents').doc(content.id), {
+            replied: true
+          })
+        }))
+      })
+    }
 
     console.info('Auto-reply sent', {
       from: mail.to,
@@ -75,19 +90,21 @@ exports.mail = https.onRequest(async (req, res) => {
       const sender = contacts.doc(mail.from.email)
       await sender.set(mail.from)
 
-      const message = messages.doc(mail.message_id)
+      const message = messages.doc(mail.subject)
       const email = await trans.get(message)
 
       if (!email.exists) {
         await trans.set(message, {
           from: mail.from,
-          to: mail.to,
-          subject: mail.subject,
-          content: mail.content,
-          folder: 'inbox',
-          replied: false
+          to: mail.to
         })
       }
+
+      await trans.set(message.collection('contents').doc(mail.message_id), {
+        replied: false,
+        text: mail.content.text,
+        html: mail.content.html
+      })
     })
   } catch (err) {
     console.error('Transaction error:', err)

@@ -204,6 +204,10 @@ exports.parseMail = (body, headers) => {
   mail.from = parseAuthor(mail.from)
   mail.to = parseAuthor(mail.to)
 
+  if (mail.subject.startsWith('Re: ')) {
+    mail.subject = mail.subject.slice(4)
+  }
+
   if (mail.cc) {
     mail.cc = parseAuthor(mail.cc)
   }
