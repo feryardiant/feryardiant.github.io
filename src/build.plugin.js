@@ -1,34 +1,34 @@
 const { default: ImageminPlugin } = require('imagemin-webpack-plugin')
 const glob = require('glob')
 const path = require('path')
+const { author, appConfig } = require('./../package.json')
+
+require('dotenv').config()
 
 const isDev = process.env.NODE_ENV !== 'production'
-const appConfig = {
-  name: 'Fery Wardiyanto\'s Website',
-  description: 'Yet Another Personal Website',
-  themeColor: '#4a4a4a',
-  msTileColor: '#4a4a4a',
-  background: '#fff',
-  url: process.env.BASE_URL
-}
+
+appConfig.title = `${author.name}'s ${appConfig.name}`
+appConfig.themeColor = '#4a4a4a'
+appConfig.backgroundColor = '$fff'
+appConfig.baseUrl = process.env.BASE_URL || '/'
 
 module.exports = (api, options) => {
   api.chainWebpack(config => {
     config.plugin('html').tap(args => {
-      args[0].title = appConfig.name
+      args[0].title = appConfig.title
       args[0].meta = {
-        author: appConfig.description,
+        author: author.name,
         description: appConfig.description,
         'twitter:card': 'sumary',
         'twitter:site': '@feryardiant',
         'og:type': 'website',
-        'og:url': appConfig.url,
-        'og:title': appConfig.name,
+        'og:url': appConfig.baseUrl,
+        'og:title': appConfig.title,
         'og:description': appConfig.description
       }
 
       if (!isDev) {
-        args[0].meta['og:image'] = `${appConfig.url}img/icons/mobile-icon-512x512.png`
+        args[0].meta['og:image'] = `${appConfig.baseUrl}img/icons/mobile-icon-512x512.png`
         args[0].meta['og:image:alt'] = 'Website Logo'
       }
 
@@ -60,7 +60,7 @@ module.exports = (api, options) => {
 
     config.plugin('imagemin').use(ImageminPlugin, [
       {
-        disable: process.env.NODE_ENV !== 'production',
+        disable: isDev,
         test: /\.(jpe?g|png|gif|svg)$/i,
         optipng: {
           optimizationLevel: 3,

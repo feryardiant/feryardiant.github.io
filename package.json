@@ -2,6 +2,14 @@
   "name": "feryardiant-id",
   "version": "0.2.0",
   "private": true,
+  "author": {
+    "email": "ferywardiyanto@gmail.com",
+    "name": "Fery Wardiyanto"
+  },
+  "appConfig": {
+    "name": "Personal Website",
+    "description": "Yet another personal website"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -57,7 +65,7 @@
   },
   "vuePlugins": {
     "service": [
-      "lib/build.plugin.js"
+      "src/build.plugin.js"
     ]
   },
   "babel": {
@@ -74,17 +82,17 @@
       "plugin:vue/essential",
       "@vue/standard"
     ],
+    "ignorePatterns": [
+      "dist/",
+      "node_modules/",
+      "public/",
+      "**.old"
+    ],
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
     }
   },
-  "eslintIgnore": [
-    "/dist/**",
-    "/node_modules/**",
-    "/public/**",
-    "/**.old"
-  ],
   "stylelint": {
     "extends": "stylelint-config-recommended-scss"
   },

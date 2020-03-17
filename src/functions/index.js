@@ -9,10 +9,9 @@ const conf = config()
 const sg = require('@sendgrid/mail')
 sg.setApiKey(conf.sendgrid.key)
 
-exports.mail = https.onRequest((req, res) => {
+exports.mail = https.onRequest(async (req, res) => {
   if (req.method.toLowerCase() !== 'post') {
-    req.status(403).end()
-    return
+    return res.status(403).send('Error')
   }
 
   const email = parseMail(req.body, req.headers)
@@ -53,11 +52,11 @@ exports.mail = https.onRequest((req, res) => {
     reply[0].cc = email.cc
   }
 
-  sg.send(reply)
+  await sg.send(reply)
 
   // inbox.set(email)
 
-  res.send('Ok')
+  return res.send('Ok')
 })
 
 exports.app = https.onRequest((req, res) => {
