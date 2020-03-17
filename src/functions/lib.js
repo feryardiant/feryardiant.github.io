@@ -1,3 +1,6 @@
+const utf8 = require('utf8')
+const quotedPrintable = require('quoted-printable')
+
 const beJSON = (str) => {
   try {
     return JSON.parse(str)
@@ -191,7 +194,7 @@ exports.parseMail = (body, headers) => {
 
       mail.content = {
         text: joinEOL(value['text/plain']),
-        html: queryPrintableDecode(value['text/html'].join(''))
+        html: utf8.decode(quotedPrintable.decode(value['text/html'].join('')))
       }
 
       continue

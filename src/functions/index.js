@@ -11,22 +11,22 @@ const sg = require('@sendgrid/mail')
 const contacts = db.collection('contacts')
 const messages = db.collection('messages')
 
-exports.autoReply = firestore.document('messages/{subject}').onWrite(async (change, { params }) => {
+exports.autoReply = firestore.document('messages/{subject}/contents/{content}').onCreate(async (snap, { params }) => {
   if (!conf.sendgrid) {
     return
   }
 
   const replyEmail = 'noreply@feryardiant.id'
   const headers = {
-    'In-Reply-To': params.messageId
+    'In-Reply-To': params.content
   }
 
   try {
-    const message = messages.doc(params.subject)
-    const envelope = await message.get()
-    const contents = await message.collection('contents').where('replied', '==', false).get()
+    const messageRef = messages.doc(params.subject)
+    const message = await messageRef.get()
+    const content = snap.data()
+    const mail = message.data()
 
-    const mail = envelope.data()
     const reply = [
       {
         to: 'ferywardiyanto@gmail.com',
@@ -42,7 +42,7 @@ exports.autoReply = firestore.document('messages/{subject}').onWrite(async (chan
       }
     ]
 
-    if (!change.before.exists) {
+    if (!mail.replied) {
       reply.push({
         to: mail.from,
         from: {
@@ -59,20 +59,11 @@ exports.autoReply = firestore.document('messages/{subject}').onWrite(async (chan
     sg.setApiKey(conf.sendgrid.key)
     await sg.send(reply)
 
-    if (contents.size > 0) {
-      await db.runTransaction(trans => {
-        return Promise.all(contents.forEach(content => {
-          return trans.update(message.collection('contents').doc(content.id), {
-            replied: true
-          })
-        }))
+    if (!mail.replied) {
+      await messageRef.update({
+        replied: true
       })
     }
-
-    console.info('Auto-reply sent', {
-      from: mail.to,
-      to: mail.from
-    })
   } catch (err) {
     console.error(err.toString())
   }
@@ -96,15 +87,12 @@ exports.mail = https.onRequest(async (req, res) => {
       if (!email.exists) {
         await trans.set(message, {
           from: mail.from,
-          to: mail.to
+          to: mail.to,
+          replied: false
         })
       }
 
-      await trans.set(message.collection('contents').doc(mail.message_id), {
-        replied: false,
-        text: mail.content.text,
-        html: mail.content.html
-      })
+      await trans.set(message.collection('contents').doc(mail.message_id), mail.content)
     })
   } catch (err) {
     console.error('Transaction error:', err)
