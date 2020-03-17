@@ -52,7 +52,11 @@ exports.mail = https.onRequest(async (req, res) => {
     reply[0].cc = email.cc
   }
 
-  await sg.send(reply)
+  try {
+    await sg.send(reply)
+  } catch (err) {
+    console.error(err)
+  }
 
   // inbox.set(email)
 
