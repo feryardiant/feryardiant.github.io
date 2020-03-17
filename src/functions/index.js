@@ -75,7 +75,7 @@ exports.mail = https.onRequest(async (req, res) => {
       const sender = contacts.doc(mail.from.email)
       await sender.set(mail.from)
 
-      const message = contacts.doc(mail.message_id)
+      const message = messages.doc(mail.message_id)
       const email = await trans.get(message)
 
       if (!email.exists) {
