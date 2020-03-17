@@ -12,10 +12,20 @@
   },
 
   "firestore": {
-    "rules": "src/firestore.rules"
+    "rules": "src/firestore.rules",
+    "ignore": [
+      "node_modules",
+      "README.md",
+      ".*"
+    ]
   },
 
   "storage": {
-    "rules": "src/storage.rules"
+    "rules": "src/storage.rules",
+    "ignore": [
+      "node_modules",
+      "README.md",
+      ".*"
+    ]
   }
 }
