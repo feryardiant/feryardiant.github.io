@@ -15,6 +15,7 @@ const queryPrintableDecode = (str) => {
   if (typeof str !== 'string') {
     throw new TypeError('expected parameter to be a string')
   }
+
   const rfc2045out = (match, hex) => String.fromCharCode(parseInt(hex, 16))
   const decoded = str.replace(/=\r\n/gm, '')
     .replace(/=([0-9A-F]{2})/gim, rfc2045out)
@@ -27,6 +28,10 @@ const queryPrintableDecode = (str) => {
  * @returns {String}
  */
 const joinEOL = (arr) => {
+  if (!Array.isArray(arr)) {
+    throw new TypeError('expected parameter to be an array')
+  }
+
   return arr.reduce((res, item, key) => {
     if (key === 0 || key === arr.length - 1) {
       return res
@@ -45,7 +50,7 @@ const log = exports.log = (...args) => console.log.apply(null, args.map(inspect)
  * @property {?String} email
  * @property {?String} url
  * @param {String} str
- * @returns {Author}
+ * @returns {Author|Author[]}
  */
 const parseAuthor = (str) => {
   if (typeof str !== 'string') {
@@ -59,16 +64,18 @@ const parseAuthor = (str) => {
   const pattern = /^([^<(]+?)?[ \t]*(?:<([^>(]+?)>)?[ \t]*(?:\(([^)]+?)\)|$)/gm
   const match = [].concat.apply([], pattern.exec(str))
   const author = {
-    name: match[1] || undefined,
-    email: match[2] || undefined
+    name: match[1],
+    email: match[2]
   }
 
-  if (!author.email && author.name) {
+  if (author.email === undefined) {
     author.email = author.name
     author.name = undefined
+  } else {
+    author.name = author.name.replace(/"/g, '')
   }
 
-  if (match[3]) {
+  if (match[3] !== undefined) {
     author.url = match[3]
   }
 
@@ -201,5 +208,6 @@ exports.parseMail = (body, headers) => {
     mail.cc = parseAuthor(mail.cc)
   }
 
+  console.info(mail)
   return mail
 }
