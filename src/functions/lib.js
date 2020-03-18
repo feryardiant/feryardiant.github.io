@@ -1,5 +1,6 @@
-const utf8 = require('utf8')
+const parseAuthor = require('parse-author')
 const quotedPrintable = require('quoted-printable')
+const utf8 = require('utf8')
 
 const beJSON = (str) => {
   try {
@@ -47,174 +48,147 @@ const joinEOL = (arr) => {
 const { inspect } = require('util')
 const log = exports.log = (...args) => console.log.apply(null, args.map(inspect))
 
-/**
- * @typedef {Object} Author
- * @property {String} name
- * @property {?String} email
- * @property {?String} url
- * @param {String} str
- * @returns {Author|Author[]}
- */
-const parseAuthor = (str) => {
-  if (typeof str !== 'string') {
-    throw new TypeError('expected author to be a string')
+const getKey = (attr) => attr.replace(/"/g, '').split('=')[1]
+const assertBoundary = (boundary, val) => new RegExp(boundary, 'g').test(val)
+const getBoundary = (attr) => {
+  if (attr.startsWith('multipart/') && attr.includes('boundary=')) {
+    return getKey(attr)
   }
-
-  if (str.includes(', ')) {
-    return str.split(', ').map(parseAuthor)
-  }
-
-  const pattern = /^([^<(]+?)?[ \t]*(?:<([^>(]+?)>)?[ \t]*(?:\(([^)]+?)\)|$)/gm
-  const match = [].concat.apply([], pattern.exec(str))
-  const author = {
-    name: match[1],
-    email: match[2]
-  }
-
-  if (author.email === undefined) {
-    author.email = author.name
-    author.name = undefined
-  } else {
-    author.name = author.name.replace(/"/g, '')
-  }
-
-  if (match[3] !== undefined) {
-    author.url = match[3]
-  }
-
-  return author
+  return null
 }
 
 /**
- * @typedef {Object} ParsedMail
- * @property {String} raw
+ * @param {http.IncomingMessage} req
+ * @returns {Object}
+ */
+const parseBody = ({ body, headers }) => {
+  const boundary = getBoundary(headers['content-type'])
+  const rawBody = body.toString().replace(/(\r\n|\n|\r)/gm, '\n')
+
+  const output = rawBody.split(`\n--${boundary}`).reduce((obj, line) => {
+    const matches = line.match(/"(?<key>\S+)"\n\n(?<val>.*)/m)
+
+    if (!matches || ['dkim', 'SPF', 'charsets', 'envelope'].includes(matches.groups.key)) {
+      return obj
+    }
+
+    obj[matches.groups.key] = beJSON(line.slice(line.indexOf(matches.groups.val)))
+
+    return obj
+  }, {})
+
+  return output
+}
+
+/**
+ * @typedef {Object} MailContent
+ * @property {String} body Raw email content.
+ * @property {?String} content_type
+ * @property {?String} content_transfer_encoding
+ * @property {?String} decoded
+ *
+ * @typedef {Object} Mail
+ * @property {String} email Raw email body.
  * @property {Author} from
  * @property {Author[]} to
- * @property {Author[]} cc
  * @property {String} subject
  * @property {Number} spam_score
  * @property {String} spam_report
  * @property {Date} date
  * @property {String} message_id
- * @property {Object} charsets
- * @property {Object} content
- * @property {String} content.text
- * @property {String} content.html
- * @param {Buffer} body
- * @param {http.IncomingMessage.headers} headers
- * @returns {ParsedMail}
+ * @property {MailContent[]} contents
+ *
+ * @param {http.IncomingMessage} req
+ * @returns {Mail}
  */
-exports.parseMail = (body, headers) => {
-  const getKey = (attr) => attr.replace(/"/g, '').split('=')[1]
-  const assertBoundary = (boundary, val) => new RegExp(boundary, 'g').test(val)
+exports.parseMail = req => {
+  const mail = parseBody(req)
 
-  let field
-  const boundary = headers['content-type'].split('=')[1]
-  const rawBody = body.toString()
-  const rawObj = rawBody.replace(/(\r\n|\n|\r)/gm, '\n').split('\n').reduce((obj, line) => {
-    if (assertBoundary(boundary, line)) {
-      return obj
-    }
-
-    if (line.startsWith('Content-Disposition: form-data')) {
-      field = getKey(line)
-    }
-
-    if (!obj[field]) {
-      obj[field] = []
-      return obj
-    }
-
-    line = beJSON(line)
-
-    if (typeof line === 'string') {
-      obj[field].push(line)
-    } else {
-      obj[field] = line
-    }
-
-    return obj
-  }, {})
-
-  const mail = {
-    raw: rawObj,
-    from: null,
-    to: null,
-    cc: null,
-    subject: '',
-    spam_score: 0,
-    spam_report: [],
-    charsets: {},
-    content: {}
-  }
-
-  for (let [key, value] of Object.entries(rawObj)) {
-    if (['dkim', 'sender_ip', 'SPF', 'envelope'].includes(key)) {
-      continue
-    }
-
-    if (['from', 'to', 'cc', 'subject'].includes(key)) {
-      value = value.join('')
-    }
-
-    if (key === 'email') {
-      const altMail = value.find(val => val.startsWith('Content-Type: multipart/alternative'))
-      const altBoundary = getKey(altMail)
-      let type, bKey
-
-      value = value.reduce((obj, val, i) => {
-        if (assertBoundary(altBoundary, val)) {
-          bKey = i
-        }
-
-        if (val.startsWith('Content-Type: ') || val.startsWith('Content-Transfer')) {
-          type = val.split('; ')[0].split(': ')[1]
-          if (type !== 'multipart/alternative') {
-            obj[type] = []
-          }
-          return obj
-        }
-
-        if (val.startsWith('Date: ')) {
-          mail.date = new Date(val.slice(6))
-          return obj
-        }
-
-        if (val.startsWith('Message-ID: ')) {
-          mail.message_id = val.slice(12)
-          return obj
-        }
-
-        if (bKey !== i && Array.isArray(obj[type])) {
-          obj[type].push(val)
-        }
-
-        return obj
-      }, {})
-
-      mail.content = {
-        text: joinEOL(value['text/plain']),
-        html: utf8.decode(quotedPrintable.decode(value['text/html'].join('')))
-      }
-
-      continue
-    }
-
-    mail[key] = value
-  }
-
-  mail.spam_report = joinEOL(mail.spam_report)
+  mail.to = mail.to.split(', ').map(parseAuthor)
   mail.from = parseAuthor(mail.from)
-  mail.to = parseAuthor(mail.to)
 
   if (mail.subject.startsWith('Re: ')) {
     mail.subject = mail.subject.slice(4)
   }
 
-  if (mail.cc) {
-    mail.cc = parseAuthor(mail.cc)
+  let b = -1
+  const lines = mail.email.split('\n')
+  const boundaries = lines.filter(line => line.match(/boundary="(.*?)"/i)).map(getKey)
+  const email = lines.reduce((obj, line) => {
+    if (boundaries.length === 0) {
+      return obj
+    }
+
+    const isBoundary = boundaries.includes(line.replace(/-/g, ''))
+
+    if (isBoundary) {
+      if (b < 0) {
+        obj.contents = {}
+      }
+      b++
+    }
+
+    const matches = line.match(/^(\S+):\s/i)
+
+    if (matches) {
+      const key = matches[1].toLowerCase().replace(/-/g, '_')
+      const value = line.slice(matches[0].length)
+
+      if (value.startsWith('multipart/')) {
+        return obj
+      }
+
+      if (b < 0) {
+        obj[key] = value
+        return obj
+      }
+
+      if (undefined === obj.contents[b]) {
+        obj.contents[b] = {
+          body: []
+        }
+      }
+
+      obj.contents[b][key] = value
+      return obj
+    }
+
+    if (b >= 0 && obj.contents[b] && !isBoundary) {
+      obj.contents[b].body.push(line)
+    }
+
+    return obj
+  }, {})
+
+  mail.contents = []
+  for (const [i, content] of Object.entries(email.contents || {})) {
+    const body = content.body.slice(1, -1)
+
+    if (content.content_type.startsWith('text/plain')) {
+      content.body = body.join('\n')
+    } else {
+      content.body = body.join('')
+    }
+
+    switch (content.content_transfer_encoding) {
+      case 'quoted-printable':
+        try {
+          content.decoded = utf8.decode(quotedPrintable.decode(content.body))
+        } catch (err) {
+          console.error(err)
+          content.decoded = null
+        }
+        break
+      case 'base64':
+        content.decoded = Buffer.from(content.body, 'base64').toString('utf8')
+        break
+    }
+
+    mail.contents.push(content)
   }
 
-  console.info(mail)
+  mail.message_id = email.message_id
+  mail.date = new Date(email.date)
+
   return mail
 }
