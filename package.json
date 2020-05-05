@@ -11,59 +11,62 @@
     "description": "Yet another personal website"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "deploy": "firebase deploy --only functions,hosting",
+    "generate": "nuxt generate",
+    "serve": "concurrently -n firebase,frontend \"firebase serve --only functions\" \"nuxt\""
   },
   "engines": {
     "node": ">=10"
   },
+  "workspaces": [
+    "firebase/*"
+  ],
   "dependencies": {
-    "axios": "^0.19.2",
-    "bulma": "^0.8.2",
+    "@nuxtjs/axios": "^5.10.2",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/firebase": "^5.0.7",
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "firebase": "^7.14.2",
+    "nuxt": "^2.12.2",
     "feather-icons": "^4.28.0",
-    "qs": "^6.9.3",
-    "register-service-worker": "^1.7.1",
-    "vue": "^2.6.11",
-    "vue-gtm": "^2.2.0",
-    "vue-router": "^3.1.6",
-    "vuex": "^3.1.3",
-    "vuex-router-sync": "^5.0.0"
+    "qs": "^6.9.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@vue/cli-plugin-babel": "^4.3.1",
-    "@vue/cli-plugin-eslint": "^4.3.1",
-    "@vue/cli-plugin-pwa": "^4.3.1",
-    "@vue/cli-service": "^4.3.1",
-    "@vue/eslint-config-standard": "^5.1.2",
+    "@nuxtjs/eslint-config": "^2.0.2",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/stylelint-module": "^3.2.2",
+    "@nuxtjs/tailwindcss": "^2.0.0",
     "babel-eslint": "^10.1.0",
-    "core-js": "^3.6.5",
+    "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-nuxt": "^0.5.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "firebase-tools": "^8.1.1",
+    "frontmatter-markdown-loader": "^3.4.0",
     "glob": "^7.1.6",
     "husky": "^4.2.5",
-    "imagemin-webpack-plugin": "^2.4.2",
-    "pm2": "^4.3.0",
-    "sass": "^1.26.3",
-    "sass-loader": "^8.0.2",
-    "stylelint": "^13.3.2",
-    "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-scss": "^3.17.0",
-    "vue-template-compiler": "^2.6.11"
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.1.7",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.3.3",
+    "stylelint-config-prettier": "^8.0.1"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -e -V"
+      "commit-msg": "commitlint -e -V",
+      "pre-commit": "lint-staged"
     }
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "vuePlugins": {
     "service": [
       "src/build.plugin.js"
@@ -77,11 +80,21 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "browser": true
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
     },
     "extends": [
-      "plugin:vue/essential",
-      "@vue/standard"
+      "@nuxtjs",
+      "prettier",
+      "prettier/vue",
+      "plugin:prettier/recommended",
+      "plugin:nuxt/recommended"
+    ],
+    "plugins": [
+      "prettier"
     ],
     "ignorePatterns": [
       "dist/",
@@ -89,42 +102,24 @@
       "public/",
       "**.old"
     ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
+    "rules": {}
   },
   "stylelint": {
-    "extends": "stylelint-config-recommended-scss"
+    "extends": "stylelint-config-prettier"
   },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.vue": [
-      "eslint --fix",
-      "stylelint --fix",
-      "git add"
-    ],
-    "*.scss": [
-      "stylelint --fix",
-      "git add"
+    "*.{js,vue,css,scss}": [
+      "prettier --write"
     ]
   }
 }

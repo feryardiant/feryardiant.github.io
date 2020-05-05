@@ -8,11 +8,14 @@ module.exports = {
     }
   },
   devServer: {
+    proxy: {
+      '^/api': {
+        target: 'http://localhost:5000/feryardiant-id/us-central1'
+      }
+    },
     historyApiFallback: {
       // Simulate 404 page on GitHub Page.
-      rewrites: [
-        { from: /.*/, to: '/404.html' }
-      ]
+      rewrites: [{ from: /.*/, to: '/404.html' }]
     }
   }
 }

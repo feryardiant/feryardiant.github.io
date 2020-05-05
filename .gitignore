@@ -18,11 +18,14 @@ Desktop.ini
 /.vscode
 /.project
 /*.sublime-*
+serviceAccountKey.json
 
 # Developments
 # --------------------------
 node_modules
 dist
+.nuxt
+.firebase
 .runtimeconfig.json
 .env.*
 .env
