@@ -22,7 +22,7 @@
     "axios": "^0.19.2",
     "bulma": "^0.8.2",
     "feather-icons": "^4.28.0",
-    "qs": "^6.9.3",
+    "qs": "^6.9.4",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-gtm": "^2.2.0",
