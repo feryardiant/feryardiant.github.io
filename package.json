@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "axios": "^0.19",
-    "bulma": "^0.8",
+    "bulma": "^0.9",
     "feather-icons": "^4.28",
     "qs": "^6.9",
     "register-service-worker": "^1.7",
