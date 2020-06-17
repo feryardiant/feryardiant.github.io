@@ -54,7 +54,7 @@
     "pm2": "^4.3",
     "sass": "^1.26",
     "sass-loader": "^8.0",
-    "stylelint": "^13.3",
+    "stylelint": "^13.6",
     "stylelint-config-recommended-scss": "^4.2",
     "stylelint-scss": "^3.17",
     "vue-template-compiler": "^2.6"
