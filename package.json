@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "axios": "^0.19",
-    "bulma": "^0.8",
+    "bulma": "^0.9.0",
     "feather-icons": "^4.28",
     "qs": "^6.9",
     "register-service-worker": "^1.7",
@@ -54,9 +54,9 @@
     "pm2": "^4.3",
     "sass": "^1.26",
     "sass-loader": "^8.0",
-    "stylelint": "^13.3",
+    "stylelint": "^13.6.1",
     "stylelint-config-recommended-scss": "^4.2",
-    "stylelint-scss": "^3.17",
+    "stylelint-scss": "^3.18.0",
     "vue-template-compiler": "^2.6"
   },
   "husky": {
