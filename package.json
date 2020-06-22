@@ -31,12 +31,12 @@
     "vuex-router-sync": "^5.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3",
-    "@commitlint/config-conventional": "^8.3",
-    "@vue/cli-plugin-babel": "^4.3",
-    "@vue/cli-plugin-eslint": "^4.3",
-    "@vue/cli-plugin-pwa": "^4.3",
-    "@vue/cli-service": "^4.3",
+    "@commitlint/cli": "^9.0",
+    "@commitlint/config-conventional": "^9.0",
+    "@vue/cli-plugin-babel": "^4.4.5",
+    "@vue/cli-plugin-eslint": "^4.4.5",
+    "@vue/cli-plugin-pwa": "^4.4.5",
+    "@vue/cli-service": "^4.4.5",
     "@vue/eslint-config-standard": "^5.1",
     "babel-eslint": "^10.1",
     "core-js": "^3.6",
