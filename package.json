@@ -31,7 +31,7 @@
     "vuex-router-sync": "^5.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3",
+    "@commitlint/cli": "^9.0",
     "@commitlint/config-conventional": "^8.3",
     "@vue/cli-plugin-babel": "^4.3",
     "@vue/cli-plugin-eslint": "^4.3",
