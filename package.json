@@ -34,7 +34,7 @@
     "@commitlint/cli": "^9.0",
     "@commitlint/config-conventional": "^9.0",
     "@vue/cli-plugin-babel": "^4.4.5",
-    "@vue/cli-plugin-eslint": "^4.4.5",
+    "@vue/cli-plugin-eslint": "^4.4.6",
     "@vue/cli-plugin-pwa": "^4.4.6",
     "@vue/cli-service": "^4.4.6",
     "@vue/eslint-config-standard": "^5.1",
