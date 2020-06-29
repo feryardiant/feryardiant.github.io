@@ -11252,6 +11252,11 @@ url-parse@^1.4.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
+url-search-params-polyfill@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-8.1.0.tgz#5c15b69687165bfd4f6c7d8a161d70d85385885b"
+  integrity sha512-MRG3vzXyG20BJ2fox50/9ZRoe+2h3RM7DIudVD2u/GY9MtayO1Dkrna76IUOak+uoUPVWbyR0pHCzxctP/eDYQ==
+
 url-to-options@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/url-to-options/-/url-to-options-1.0.1.tgz#1505a03a289a48cbd7a434efbaeec5055f5633a9"
@@ -11402,10 +11407,12 @@ vue-eslint-parser@^7.0.0:
     esquery "^1.0.1"
     lodash "^4.17.15"
 
-vue-gtm@^2.2:
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/vue-gtm/-/vue-gtm-2.3.0.tgz#3bc41734921a071f243aa6fca308d105b7ea2fa7"
-  integrity sha512-hwRRyyO2U7LrwJw+6OB/gObvVjcEz770Ajne8XOldhpE9gL2CaloP3AEFTtKXmrsDE6z6A0mrXeWqjQ4vlyK9Q==
+vue-gtm@^2.3:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/vue-gtm/-/vue-gtm-2.3.1.tgz#c8819332fae5efc92404f59e71c501b4d8b8ee3b"
+  integrity sha512-LQCOzU4Q0aeZ4AZyF1mnu38ZXXrOzYoiIbxpxZxKwNTfFZV2E4knfaH0zftLsxfdmvhqfoXAX6EJX+W8gzuT9g==
+  dependencies:
+    url-search-params-polyfill "^8.1.0"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
