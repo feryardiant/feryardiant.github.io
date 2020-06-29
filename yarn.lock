@@ -11459,10 +11459,10 @@ vuex-router-sync@^5.0:
   resolved "https://registry.npmjs.org/vuex-router-sync/-/vuex-router-sync-5.0.0.tgz#1a225c17a1dd9e2f74af0a1b2c62072e9492b305"
   integrity sha512-Mry2sO4kiAG64714X1CFpTA/shUH1DmkZ26DFDtwoM/yyx6OtMrc+MxrU+7vvbNLO9LSpgwkiJ8W+rlmRtsM+w==
 
-vuex@^3.1:
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/vuex/-/vuex-3.4.0.tgz#20cc086062d750769fce1febb34e7fceeaebde45"
-  integrity sha512-ajtqwEW/QhnrBZQsZxCLHThZZaa+Db45c92Asf46ZDXu6uHXgbfVuBaJ4gzD2r4UX0oMJHstFwd2r2HM4l8umg==
+vuex@^3.5:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.5.0.tgz#0a4bb83122a159dec64b63cc9372880812de8eae"
+  integrity sha512-LetLEGe9cgfjdBZnKq/FVe9XwiNsikK1VK4Oh0SPt5sir0apalnJEOc/0vAdJGOWLe0Z1uXS+ovvhD9OjjgrTw==
 
 watchpack-chokidar2@^2.0.0:
   version "2.0.0"
