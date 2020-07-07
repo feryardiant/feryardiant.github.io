@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^9.0",
-    "@commitlint/config-conventional": "^9.0",
+    "@feryardiant/commitlint-config": "^0.0.1",
     "@vue/cli-plugin-babel": "^4.4.5",
     "@vue/cli-plugin-eslint": "^4.4.5",
     "@vue/cli-plugin-pwa": "^4.4.5",
@@ -109,7 +109,7 @@
   ],
   "commitlint": {
     "extends": [
-      "@commitlint/config-conventional"
+      "@feryardiant/commitlint-config"
     ]
   },
   "lint-staged": {
