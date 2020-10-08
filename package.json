@@ -52,7 +52,7 @@
     "husky": "^4.2",
     "imagemin-webpack-plugin": "^2.4",
     "pm2": "^4.3",
-    "sass": "^1.26",
+    "sass": "^1.27",
     "sass-loader": "^8.0",
     "stylelint": "^13.6.1",
     "stylelint-config-recommended-scss": "^4.2",
