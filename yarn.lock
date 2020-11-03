@@ -11814,10 +11814,10 @@ vue-eslint-parser@^7.1.1:
     esquery "^1.0.1"
     lodash "^4.17.15"
 
-vue-gtm@^2.2:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/vue-gtm/-/vue-gtm-2.3.1.tgz#c8819332fae5efc92404f59e71c501b4d8b8ee3b"
-  integrity sha512-LQCOzU4Q0aeZ4AZyF1mnu38ZXXrOzYoiIbxpxZxKwNTfFZV2E4knfaH0zftLsxfdmvhqfoXAX6EJX+W8gzuT9g==
+vue-gtm@^2.3:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/vue-gtm/-/vue-gtm-2.3.4.tgz#19d5402853f90d4850a9d0042c184e5c6b91b1cf"
+  integrity sha512-09e5XMxnkqDt33lonKW0q2KCageK3d0vN5aA+IAMi4c3TKtpat86Y/DllhIeKWeLBoUT4elz+S+bVDHUGzUA2A==
   dependencies:
     url-search-params-polyfill "^8.1.0"
 
