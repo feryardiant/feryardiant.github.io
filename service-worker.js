@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://feryardiant.id/precache-manifest.fcfac7a147335c915f23f08d099c1a62.js"
+  "https://feryardiant.id/precache-manifest.d015ec01481b8ffc6d8f5ea779ad4d3c.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "feryardiant-id"});
