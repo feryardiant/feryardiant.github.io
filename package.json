@@ -19,7 +19,7 @@
     "node": ">=10"
   },
   "dependencies": {
-    "axios": "^0.19",
+    "axios": "^0.21",
     "bulma": "^0.9",
     "feather-icons": "^4.28",
     "qs": "^6.9",
