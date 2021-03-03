@@ -1,0 +1,2 @@
+(self["webpackChunkferyardiant_id"]=self["webpackChunkferyardiant_id"]||[]).push([[555],{3688:function(n,a,e){"use strict";e.r(a),e.d(a,{default:function(){return d}});var r=e(6252),t={class:"container"},i=(0,r.Wm)("main",{class:"not-found inner-container"},[(0,r.Wm)("h1",{class:"title"},"404 Page Not Found")],-1);function u(n,a,e,u,c,d){return(0,r.wg)(),(0,r.j4)("div",t,[i])}var c={name:"not-found-page"};c.render=u;var d=c}}]);
+//# sourceMappingURL=errors.6cdf6a37.js.map
