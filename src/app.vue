@@ -29,21 +29,21 @@ $column-gap: 2rem;
 $button-color: $white;
 
 @import url(https://fonts.googleapis.com/css?family=Fira+Code:400,600,700);
-@import "~bulma/sass/base/minireset.sass";
-@import "~bulma/sass/base/generic.sass";
-@import "~bulma/sass/base/helpers.sass";
-@import "~bulma/sass/elements/container.sass";
-@import "~bulma/sass/grid/columns.sass";
-@import "~bulma/sass/elements/image.sass";
-@import "~bulma/sass/elements/title.sass";
-@import "~bulma/sass/elements/content.sass";
-@import "~bulma/sass/elements/button.sass";
-@import "~bulma/sass/form/shared.sass";
-@import "~bulma/sass/form/input-textarea.sass";
-@import "~bulma/sass/form/checkbox-radio.sass";
-// @import "~bulma/sass/form/select.sass";
-// @import "~bulma/sass/form/file.sass";
-@import "~bulma/sass/form/tools.sass";
+
+@import "~bulma/sass/base/all";
+
+@import "~bulma/sass/elements/container";
+@import "~bulma/sass/grid/columns";
+// @import "~bulma/sass/elements/image";
+// @import "~bulma/sass/elements/title";
+// @import "~bulma/sass/elements/content";
+// @import "~bulma/sass/elements/button";
+@import "~bulma/sass/form/shared";
+@import "~bulma/sass/form/input-textarea";
+@import "~bulma/sass/form/checkbox-radio";
+// @import "~bulma/sass/form/select";
+// @import "~bulma/sass/form/file";
+@import "~bulma/sass/form/tools";
 
 $content-height: $header-height + $footer-height;
 
