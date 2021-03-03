@@ -21,8 +21,9 @@ Desktop.ini
 
 # Developments
 # --------------------------
-node_modules
 dist
+node_modules
+serviceAccountKey.json
 .runtimeconfig.json
 .env.*
 .env
