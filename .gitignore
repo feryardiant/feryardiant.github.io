@@ -16,6 +16,7 @@ Desktop.ini
 /.idea
 /.settings
 /.vscode
+/.husky
 /.project
 /*.sublime-*
 
