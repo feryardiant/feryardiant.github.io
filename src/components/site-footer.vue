@@ -24,29 +24,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.container {
-  border-top: 2px solid $border;
-}
-
-.inner-container {
-  display: flex;
-  max-height: $footer-height;
-}
-
-.credits,
-.pages {
-  display: inline-flex;
-  width: 50%;
-  padding: $gap 0;
-}
-
-.credits {
-  justify-content: flex-start;
-}
-
-.pages {
-  justify-content: flex-end;
-}
-</style>

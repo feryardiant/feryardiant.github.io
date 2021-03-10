@@ -1,25 +1,26 @@
-import Vue from 'vue'
-import { sync } from 'vuex-router-sync'
+// import { ViteSSG } from 'vite-ssg'
+import { createApp } from 'vue'
 import VueGtm from 'vue-gtm'
+import nProgress from 'nprogress'
+import dayjs from 'dayjs'
+import LocalizedFormat from 'dayjs/plugin/localizedFormat'
 
-import App from './app.vue'
-import router from './router'
-import store from './store'
-import './service-worker'
+import 'windi.css'
+import autoRoutes from 'pages-generated'
 
-sync(store, router)
+import App from '/~/app.vue'
 
-Vue.use(VueGtm, {
-  id: 'GTM-5G6FXJ7',
-  vueRouter: router
+const routes = autoRoutes.map(route => {
+  return {
+    ...route,
+    alias: route.path.endsWith('/')
+      ? `${route.path}index.html`
+      : `${route.path}.html`,
+  }
 })
 
-Vue.config.productionTip = false
-
-const $app = window.$app = new Vue({
-  router,
-  store,
-  render: h => h(App),
+const $app = createApp(App, {
+  routes,
   created () {
     if (sessionStorage.redirect) {
       const redirect = sessionStorage.redirect
@@ -29,4 +30,9 @@ const $app = window.$app = new Vue({
   }
 })
 
-$app.$mount('#app')
+$app.use(VueGtm, {
+  id: 'GTM-5G6FXJ7',
+  routes
+})
+
+$app.mount('#app')

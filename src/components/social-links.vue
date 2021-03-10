@@ -61,14 +61,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.feather {
-  margin: 0 1em;
-
-  a.is-block &,
-  a:first-child & {
-    margin-left: 0;
-  }
-}
-</style>
