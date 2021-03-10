@@ -55,6 +55,7 @@
     "vite-plugin-md": "^0.6.1",
     "vite-plugin-pages": "^0.6.1",
     "vite-plugin-purge-icons": "^0.7.0",
+    "vite-plugin-vue-layouts": "^0.2.2",
     "vite-plugin-windicss": "^0.7.1",
     "vite-ssg": "^0.8.12",
     "windicss": "^2.3.0"

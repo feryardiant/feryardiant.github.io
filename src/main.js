@@ -7,17 +7,35 @@ import { ViteSSG } from 'vite-ssg'
 
 import 'windi.css'
 import autoRoutes from 'pages-generated'
+import { setupLayouts } from 'layouts-generated'
 
+import './main.css'
 import App from '/~/app.vue'
 
-const routes = autoRoutes.map(route => ({
-  ...route,
-  alias: route.path.endsWith('/')
-    ? `${route.path}index.html`
-    : `${route.path}.html`,
-}))
+const routes = autoRoutes.map(route => {
+  const frontmatter = Object.assign({}, {
+    layout: 'default',
+    comments: true,
+    thumb: 'default-thumbnail.png',
+    tags: [],
+    lang: 'id'
+  }, route.meta.frontmatter)
 
-export const createApp = ViteSSG(App, { routes })
+  frontmatter.thumb = `/src/assets/uploads/${frontmatter.thumb}`
+  route.meta.frontmatter = frontmatter
+  // console.log(route)
+
+  return {
+    ...route,
+    alias: route.path.endsWith('/')
+      ? `${route.path}index.html`
+      : `${route.path}.html`,
+  }
+})
+
+export const createApp = ViteSSG(App, {
+  routes: setupLayouts(routes)
+})
 // const $app = createApp(App, {
 //   routes,
 //   created () {
