@@ -1,13 +1,11 @@
 <template>
-  <div id="app">
-    <site-header />
+  <site-header />
 
-    <section id="site-content">
-      <router-view />
-    </section>
+  <section id="site-content">
+    <router-view />
+  </section>
 
-    <site-footer />
-  </div>
+  <site-footer />
 </template>
 
 <script>

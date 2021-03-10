@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Fery Wardiyanto" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/icons/app-icon.svg">
-    <link rel="alternate icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/icons/apple-touch-icon.png">
-    <link rel="mask-icon" href="/src/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#5bbad5">
-    <meta name="msapplication-config" content="/browserconfig.xml">
-    <meta name="theme-color" content="#374151">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Fery Wardiyanto" />
+  <link rel="icon" type="image/png" href="/icons/favicon-32x32.svg" sizes="32x32">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/mobile-icon-192x192.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <!-- <meta name="msapplication-TileColor" content="#00a300"> -->
+  <!-- <meta name="msapplication-config" content="/browserconfig.xml"> -->
+  <meta name="theme-color" content="#000000">
 
-    <title>Fery Wardiyanto</title>
-  </head>
-  <body class="bg-gray-200 h-screen flex">
-    <div id="app"></div>
+  <title>Fery Wardiyanto</title>
+</head>
+<body class="bg-gray-200 h-screen flex">
+  <div id="app"></div>
 
-    <script>
-      (function() {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-        const setting = localStorage.getItem('color-schema') || 'auto'
-        if (setting === 'dark' || (prefersDark && setting !== 'light'))
-          document.documentElement.classList.toggle('dark', true)
-      })()
-    </script>
+  <script>
+    (function() {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      const setting = localStorage.getItem('color-schema') || 'auto'
+      if (setting === 'dark' || (prefersDark && setting !== 'light'))
+        document.documentElement.classList.toggle('dark', true)
+    })()
+  </script>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>

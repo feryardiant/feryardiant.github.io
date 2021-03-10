@@ -2,15 +2,15 @@
   <header id="masthead">
     <div class="container">
       <nav class="nav inner-container">
-        <router-link :to="{ name: 'home' }">
+        <router-link to="/">
           <span>Home</span>
         </router-link>
-        <router-link :to="{ name: 'about' }">
+        <router-link to="/about">
           <span>About</span>
         </router-link>
-        <router-link :to="{ name: 'contact' }">
+        <!-- <router-link :to="{ name: 'contact' }">
           <span>Contact</span>
-        </router-link>
+        </router-link> -->
       </nav>
     </div>
   </header>
