@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "generate": "cross-env NODE_ENV=production vite-ssg build",
+    "generate": "cross-env NODE_ENV=production vite-ssg build --entry=src/main.js",
     "prepare": "husky install"
   },
   "engines": {
