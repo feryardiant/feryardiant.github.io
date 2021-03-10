@@ -2,7 +2,7 @@
 layout: post
 title: "Joke of the day"
 modified: 2015-05-27 23:05:39 +0700
-thumb: me-on-google.png
+thumb: /src/assets/uploads/me-on-google.png
 comments: true
 tags: [Joke]
 ---

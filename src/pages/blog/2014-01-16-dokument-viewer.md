@@ -19,8 +19,8 @@ Rasa penasaran bertambah saat saya mencoba [SOLO](www.getsoloapp.com), sebuah a
 Nah, dari rasa penasaran diatas, munculah ide untuk membuat sendiri librari untuk meng-handle berbagai macam dokumen. Beberapa librari yang rencananya akan saya gunakan adalah
 
 
-  1. Mozilla PDF.JS (Untuk dokumen PDF tentunya)
-  2. WebODF (Untuk Open Document Format, seperti .ODT, .ODS, .ODP)
+1. Mozilla PDF.JS (Untuk dokumen PDF tentunya)
+2. WebODF (Untuk Open Document Format, seperti .ODT, .ODS, .ODP)
 
 _Note: Sementara baru 2 resource itu yang rencanannya akan saya gunakan untuk pengembangan librari ini. Ada saran?_
 
@@ -28,28 +28,28 @@ _Note: Sementara baru 2 resource itu yang rencanannya akan saya gunakan untuk pe
 
 Oke, saya mulai dari PDF.JS. Pertama kali saya coba menggunakan [Twitter Bower](http://bower), niatnya sih biar Source lebih gampang ngatur repo nya. Tapi nggak tau kenapa, pas compiling build status nya error terus. Berikut hasil compilenya.
 
-{% highlight javascript %}
+```js
 PDFJS.version = '0.8.2';
 PDFJS.build = 'fatal: Not a git repository (or any parent up to mount point /home)Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).';
-{% endhighlight %}
+```
 
 Well, dari situ kemungkinan si PDF.JS butuh source dari git repo nya. Jadi saya coba dengan clone langsung dari official repo nya yang ada di github.
 
-{% highlight bash %}
+```bash
 # cloning repo
 $ git clone git@github.com/mozilla/pdf.js.git pdfjs
 # masuk ke direktorynya
 $ cd pdfjs
 # compile source code
 $ node make generic
-{% endhighlight %}
+```
 
 Dan hasilnya,
 
-{% highlight javascript %}
+```js
 PDFJS.version = '0.8.872';
 PDFJS.build = 'ab4f27b';
-{% endhighlight %}
+```
 
 Oke, compiling nya udah selesai dan setelah dicoba, kelihatannya nggak ada masalah. Misi selanjutnya adalah ngutak-atik source code nya dan disesuaiin dengan kebutuhan saya.
 
@@ -61,9 +61,9 @@ Mengingat PDF.JS dari Bower yang error saat compiling, jadi untuk WebODF saya la
 
 Ini adalah kali kedua, saya menemui aplikasi berbasis javascript yang harus dicompile menggunakan C Compiler setelah Node.JS. Oke, mulailah saya coba untuk compile dengan perintah.
 
-{% highlight bash %}
+```bash
 $ make webodf.js-target
-{% endhighlight %}
+```
 
 Setelah baca2 sedikit dokumentasi nya, ternyata WebODF ini tidak hanya membutuhkan Closure Compiler sebagai dependensinya, ada beberapa dependensi lain yang dia butuhkan termasuk Node.JS. Meski begitu yang cukup mengherankan adalah kenapa dia tidak bisa mendeteksi installasi Node.JS yang ada di sistem? melainkan mendownload source codenya secara manual dan dilanjutkan dengan compile.
 

@@ -8,4 +8,4 @@ tags: [Tulisan]
 ---
 Buat ngegerakin mouse aja udah sujud syukur pasti, hiagagagagag
 
-{% image ubuntu.png alt="An unsual picture" %}
+![An unsual picture](/src/assets/uploads/ubuntu.png)

