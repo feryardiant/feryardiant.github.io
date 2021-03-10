@@ -1,9 +1,8 @@
 ---
-layout: page
+layout: home
 lang: en
 title: About Me
-menu: About
-permalink: /about.html
+menu: About Me
 ---
 **Hi!** Nice to meet you. I'm [Fery Wardiyanto](https://google.com/?s=Fery+Wardiyanto). I am web developer based on [Pekalongan, Indonesia](https://www.google.co.id/maps/place/Pekalongan,Indonesia/). I always curious and try to learn new things and something may have bright prospect in the future in technology department.
 

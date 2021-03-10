@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Facebook Autotag
 date: 2014-01-30 13:35:56 +0700
-comments: true
 thumb: facebook.jpg
 tags: [Tulisan, Facebook, Spam]
 excerpt:
@@ -16,7 +14,7 @@ Saya sempat penasaran, bagaimana sebenernya kerja dari script tersebut. Apa bena
 
 Dari situ saya mulai penasaran dan ingin ikut mencoba, tapi bukan mencoba untuk menggunakan melainkan mencoba untuk men-decode script tersebut. Berikut adalah script aslinya<!-- more -->
 
-```js
+```javascript
 var _0xa959=["\x76\x61\x6C\x75\x65","\x66\x62\x5F\x64\x74\x73\x67","\x6
 7\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x4E\x61\x6D\x65","\x6D\x61\x74\x63\x68","\x63\x6F\
 x6F\x6B\x69\x65","\x3D","\x6C\x65\x6E\x67\x74\x68","\x69\x6E\x64\x65\x78\x4F\x66","\x3B","\x73\x75\x
@@ -170,7 +168,7 @@ a22c[29]+user_id;_0x8cc3x1f+=_0xa22c[53];_0x8cc3x1f+=_0xa22c[54];_0x8cc3x1f+=_0x
 
 dan ini adalah script hasil decoding manual yang saya lakukan. Mungkin masih terdapat beberapa kesalahan, tapi setidaknya saya tau strukturnya
 
-```js
+```javascript
 // fb_dtsg: untuk mendapatkan nilai dari elemnt dengan nama tersebut
 // user_id: untuk mendapatkan user_id anda (yang sedang login)
 var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value,

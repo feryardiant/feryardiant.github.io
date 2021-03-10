@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Direct Print menggunakan Node.JS"
 date: 2015-01-15 15:00:39 +0700
-comments: true
 thumb: node-printer.png
 tags: [Workarounds, NodeJs, Print]
 ---
@@ -46,7 +44,7 @@ $ touch print.js
 
 ### 3. Buka file tersebut dengan editor kesayangan anda dan paste code berikut untuk melihat daftar printer yang tersedia
 
-```js
+```javascript
 var printer = require('printer')
 console.log(printer.getPrinters())
 ```
@@ -100,7 +98,7 @@ nah! diketahui bahwa saya menggunakan Generic-CUPS-PDF-Printer sebagai default p
 
 ### 5. Mari kita langsung nyobain untuk printing menggunakan code berikut:
 
-```js
+```javascript
 var printer = require('printer')
 
 printer.printDirect({

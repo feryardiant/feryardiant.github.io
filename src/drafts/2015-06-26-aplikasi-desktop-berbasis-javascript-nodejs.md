@@ -1,9 +1,6 @@
 ---
-layout: post
 title: "Aplikasi Desktop berbasis Javascript?"
 modified: 2015-06-26 11:58:22 +0700
-thumb:
-comments:
 tags: [Learning, NodeJS, Desktop App]
 ---
 Dapet tawaran untuk bikin aplikasi berbasis desktop itu rasanya seperti _CLBK (Coding Lama Bersemi Kembali)_, hahaha. Ya! karena bahasa pemrograman yang pertama kali saya pelajari skitar tahun 2008 adalah Delphi. Walaupun waktu itu masih sekedar belajar dan belum pernah sampai tahap *real project*, tapi setidaknya saya ada cukup bekal untuk belajar bahasa pemrograman lain.
