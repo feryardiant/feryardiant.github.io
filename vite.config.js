@@ -46,7 +46,6 @@ module.exports = defineConfig({
 
     pages({
       extensions: ['vue', 'md'],
-      pagesDir: 'pages',
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
 
@@ -78,7 +77,7 @@ module.exports = defineConfig({
         })
 
         md.use(mdLinkAttr, {
-          pattern: /^https?:/,
+          pattern: /^(https?:\/\/|\/\/)/,
           attrs: {
             target: '_blank',
             rel: 'noopener',
