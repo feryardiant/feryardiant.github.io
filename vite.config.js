@@ -9,6 +9,7 @@ import components from 'vite-plugin-components'
 
 import markdown from 'vite-plugin-md'
 import matter from 'gray-matter'
+import mdIt from 'markdown-it'
 import mdAnchor from 'markdown-it-anchor'
 import mdPrism from 'markdown-it-prism'
 import mdLinkAttr from 'markdown-it-link-attributes'
@@ -75,16 +76,24 @@ module.exports = defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     pages({
       extensions: ['vue', 'md'],
-      extendRoute(route) {
-        const path = resolve(__dirname, route.component.slice(1))
+      extendRoute(page) {
+        const path = resolve(__dirname, page.component.slice(1))
+        const md = readFileSync(path, 'utf-8')
+        const { data, excerpt } = matter(md, {
+          excerpt: true,
+          excerpt_separator: '<!-- more -->',
+        })
 
-        if (!path.includes('projects.md')) {
-          const md = readFileSync(path, 'utf-8')
-          const { data } = matter(md)
-          route.meta = Object.assign(route.meta || {}, { frontmatter: data })
-        }
+        page.meta = Object.assign(page.meta || {}, {
+          frontmatter: Object.assign({}, {
+            comments: true,
+            excerpt: mdIt().render(excerpt),
+            layout: 'default',
+            locale: 'id',
+          }, data)
+        })
 
-        return route
+        return page
       }
     }),
 
@@ -96,6 +105,8 @@ module.exports = defineConfig({
       wrapperComponent: 'page',
       wrapperClasses: 'page-content entry-content',
       headEnabled: true,
+
+      // see: https://markdown-it.github.io/markdown-it/
       markdownItOptions: {
         quotes: '""\'\'',
       },
@@ -142,5 +153,4 @@ module.exports = defineConfig({
     }),
 
   ]
-
 })
