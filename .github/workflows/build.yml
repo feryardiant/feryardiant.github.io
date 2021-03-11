@@ -35,7 +35,7 @@ jobs:
           ${{ runner.os }}-build-${{ env.cache-name }}-
 
     - name: Install Dependencies
-      uses: pnpm/action-setup@v1.2
+      uses: pnpm/action-setup@v1.2.1
       with:
         version: 5.18
         run_install: true
