@@ -11,8 +11,11 @@ const year = new Date().getFullYear();
 </script>
 
 <style lang="postcss" scoped>
+.colopon {
+  @apply border-t border-gray-300;
+}
+
 p {
-  @apply text-sm text-gray-500;
-  text-align: center;
+  @apply text-center text-sm text-gray-500;
 }
 </style>

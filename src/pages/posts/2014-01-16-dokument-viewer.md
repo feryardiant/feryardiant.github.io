@@ -2,19 +2,16 @@
 title: Bikin dokument viewer menggunakan sendiri PDF.JS dan WebODF
 date: 2014-01-16 15:58:03 +0700
 tags: [Playgrounds, Document Viewer]
-excerpt:
-  'Berhadapan dengan project yang dituntut untuk dapat menampilkan berbagai macam dokumen membuat saya penasaran dan berkeinginan untuk membuat semacam Document Viewer sendiri, karena sebelumnya saya slalu menggunakan dan mengkombinasikan source program buatan orang lain. Terutama untuk dokumen teks seperti: .PDF, .ODT, .ODS, .DOC dsb.'
 ---
-Berhadapan dengan project yang dituntut untuk dapat menampilkan berbagai macam dokumen membuat saya penasaran dan berkeinginan untuk membuat semacam Document Viewer sendiri, karena sebelumnya saya slalu menggunakan dan mengkombinasikan source program buatan orang lain. Terutama untuk dokumen teks seperti: .PDF, .ODT, .ODS, .DOC dsb.
+Berhadapan dengan project yang dituntut untuk dapat menampilkan berbagai macam dokumen membuat saya penasaran dan berkeinginan untuk membuat semacam Document Viewer sendiri, karena sebelumnya saya slalu menggunakan dan mengkombinasikan source program buatan orang lain. Terutama untuk dokumen teks seperti: .PDF, .ODT, .ODS, .DOC dsb.<!-- more -->
 
-Walau begitu saya masih belum banyak pengalaman untuk menangani jenis dokumen-dokumen tersebut. Berdasarkan hasil googling, cukup banyak yang merekomendasikan [Viewer.JS](viewerjs.org). Kelihatannya cukup menjanjikan, dimana Viewer.js menkombinasikan beberapa tool open-source sebagai basisnya seperti [Mozilla PDF.JS](http://mozilla.github.io/pdf.js) dan [WebODF](http://webodf.org).<!-- more -->
+Walau begitu saya masih belum banyak pengalaman untuk menangani jenis dokumen-dokumen tersebut. Berdasarkan hasil googling, cukup banyak yang merekomendasikan [Viewer.JS](viewerjs.org). Kelihatannya cukup menjanjikan, dimana Viewer.js menkombinasikan beberapa tool open-source sebagai basisnya seperti [Mozilla PDF.JS](http://mozilla.github.io/pdf.js) dan [WebODF](http://webodf.org).
 
 > Viewer.js is a combination of a number of excellent open source tools that are built on HTML and JavaScript.
 
 Rasa penasaran bertambah saat saya mencoba [SOLO](www.getsoloapp.com), sebuah aplikasi Project Management gratisan yang cukup bisa diandalkan untuk membantu mengelola project pribadi (menurut saya) terutama buat freelancer seperti saya, hehehe :). Solo memiliki menejemen dokumen yang baik, mengingat sebuah pada aplikasi Project Management harus dapat melakukan hal tersebut. Solo juga menggunakan beberapa open-source project untuk menampilkan bahkan mengelola file-file disetiap project nya. Seperti PDF.JS, FlowPlayer, JPlayer dll.
 
 Nah, dari rasa penasaran diatas, munculah ide untuk membuat sendiri librari untuk meng-handle berbagai macam dokumen. Beberapa librari yang rencananya akan saya gunakan adalah
-
 
 1. Mozilla PDF.JS (Untuk dokumen PDF tentunya)
 2. WebODF (Untuk Open Document Format, seperti .ODT, .ODS, .ODP)
@@ -43,7 +40,7 @@ $ node make generic
 
 Dan hasilnya,
 
-```javascript
+```js
 PDFJS.version = '0.8.872';
 PDFJS.build = 'ab4f27b';
 ```

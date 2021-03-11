@@ -11,11 +11,6 @@
 <style lang="postcss">
 #site-content {
   /* min-height: calc(100vh - #{$content-height}); */
-
-  .inner-container {
-    padding-top: (2 * $gap);
-    padding-bottom: (2 * $gap);
-  }
 }
 </style>
 

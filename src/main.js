@@ -1,6 +1,6 @@
 import { ViteSSG } from 'vite-ssg'
 // import { createApp } from 'vue'
-// import VueGtm from 'vue-gtm'
+import vueGtm from 'vue-gtm'
 import nProgress from 'nprogress'
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
@@ -13,15 +13,6 @@ import './main.css'
 import App from './app.vue'
 
 const routes = autoRoutes.map(route => {
-  let { frontmatter } = route.meta
-
-  frontmatter = Object.assign({}, {
-    comments: true,
-    layout: 'default',
-    locale: 'id',
-    thumb: 'default-thumbnail.png',
-  }, frontmatter)
-
   return {
     ...route,
     alias: route.path.endsWith('/')
@@ -35,31 +26,19 @@ export const createApp = ViteSSG(App, {
   scrollBehavior (from, to, position) {
     return position || { top: 0 }
   }
-}, ({ router, isClient }) => {
+}, ({ app, router, routes, isClient }) => {
   dayjs.extend(localizedFormat)
 
   router.linkActiveClass = ''
   router.linkExactActiveClass = 'is-active'
 
   if (isClient) {
+    app.use(vueGtm, {
+      id: import.meta.env.VITE_GTM_KEY,
+      routes
+    })
+
     router.beforeEach(() => { nProgress.start() })
     router.afterEach(() => { nProgress.done() })
   }
 })
-// const $app = createApp(App, {
-//   routes,
-//   created () {
-//     if (sessionStorage.redirect) {
-//       const redirect = sessionStorage.redirect
-//       delete sessionStorage.redirect
-//       this.$router.push(redirect)
-//     }
-//   }
-// })
-
-// $app.use(VueGtm, {
-//   id: 'GTM-5G6FXJ7',
-//   routes
-// })
-
-// $app.mount('#app')

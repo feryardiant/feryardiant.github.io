@@ -42,8 +42,11 @@ jobs:
 
     - name: Generate
       env:
-        BASE_URL: 'https://feryardiant.id/'
-      run: pnpm generate
+        BASE_URL: https://feryardiant.id/
+        VITE_GTM_KEY: GTM-5G6FXJ7
+      run: |
+        pnpm generate
+        cp .gitignore dist/
 
     - name: Deploy
       if: github.event_name == 'push' && github.ref == 'refs/heads/source'

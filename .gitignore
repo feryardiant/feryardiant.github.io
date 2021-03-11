@@ -10,18 +10,10 @@ Desktop.ini
 ._
 *~
 
-# IDE Project Configurations
-# --------------------------
-/nbproject
-/.idea
-/.settings
-/.vscode
-/.husky
-/.project
-/*.sublime-*
-
 # Developments
 # --------------------------
+.vscode
+.husky
 dist
 node_modules
 serviceAccountKey.json

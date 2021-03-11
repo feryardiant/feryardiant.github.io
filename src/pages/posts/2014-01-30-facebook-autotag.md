@@ -3,18 +3,16 @@ title: Facebook Autotag
 date: 2014-01-30 13:35:56 +0700
 thumb: facebook.jpg
 tags: [Tulisan, Facebook, Spam]
-excerpt:
-  'Facebook belakangan ini mulai marak dengan kasus autotag, dimana setiap orang akan secara otomatis mention/summon semua friendlist nya kedalam komentar. Seperti yang saya alami beberapa waktu lalu, saya di-mention oleh beberapa teman ke beberapa post. Setelah saya coba check post tersebut ternyata hanya post bodoh yang nggak ada gunanya sama sekali, antara lain <em>Hack password teman</em>, <em>Melihat isi inbox dari akun FB temen</em> bahkan ada jg yg pake modus <em>Memperoleh ribuan follower cewek-cewek seksi</em>. WHAT THE FUCKING IS THIS SHIT!'
 ---
-Belakangan ini mulai marak dengan kasus autotag di Facebook, dimana setiap orang akan secara otomatis mention/summon semua friendlist nya kedalam komentar. Seperti yang saya alami beberapa waktu lalu, saya di-mention oleh beberapa teman ke beberapa post. Setelah saya coba check post tersebut ternyata hanya post bodoh yang nggak ada gunanya sama sekali, antara lain _Hack password teman_, _Melihat isi inbox dari akun FB temen_ bahkan ada juga yang pake modus _Memperoleh ribuan follower cewek-cewek seksi_. WHAT THE FUCKING IS THIS SHIT!
+Belakangan ini mulai marak dengan kasus autotag di Facebook, dimana setiap orang akan secara otomatis mention/summon semua friendlist nya kedalam komentar.<!-- more --> Seperti yang saya alami beberapa waktu lalu, saya di-mention oleh beberapa teman ke beberapa post. Setelah saya coba check post tersebut ternyata hanya post bodoh yang nggak ada gunanya sama sekali, antara lain _Hack password teman_, _Melihat isi inbox dari akun FB temen_ bahkan ada juga yang pake modus _Memperoleh ribuan follower cewek-cewek seksi_. WTF!
 
 Semua dikemas dalam bentuk tutorial. Dimana mereka mengarahkan untuk membuka sebuah link, dan  semuanya mengarahkan ke link yang berbeda tapi dengan isi yang sama yaitu sebuah script javascript yang di encode menggunakan hexadesimal (saya kurang tau encoder apa yang mereka gunakan). Setelah itu, script tersebut harus di-copas ke browser console. Setelah script tersebut dijalankan barulah mereka dapat melihat hasilnya. Dan hasilnya adalah script tersebut memanggil semua daftar teman yang ada untuk di-mention dalam komentar post tersebut.
 
 Saya sempat penasaran, bagaimana sebenernya kerja dari script tersebut. Apa benar-benar bisa mendapatkan sesuai yang ditulis di judul nya atau bagaimana?. Tapi kecurigaan mulai muncul saat lihat kolom komentar nya yang mencapai ratusan ribu, padahal post tersebut baru keluar beberapa jam yang lalu. Ternyata keseluruhan komentar disitu hanyalah mention. Dan dilihat dari waktu komentarnya yang sama, dapat dipastikan bahwa setiap orang yang berkomentar dalam post tersebut adalah orang yang mencoba menggunakan script tersebut. Sangat tidak mungkin seseorang dapat menyebutkan semua friendlist nya dalam waktu yang bersamaan kan?
 
-Dari situ saya mulai penasaran dan ingin ikut mencoba, tapi bukan mencoba untuk menggunakan melainkan mencoba untuk men-decode script tersebut. Berikut adalah script aslinya<!-- more -->
+Dari situ saya mulai penasaran dan ingin ikut mencoba, tapi bukan mencoba untuk menggunakan melainkan mencoba untuk men-decode script tersebut. Berikut adalah script aslinya
 
-```javascript
+```js
 var _0xa959=["\x76\x61\x6C\x75\x65","\x66\x62\x5F\x64\x74\x73\x67","\x6
 7\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x4E\x61\x6D\x65","\x6D\x61\x74\x63\x68","\x63\x6F\
 x6F\x6B\x69\x65","\x3D","\x6C\x65\x6E\x67\x74\x68","\x69\x6E\x64\x65\x78\x4F\x66","\x3B","\x73\x75\x
@@ -168,7 +166,7 @@ a22c[29]+user_id;_0x8cc3x1f+=_0xa22c[53];_0x8cc3x1f+=_0xa22c[54];_0x8cc3x1f+=_0x
 
 dan ini adalah script hasil decoding manual yang saya lakukan. Mungkin masih terdapat beberapa kesalahan, tapi setidaknya saya tau strukturnya
 
-```javascript
+```js
 // fb_dtsg: untuk mendapatkan nilai dari elemnt dengan nama tersebut
 // user_id: untuk mendapatkan user_id anda (yang sedang login)
 var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value,

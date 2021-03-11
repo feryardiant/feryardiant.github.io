@@ -5,5 +5,3 @@ thumb: ubuntu.png
 tags: [Tulisan]
 ---
 Buat ngegerakin mouse aja udah sujud syukur pasti, hiagagagagag
-
-![An unsual picture](/src/assets/uploads/ubuntu.png)

@@ -1,0 +1,65 @@
+<script setup>
+import { defineProps } from 'vue';
+
+const { frontmatter, excerpt } = defineProps({
+  frontmatter: {},
+  excerpt: {
+    type: Boolean,
+    default: () => true
+  }
+});
+const postDate = frontmatter.modified || frontmatter.date;
+const formatDate = (date) => new Date(date).toLocaleDateString();
+</script>
+
+<template>
+  <p class="page-meta">
+    <time class="published" v-if="postDate" :datetime="postDate" :title="postDate">{{ formatDate(postDate) }}</time>
+    <span v-for="tag in frontmatter.tags" :key="tag" class="tag">#{{ tag }}</span>
+  </p>
+
+  <slot v-bind="{ title: frontmatter.title }">
+    <h1 class="page-title entry-title">{{ frontmatter.title }}</h1>
+  </slot>
+
+  <figure v-if="frontmatter.thumb">
+    <img :alt="frontmatter.title" :src="`/uploads/${frontmatter.thumb}`">
+  </figure>
+
+  <p v-if="excerpt && frontmatter.excerpt" class="excerpt" v-html="frontmatter.excerpt" />
+</template>
+
+<style lang="postcss" scoped>
+h1, h3 {
+  &.page-title {
+    font-weight: 700;
+    line-height: 1.6em;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    > a {
+      @apply inline-block;
+      text-decoration: none;
+      font-weight: inherit;
+    }
+  }
+}
+
+h3.page-title {
+  font-size: 1.8rem;
+}
+
+.page-title {
+  padding-bottom: .5em;
+}
+
+p.page-meta {
+  @apply text-sm text-gray-500;
+  margin-top: 0;
+  margin-bottom: .5em;
+
+  * {
+    margin-right: .5rem;
+  }
+}
+</style>
