@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "run-p build:*",
+    "build": "run-s build:ssg build:rss",
     "build:ssg": "cross-env NODE_ENV=production vite-ssg build --entry=src/main.js",
     "build:rss": "node scripts/feed.mjs",
     "prepare": "husky install"
