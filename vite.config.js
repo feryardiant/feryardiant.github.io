@@ -49,19 +49,21 @@ module.exports = defineConfig({
   },
 
   optimizeDeps: {
-    // include: [
-    //   '@iconify/iconify',
-    //   '@vueuse/core',
-    //   'dayjs',
-    //   'dayjs/plugin/localizedFormat',
-    //   'vue',
-    //   'vue-router',
-    // ],
+    include: [
+      '@vueuse/core',
+      'feather-icons',
+      'vue',
+      'vue-router',
+    ],
+    exclude: [
+      'vue-demi',
+    ],
   },
 
+  // https://github.com/antfu/vite-ssg
   ssgOptions: {
     script: 'async',
-    formatting: 'prettify',
+    formatting: 'minify',
   },
 
   plugins: [
@@ -70,6 +72,7 @@ module.exports = defineConfig({
       include: [/\.vue$/, /\.md$/],
     }),
 
+    // https://github.com/hannoeru/vite-plugin-pages
     pages({
       extensions: ['vue', 'md'],
       extendRoute(route) {
@@ -85,13 +88,13 @@ module.exports = defineConfig({
       }
     }),
 
-    layouts({
-      layoutsDir: 'src/layouts'
-    }),
+    // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
+    layouts(),
 
+    // https://github.com/antfu/vite-plugin-md
     markdown({
       wrapperComponent: 'page',
-      wrapperClasses: 'prose',
+      wrapperClasses: 'page-content entry-content',
       headEnabled: true,
       markdownItOptions: {
         quotes: '""\'\'',
@@ -101,8 +104,9 @@ module.exports = defineConfig({
 
         md.use(mdAnchor, {
           permalink: true,
-          permalinkBefore: true,
-          permalinkSymbol: '#',
+          // permalinkBefore: true,
+          permalinkSymbol: '🔗',
+          permalinkSpace: false,
           permalinkAttrs: () => ({ 'aria-hidden': true }),
         })
 
@@ -116,6 +120,7 @@ module.exports = defineConfig({
       },
     }),
 
+    // https://github.com/antfu/vite-plugin-components
     components({
       extensions: ['vue', 'md'],
       customLoaderMatcher: path => path.endsWith('.md'),
@@ -125,10 +130,12 @@ module.exports = defineConfig({
     }),
 
     purgeIcons(),
+    // https://github.com/antfu/vite-plugin-icons
     icons(),
 
+    // https://github.com/antfu/vite-plugin-windicss
     windiCSS({
-      safelist: 'prose prose-sm'.split(' '),
+      safelist: 'prose prose-sm m-auto text-left',
       preflight: {
         enableAll: true,
       }
