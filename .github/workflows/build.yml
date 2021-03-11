@@ -40,7 +40,16 @@ jobs:
         version: 5.18
         run_install: true
 
-    - name: Generate Site
+    - name: Generate
       env:
         BASE_URL: 'https://feryardiant.id/'
       run: pnpm generate
+
+    - name: Deploy
+      if: github.event_name == 'push' && github.ref == 'refs/heads/source'
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+        token: ${{ secrets.PAT }}
+        commit-message: 'build: generate github pages'
+        branch: master
+        folder: 'dist'
