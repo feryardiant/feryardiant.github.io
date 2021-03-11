@@ -2,16 +2,21 @@
   "name": "feryardiant-id",
   "version": "0.2.0",
   "private": true,
-  "author": "Fery Wardiyanto <ferywardiyanto@gmail.com>",
+  "author": {
+    "name": "Fery Wardiyanto",
+    "email": "ferywardiyanto@gmail.com",
+    "url": "https://feryardiant.id"
+  },
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "generate": "cross-env NODE_ENV=production vite-ssg build --entry=src/main.js",
+    "build": "run-p build:*",
+    "build:ssg": "cross-env NODE_ENV=production vite-ssg build --entry=src/main.js",
+    "build:rss": "node scripts/feed.mjs",
     "prepare": "husky install"
   },
   "engines": {
-    "node": ">=10"
+    "node": "14.x"
   },
   "workspaces": [
     "firebase/*"
@@ -25,7 +30,7 @@
     "qs": "^6.9.6",
     "vue": "^3.0.7",
     "vue-gtm": "^3.4.1",
-    "vue-router": "^4.0.4"
+    "vue-router": "^4.0.5"
   },
   "devDependencies": {
     "@antfu/eslint-config-vue": "^0.4.3",
@@ -40,14 +45,15 @@
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "eslint": "^7.21.0",
+    "fast-glob": "^3.2.5",
     "feed": "^4.2.2",
-    "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
     "husky": "^5.1.3",
     "markdown-it": "^12.0.4",
     "markdown-it-anchor": "^7.1.0",
     "markdown-it-link-attributes": "^3.0.0",
     "markdown-it-prism": "^2.1.6",
+    "npm-run-all": "^4.1.5",
     "postcss-nested": "^5.0.5",
     "prismjs": "^1.23.0",
     "vite": "^2.0.5",
@@ -57,7 +63,7 @@
     "vite-plugin-pages": "^0.7.0",
     "vite-plugin-purge-icons": "^0.7.0",
     "vite-plugin-vue-layouts": "^0.2.2",
-    "vite-plugin-windicss": "^0.8.1",
+    "vite-plugin-windicss": "^0.8.2",
     "vite-ssg": "^0.8.12",
     "windicss": "^2.4.0"
   },
