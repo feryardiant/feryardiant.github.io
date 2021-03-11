@@ -2,6 +2,8 @@
   "name": "@feryardiant/functions",
   "version": "0.0.0",
   "description": "Cloud Functions for Firebase",
+  "author": "Fery Wardiyanto <ferywardiyanto@gmail.com>",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "lint": "eslint .",

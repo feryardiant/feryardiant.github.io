@@ -1,52 +1,29 @@
 <template>
   <header id="masthead">
     <div class="container">
-      <nav class="nav inner-container">
-        <router-link :to="{ name: 'home' }">
-          <span>Home</span>
-        </router-link>
-        <router-link :to="{ name: 'about' }">
-          <span>About</span>
-        </router-link>
-        <router-link :to="{ name: 'contact' }">
-          <span>Contact</span>
-        </router-link>
+      <nav class="nav-primary">
+        <router-link v-for="{ to, title } in menu" :key="to" :to="to">{{ title }}</router-link>
       </nav>
     </div>
   </header>
 </template>
 
-<script>
-export default {
-  name: 'site-header'
-}
+<script setup>
+const menu = [
+  { to: '/', title: 'Home' },
+  { to: '/about', title: 'About Me' },
+  { to: '/posts', title: 'Blog' },
+];
 </script>
 
-<style lang="scss" scoped>
-header {
-  max-height: $header-height;
+<style lang="postcss" scoped>
+nav {
+  text-align: center;
 }
 
-nav {
-  @include clearfix;
-
-  min-height: 120px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  white-space: nowrap;
-
-  a {
-    padding: (2 * $gap) 20px $gap;
-    display: inline-flex;
-
-    > span {
-      border-bottom: 2px solid transparent;
-    }
-
-    &.is-active > span {
-      border-bottom-color: $border;
-    }
-  }
+a {
+  @apply text-gray-500 inline-block;
+  padding: 1rem .5rem;
+  line-height: 1em;
 }
 </style>
