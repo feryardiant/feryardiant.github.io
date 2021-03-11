@@ -4,7 +4,7 @@ date: 2015-01-15 15:00:39 +0700
 thumb: node-printer.png
 tags: [Workarounds, NodeJs, Print]
 ---
-Hari ini saya tertarik untuk mencoba melakukan direct print menggunakan Node.JS. Setelah googling dan nyari di npmjs.org beberapa saat, ketemulah node-printer
+Hari ini saya tertarik untuk mencoba melakukan direct print menggunakan Node.JS. Setelah googling dan nyari di npmjs.org beberapa saat, ketemulah node-printer.<!-- more -->
 
 > This package binds printers on POSIX and Windows OS from Node.js
  — [node-printer desc](https://www.npmjs.com/package/printer)
@@ -44,7 +44,7 @@ $ touch print.js
 
 ### 3. Buka file tersebut dengan editor kesayangan anda dan paste code berikut untuk melihat daftar printer yang tersedia
 
-```javascript
+```js
 var printer = require('printer')
 console.log(printer.getPrinters())
 ```
@@ -69,36 +69,39 @@ Oh! ternyata memang masih ada bug untuk versi ini (0.0.2) semoga lekas diperbaik
 
 ```bash
 $ node print.js
-[ { name: 'Generic-CUPS-PDF-Printer',
-isDefault: true,
-options:
-{ copies: '1',
-'device-uri': 'cups-pdf:/',
-finishings: '3',
-'job-hold-until': 'no-hold',
-'job-priority': '50',
-'job-sheets': 'none,none',
-'marker-change-time': '0',
-'number-up': '1',
-'ppd-timestamp': '*',
-'printer-commands': 'AutoConfigure,Clean,PrintSelfTestPage',
-'printer-info': 'Generic CUPS-PDF Printer',
-'printer-is-accepting-jobs': 'true',
-'printer-is-colormanaged': 'true',
-'printer-make-and-model': 'Generic CUPS-PDF Printer',
-'printer-state': '3',
-'printer-state-change-time': '1414049132',
-'printer-state-reasons': 'none',
-'printer-type': '8581196',
-'printer-uri-supported': 'ipp://localhost:631/printers/Generic-CUPS-PDF-Printer' },
-status: 'IDLE' } ]
+[ {
+  name: 'Generic-CUPS-PDF-Printer',
+  isDefault: true,
+  options: {
+    copies: '1',
+    'device-uri': 'cups-pdf:/',
+    finishings: '3',
+    'job-hold-until': 'no-hold',
+    'job-priority': '50',
+    'job-sheets': 'none,none',
+    'marker-change-time': '0',
+    'number-up': '1',
+    'ppd-timestamp': '*',
+    'printer-commands': 'AutoConfigure,Clean,PrintSelfTestPage',
+    'printer-info': 'Generic CUPS-PDF Printer',
+    'printer-is-accepting-jobs': 'true',
+    'printer-is-colormanaged': 'true',
+    'printer-make-and-model': 'Generic CUPS-PDF Printer',
+    'printer-state': '3',
+    'printer-state-change-time': '1414049132',
+    'printer-state-reasons': 'none',
+    'printer-type': '8581196',
+    'printer-uri-supported': 'ipp://localhost:631/printers/Generic-CUPS-PDF-Printer'
+  },
+  status: 'IDLE'
+} ]
 ```
 
 nah! diketahui bahwa saya menggunakan Generic-CUPS-PDF-Printer sebagai default printer, jaaaaaaaadi…
 
 ### 5. Mari kita langsung nyobain untuk printing menggunakan code berikut:
 
-```javascript
+```js
 var printer = require('printer')
 
 printer.printDirect({
@@ -122,4 +125,4 @@ $ node print.js
 
 ### 6. Perhatikan print job yang ada di statusbar atau system tray anda, apakah berjalan dengan baik?
 
-Semoga bermanfaat :smile:
+Semoga bermanfaat 😬
