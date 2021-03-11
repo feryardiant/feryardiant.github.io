@@ -43,7 +43,7 @@ jobs:
     - name: Generate
       env:
         BASE_URL: https://feryardiant.id/
-        GTM_KEY: GTM-5G6FXJ7
+        VITE_GTM_KEY: GTM-5G6FXJ7
       run: |
         pnpm generate
         cp .gitignore dist/
