@@ -45,7 +45,7 @@ jobs:
         BASE_URL: https://feryardiant.id/
         VITE_GTM_KEY: GTM-5G6FXJ7
       run: |
-        pnpm generate
+        pnpm build
         cp .gitignore dist/
 
     - name: Deploy
