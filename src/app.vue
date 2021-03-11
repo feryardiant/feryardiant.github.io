@@ -1,22 +1,21 @@
 <template>
   <site-header />
 
-  <section id="site-content">
+  <main id="site-content">
     <router-view />
-  </section>
+  </main>
 
   <site-footer />
 </template>
 
-<script>
-import SiteHeader from '/~/components/site-header.vue'
-import SiteFooter from '/~/components/site-footer.vue'
+<style lang="postcss">
+#site-content {
+  /* min-height: calc(100vh - #{$content-height}); */
 
-export default {
-  components: {
-    SiteHeader,
-    SiteFooter
+  .inner-container {
+    padding-top: (2 * $gap);
+    padding-bottom: (2 * $gap);
   }
 }
-</script>
+</style>
 

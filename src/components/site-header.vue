@@ -1,7 +1,7 @@
 <template>
   <header id="masthead">
     <div class="container">
-      <nav class="nav inner-container">
+      <nav class="nav-primary">
         <router-link v-for="{ to, title } in menu" :key="to" :to="to">{{ title }}</router-link>
       </nav>
     </div>
@@ -15,3 +15,15 @@ const menu = [
   { to: '/posts', title: 'Blog' },
 ];
 </script>
+
+<style lang="postcss" scoped>
+nav {
+  text-align: center;
+}
+
+a {
+  @apply text-gray-500 inline-block;
+  padding: 1rem .5rem;
+  line-height: 1em;
+}
+</style>

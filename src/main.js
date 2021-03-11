@@ -1,29 +1,26 @@
 import { ViteSSG } from 'vite-ssg'
 // import { createApp } from 'vue'
 // import VueGtm from 'vue-gtm'
-// import nProgress from 'nprogress'
-// import dayjs from 'dayjs'
-// import LocalizedFormat from 'dayjs/plugin/localizedFormat'
+import nProgress from 'nprogress'
+import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 import 'windi.css'
 import autoRoutes from 'pages-generated'
 import { setupLayouts } from 'layouts-generated'
 
 import './main.css'
-import App from '/~/app.vue'
+import App from './app.vue'
 
 const routes = autoRoutes.map(route => {
-  const frontmatter = Object.assign({}, {
-    layout: 'default',
-    comments: true,
-    thumb: 'default-thumbnail.png',
-    tags: [],
-    lang: 'id'
-  }, route.meta.frontmatter)
+  let { frontmatter } = route.meta
 
-  frontmatter.thumb = `/src/assets/uploads/${frontmatter.thumb}`
-  route.meta.frontmatter = frontmatter
-  // console.log(route)
+  frontmatter = Object.assign({}, {
+    comments: true,
+    layout: 'default',
+    locale: 'id',
+    thumb: 'default-thumbnail.png',
+  }, frontmatter)
 
   return {
     ...route,
@@ -34,7 +31,20 @@ const routes = autoRoutes.map(route => {
 })
 
 export const createApp = ViteSSG(App, {
-  routes: setupLayouts(routes)
+  routes: setupLayouts(routes),
+  scrollBehavior (from, to, position) {
+    return position || { top: 0 }
+  }
+}, ({ router, isClient }) => {
+  dayjs.extend(localizedFormat)
+
+  router.linkActiveClass = ''
+  router.linkExactActiveClass = 'is-active'
+
+  if (isClient) {
+    router.beforeEach(() => { nProgress.start() })
+    router.afterEach(() => { nProgress.done() })
+  }
 })
 // const $app = createApp(App, {
 //   routes,

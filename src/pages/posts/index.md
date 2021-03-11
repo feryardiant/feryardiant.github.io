@@ -1,4 +1,5 @@
 ---
 layout: default
-title: Blog - Fery Wardiyanto
+title: Blog
 ---
+<posts-list />

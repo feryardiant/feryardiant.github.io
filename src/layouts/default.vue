@@ -1,5 +1,5 @@
 <template>
-  <main class="container py-10">
+  <article class="container py-5 prose">
     <router-view />
-  </main>
+  </article>
 </template>

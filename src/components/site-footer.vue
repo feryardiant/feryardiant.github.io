@@ -1,26 +1,18 @@
 <template>
   <footer id="colopon">
-    <div class="container">
-      <div class="inner-container">
-        <p class="credits">&copy; {{ year }} Fery Wardiyanto</p>
-        <ul class="pages">
-          <li>
-            <a href="#">Privacy</a>
-          </li>
-        </ul>
-      </div>
+    <div class="container py-5">
+      <p class="credits">&copy; {{ year }} Fery Wardiyanto</p>
     </div>
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'site-footer',
-
-  data () {
-    return {
-      year: new Date().getFullYear()
-    }
-  }
-}
+<script setup>
+const year = new Date().getFullYear();
 </script>
+
+<style lang="postcss" scoped>
+p {
+  @apply text-sm text-gray-500;
+  text-align: center;
+}
+</style>

@@ -2,41 +2,35 @@
   <i :data-feather="name"></i>
 </template>
 
-<script>
+<script setup>
+import { defineProps, onMounted } from 'vue'
 import feather from 'feather-icons'
 
-export default {
-  name: 'icon',
-
-  props: {
-    name: {
-      type: String,
-      required: true,
-      validator (value) {
-        return Object.prototype.hasOwnProperty.call(feather.icons, value)
-      }
-    },
-
-    width: {
-      type: [Number, String],
-      default () {
-        return 16
-      }
-    },
-
-    height: {
-      type: [Number, String],
-      default () {
-        return 16
-      }
+const { name, width, height } = defineProps({
+  name: {
+    type: String,
+    required: true,
+    validator (value) {
+      return Object.prototype.hasOwnProperty.call(feather.icons, value)
     }
   },
 
-  mounted () {
-    feather.replace({
-      width: this.width,
-      height: this.height
-    })
+  width: {
+    type: [Number, String],
+    default () {
+      return 16
+    }
+  },
+
+  height: {
+    type: [Number, String],
+    default () {
+      return 16
+    }
   }
-}
+});
+
+onMounted(() => {
+  feather.replace({ width, height })
+});
 </script>
