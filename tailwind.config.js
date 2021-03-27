@@ -1,5 +1,5 @@
 const { defineConfig } = require('vite-plugin-windicss')
-const typography = require('windicss/plugin/typography')
+const defaultTheme = require('windicss/defaultTheme')
 
 module.exports = defineConfig({
   darkMode: 'class',
@@ -32,9 +32,8 @@ module.exports = defineConfig({
       },
     },
     fontFamily: {
-      sans: ['Merriweather Sans', 'sans-serif'],
-      // serif: ['Merriweather', 'serif'],
-      mono: ['Fira Code', 'monospace'],
+      sans: ['Merriweather Sans', ...defaultTheme.fontFamily.sans],
+      mono: ['Fira Code', defaultTheme.fontFamily.mono],
     },
     screens: {
       'sm': '640px',
@@ -51,8 +50,9 @@ module.exports = defineConfig({
     }
   },
   plugins: [
-    typography({
+    require('windicss/plugin/typography')({
       modifiers: ['sm', 'md'],
-    })
+    }),
+    require('windicss/plugin/forms')
   ]
 })
