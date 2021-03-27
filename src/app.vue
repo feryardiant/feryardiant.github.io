@@ -7,9 +7,3 @@
 
   <site-footer />
 </template>
-
-<style lang="postcss">
-#site-content {
-  /* min-height: calc(100vh - #{$content-height}); */
-}
-</style>

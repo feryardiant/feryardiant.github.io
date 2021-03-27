@@ -1,20 +1,8 @@
-<script setup>
-import { defineProps } from 'vue';
-
-const { frontmatter, excerpt } = defineProps({
-  frontmatter: {},
-  excerpt: {
-    type: Boolean,
-    default: () => true
-  }
-});
-const postDate = frontmatter.modified || frontmatter.date;
-const formatDate = (date) => new Date(date).toLocaleDateString();
-</script>
-
 <template>
   <p class="page-meta">
-    <time class="published" v-if="postDate" :datetime="postDate" :title="postDate">{{ formatDate(postDate) }}</time>
+    <time class="published" v-if="postDate" :datetime="postDate" :title="postDate">{{
+      formatDate(postDate)
+    }}</time>
     <span v-for="tag in frontmatter.tags" :key="tag" class="tag">#{{ tag }}</span>
   </p>
 
@@ -23,14 +11,31 @@ const formatDate = (date) => new Date(date).toLocaleDateString();
   </slot>
 
   <figure v-if="frontmatter.thumb">
-    <img :alt="frontmatter.title" :src="`/uploads/${frontmatter.thumb}`">
+    <img :alt="frontmatter.title" :src="`/uploads/${frontmatter.thumb}`" />
   </figure>
 
   <p v-if="excerpt && frontmatter.excerpt" class="excerpt" v-html="frontmatter.excerpt" />
 </template>
 
+<script setup>
+import { defineProps } from 'vue'
+
+const { frontmatter, excerpt } = defineProps({
+  frontmatter: {
+    type: Object,
+  },
+  excerpt: {
+    type: Boolean,
+    default: () => true,
+  },
+})
+const postDate = frontmatter.modified || frontmatter.date
+const formatDate = (date) => new Date(date).toLocaleDateString()
+</script>
+
 <style lang="postcss" scoped>
-h1, h3 {
+h1,
+h3 {
   &.page-title {
     font-weight: 700;
     line-height: 1.6em;
@@ -50,16 +55,16 @@ h3.page-title {
 }
 
 .page-title {
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
 }
 
 p.page-meta {
-  @apply text-sm text-gray-500;
   margin-top: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
+  @apply text-sm text-gray-500;
 
   * {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 }
 </style>

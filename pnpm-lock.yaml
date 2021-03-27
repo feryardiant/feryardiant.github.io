@@ -43,7 +43,7 @@ importers:
       vite-plugin-pages: 0.9.0_b54ad54627b171bd906b4d2481023ecc
       vite-plugin-purge-icons: 0.7.0_vite@2.1.3
       vite-plugin-vue-layouts: 0.2.2_vite@2.1.3
-      vite-plugin-windicss: 0.10.3_vite@2.1.3
+      vite-plugin-windicss: 0.10.4_vite@2.1.3
       vite-ssg: 0.9.1_9b00b36cd76dea3770044a08fbe215b0
       windicss: 2.5.7
     specifiers:
@@ -85,7 +85,7 @@ importers:
       vite-plugin-pages: ^0.9.0
       vite-plugin-purge-icons: ^0.7.0
       vite-plugin-vue-layouts: ^0.2.2
-      vite-plugin-windicss: ^0.10.3
+      vite-plugin-windicss: ^0.10.4
       vite-ssg: ^0.9.1
       vue: ^3.0.9
       vue-gtm: ^3.5.0
@@ -1142,17 +1142,18 @@ packages:
       vue: '*'
     resolution:
       integrity: sha512-niGuwfS9QjRhA44qopwczanH0u8TUgkgmUnTsOAz9a+iwGIxOK3ImpX1iCW7Dshqkz3YhPtmpycOrwF07s5jIQ==
-  /@windicss/plugin-utils/0.10.3:
+  /@windicss/plugin-utils/0.10.4:
     dependencies:
       debug: 4.3.2
       fast-glob: 3.2.5
       magic-string: 0.25.7
       micromatch: 4.0.2
+      pirates: 4.0.1
       sucrase: 3.17.1
       windicss: 2.5.7
     dev: true
     resolution:
-      integrity: sha512-AWSVqbXLXKtNNXKXrl6A+H2rFcuJdQ5Sb5pnHkI/3T5LnlgmzWxJuKSorZ9SrlUjgQysTRE4MkR/4CWMwPcLbg==
+      integrity: sha512-jQu69qzA56Lv18OK8U4mUTDV17st4EdPawQuaRG2VNK+ZEQWYsMNnqGxhzDTl/NhWTGCcTb3D6mlFPNo0QDOFg==
   /JSONStream/1.3.5:
     dependencies:
       jsonparse: 1.3.1
@@ -6279,9 +6280,9 @@ packages:
       vite: ^2.0.0-beta.65
     resolution:
       integrity: sha512-I5BfkCHwHV1WlbJE1ps2r6vwTo3N5QpLks3UpGa8XHcmHW03lavvJkdfjBpagI1bUQGEwWjLowFisG0Q/NJq3A==
-  /vite-plugin-windicss/0.10.3_vite@2.1.3:
+  /vite-plugin-windicss/0.10.4_vite@2.1.3:
     dependencies:
-      '@windicss/plugin-utils': 0.10.3
+      '@windicss/plugin-utils': 0.10.4
       chalk: 4.1.0
       debug: 4.3.2
       vite: 2.1.3
@@ -6290,7 +6291,7 @@ packages:
     peerDependencies:
       vite: ^2.0.1
     resolution:
-      integrity: sha512-cEJ4Iafhs4wuz8RS2WGByXUjPClUYiKFD1Zlmysdei3SSSsgYmqX6KzqE/CE458d1FzrKSU4HesYtc0A9akhzA==
+      integrity: sha512-P7alH2dGGw3OTgjs9yZG2w0i+o1HKD8PChwhm2ftP+lLCe1xDL3LReheuRil9p2xPYzrVouER2YTbIdLUEThrQ==
   /vite-ssg/0.9.1_9b00b36cd76dea3770044a08fbe215b0:
     dependencies:
       '@vue/compiler-sfc': 3.0.9_vue@3.0.9

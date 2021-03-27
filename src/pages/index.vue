@@ -1,7 +1,7 @@
 <template>
   <div class="columns">
     <figure class="image column is-one-third-desktop">
-      <img alt="Vue logo" class="image is-rounded" src="/src/assets/avatar.png">
+      <img alt="Vue logo" class="image is-rounded" src="../assets/avatar.png">
     </figure>
 
     <div class="column">
@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .image {
   max-width: 326px;
   min-height: 100%;

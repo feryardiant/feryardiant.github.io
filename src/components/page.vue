@@ -1,9 +1,3 @@
-<script setup>
-import { defineProps } from 'vue';
-
-const { frontmatter } = defineProps(['frontmatter']);
-</script>
-
 <template>
   <header class="page-header">
     <post-meta :excerpt="false" :frontmatter="frontmatter" v-slot="{ title }">
@@ -13,6 +7,12 @@ const { frontmatter } = defineProps(['frontmatter']);
 
   <slot />
 </template>
+
+<script setup>
+import { defineProps } from 'vue'
+
+const { frontmatter } = defineProps(['frontmatter'])
+</script>
 
 <style lang="postcss">
 .page-content {

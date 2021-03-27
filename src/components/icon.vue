@@ -10,27 +10,27 @@ const { name, width, height } = defineProps({
   name: {
     type: String,
     required: true,
-    validator (value) {
+    validator(value) {
       return Object.prototype.hasOwnProperty.call(feather.icons, value)
-    }
+    },
   },
 
   width: {
     type: [Number, String],
-    default () {
+    default() {
       return 16
-    }
+    },
   },
 
   height: {
     type: [Number, String],
-    default () {
+    default() {
       return 16
-    }
-  }
-});
+    },
+  },
+})
 
 onMounted(() => {
   feather.replace({ width, height })
-});
+})
 </script>

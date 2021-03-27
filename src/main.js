@@ -1,7 +1,4 @@
 import { ViteSSG } from 'vite-ssg'
-// import { createApp } from 'vue'
-import dayjs from 'dayjs'
-import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 import autoRoutes from 'pages-generated'
 import { setupLayouts } from 'layouts-generated'
