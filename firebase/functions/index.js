@@ -31,10 +31,10 @@ exports.autoReply = firestore.document('messages/{messageId}').onCreate(async (s
   await messages.doc(params.messageId).set(envelope)
   await participants.doc(envelope.from.address).set(envelope.from)
 
-  for (let party of ['to', 'cc']) {
+  for (const party of ['to', 'cc']) {
     if (!envelope[party]) continue
 
-    for (let participant of envelope[party]) {
+    for (const participant of envelope[party]) {
       await participants.doc(participant.address).set(participant)
     }
   }
@@ -42,7 +42,7 @@ exports.autoReply = firestore.document('messages/{messageId}').onCreate(async (s
   const messageAttachments = snap.get('attachments')
 
   if (messageAttachments) {
-    for (let attachment of messageAttachments) {
+    for (const attachment of messageAttachments) {
       attachments.doc(attachment.cid).set(attachment)
     }
   }

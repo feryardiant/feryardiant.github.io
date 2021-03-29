@@ -2,9 +2,7 @@
   <header id="masthead">
     <div class="container">
       <nav class="nav-primary">
-        <router-link v-for="{ to, title } in menu" :key="to" :to="to">{{
-          title
-        }}</router-link>
+        <router-link v-for="{ to, title } in menu" :key="to" :to="to">{{ title }}</router-link>
       </nav>
     </div>
   </header>

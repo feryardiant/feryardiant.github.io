@@ -1,6 +1,6 @@
 <template>
   <article v-for="{ path, meta } of posts" :key="path" class="page-item h-item">
-    <post-meta :frontmatter="meta.frontmatter" v-slot="{ title }">
+    <post-meta v-slot="{ title }" :frontmatter="meta.frontmatter">
       <h3 class="page-title entry-title">
         <router-link :to="path">{{ title }}</router-link>
       </h3>

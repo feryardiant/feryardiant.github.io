@@ -1,6 +1,6 @@
 <template>
   <p class="page-meta">
-    <time class="published" v-if="postDate" :datetime="postDate" :title="postDate">{{
+    <time v-if="postDate" class="published" :datetime="postDate" :title="postDate">{{
       formatDate(postDate)
     }}</time>
     <span v-for="tag in frontmatter.tags" :key="tag" class="tag">#{{ tag }}</span>

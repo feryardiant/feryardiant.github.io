@@ -1,6 +1,6 @@
 <template>
   <header class="page-header">
-    <post-meta :excerpt="false" :frontmatter="frontmatter" v-slot="{ title }">
+    <post-meta v-slot="{ title }" :excerpt="false" :frontmatter="frontmatter">
       <h1 class="page-title entry-title">{{ title }}</h1>
     </post-meta>
   </header>

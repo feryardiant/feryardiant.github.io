@@ -43,7 +43,7 @@ const { simpleParser } = require('mailparser')
  * @param {Buffer} body
  * @returns {Promise<Mail>}
  */
-async function normalizeMail(body) {
+async function normalizeMail (body) {
   const parsed = await simpleParser(body.email)
   const references = (parsed.references || '').split(',')
 
@@ -55,7 +55,7 @@ async function normalizeMail(body) {
     date: parsed.date,
     messageId: parsed.messageId,
     to: parsed.to.value,
-    from: parsed.from.value[0],
+    from: parsed.from.value[0]
   }
 
   if (references.length > 0) {
@@ -66,13 +66,13 @@ async function normalizeMail(body) {
     mail.topic = parsed.headers.get('thread-topic')
   }
 
-  for (let participant of ['cc', 'replyTo']) {
+  for (const participant of ['cc', 'replyTo']) {
     if (parsed[participant]) {
       mail[participant] = parsed[participant].value
     }
   }
 
-  for (let contentType of ['inReplyTo', 'html', 'text', 'textAsHtml']) {
+  for (const contentType of ['inReplyTo', 'html', 'text', 'textAsHtml']) {
     if (parsed[contentType]) {
       mail[contentType] = parsed[contentType]
     }
@@ -148,7 +148,7 @@ module.exports = (app, db, logger, bucket) => {
     const { messageId, attachments, ...envelope } = await normalizeMail(req.body)
 
     try {
-      for (let attachment of attachments) {
+      for (const attachment of attachments) {
         if (attachment.contentDisposition === 'inline') {
           continue
         }
@@ -160,7 +160,7 @@ module.exports = (app, db, logger, bucket) => {
         const message = messages.doc(messageId)
         await trans.set(message, envelope)
 
-        for (let attachment of attachments) {
+        for (const attachment of attachments) {
           if (attachment.contentDisposition === 'inline') continue
 
           const attachmentRef = message.collection('attachments').doc(attachment.checksum)
@@ -172,7 +172,7 @@ module.exports = (app, db, logger, bucket) => {
             contentDisposition: attachment.contentDisposition,
             checksum: attachment.checksum,
             isUploaded: attachment.isUploaded,
-            publicUrl: attachment.uploadedFile.publicUrl(),
+            publicUrl: attachment.uploadedFile.publicUrl()
           })
         }
       })
