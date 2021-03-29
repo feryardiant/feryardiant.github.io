@@ -85,7 +85,8 @@ async function normalizeMail (body) {
 
 const bodyParser = (req, res, next) => {
   if (req.method !== 'POST' && !req.headers['content-type']?.startsWith('multipart/form-data')) {
-    return next()
+    console.log(req.method)
+    return res.sendStatus(403)
   }
 
   const busboy = new Busboy({ headers: req.headers })
@@ -144,7 +145,7 @@ module.exports = (app, db, logger, bucket) => {
     stream.end(file.content)
   })
 
-  app.post('/', async (req, res) => {
+  app.post('*', async (req, res) => {
     const { messageId, attachments, ...envelope } = await normalizeMail(req.body)
 
     try {
@@ -180,11 +181,13 @@ module.exports = (app, db, logger, bucket) => {
       logger.info(`Message from ${envelope.from.address} recieved`, {
         messageId
       })
+
+      res.sendStatus(200)
     } catch (err) {
       logger.error(err)
-    }
 
-    res.sendStatus(200)
+      res.sendStatus(500)
+    }
   })
 
   return app
