@@ -64,8 +64,12 @@ async function normalizeMail (body) {
     mail.references = references.filter(a => a.length > 0)
   }
 
-  if (parsed.headers.has('thread-topic')) {
-    mail.topic = parsed.headers.get('thread-topic')
+  const threadTopic = parsed.headers.has('thread-topic')
+    ? parsed.headers.get('thread-topic')
+    : (mail.subject.toLowerCase().startsWith('RE: ') ? mail.subject.slice(4) : null)
+
+  if (threadTopic) {
+    mail.topic = threadTopic
   }
 
   for (const participant of ['cc', 'replyTo']) {
