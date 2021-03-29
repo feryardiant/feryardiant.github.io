@@ -61,7 +61,10 @@ async function normalizeMail (body) {
       ? parsed.references
       : parsed.references.split(',')
 
-    mail.references = references.filter(a => a.length > 0)
+    mail.references = references.reduce((arr, ref) => {
+      arr.push(...ref.split(','))
+      return arr
+    }, []).filter(a => a.length > 0)
   }
 
   const threadTopic = parsed.headers.has('thread-topic')
