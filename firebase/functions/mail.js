@@ -1,6 +1,5 @@
 const Busboy = require('busboy')
 const { extname } = require('path')
-const { writeFileSync } = require('fs')
 const { simpleParser } = require('mailparser')
 
 /**
@@ -45,7 +44,6 @@ const { simpleParser } = require('mailparser')
  */
 async function normalizeMail (body) {
   const parsed = await simpleParser(body.email)
-  const references = (parsed.references || '').split(',')
 
   const mail = {
     spamReport: body.spam_report,
@@ -58,8 +56,12 @@ async function normalizeMail (body) {
     from: parsed.from.value[0]
   }
 
-  if (references.length > 0) {
-    mail.references = references
+  if (parsed.references) {
+    const references = Array.isArray(parsed.references)
+      ? parsed.references
+      : parsed.references.split(',')
+
+    mail.references = references.filter(a => a.length > 0)
   }
 
   if (parsed.headers.has('thread-topic')) {
