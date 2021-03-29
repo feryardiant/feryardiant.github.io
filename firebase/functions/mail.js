@@ -69,7 +69,7 @@ async function normalizeMail (body) {
 
   const threadTopic = parsed.headers.has('thread-topic')
     ? parsed.headers.get('thread-topic')
-    : (mail.subject.toLowerCase().startsWith('RE: ') ? mail.subject.slice(4) : null)
+    : (mail.subject.toLowerCase().startsWith('re: ') ? mail.subject.slice(4) : null)
 
   if (threadTopic) {
     mail.topic = threadTopic
