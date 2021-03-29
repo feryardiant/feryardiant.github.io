@@ -32,6 +32,15 @@ module.exports = defineConfig({
     },
   },
 
+  // https://github.com/vitejs/vite#dev-server-proxy
+  proxy: {
+    '/__': 'http://localhost:5000',
+    '/api': {
+      target: 'http://localhost:5001',
+      rewrite: path => path.replace(/^\/api/, '/feryardiant-id/us-central')
+    }
+  },
+
   optimizeDeps: {
     include: [
       '@vueuse/core',
