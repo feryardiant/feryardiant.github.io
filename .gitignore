@@ -13,7 +13,6 @@ Desktop.ini
 # Developments
 # --------------------------
 .vscode
-.husky
 dist
 node_modules
 serviceAccountKey.json

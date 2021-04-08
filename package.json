@@ -14,7 +14,7 @@
     "build:ssg": "cross-env NODE_ENV=production vite-ssg build --entry=src/main.js",
     "build:rss": "node scripts/feed.mjs",
     "firebase:start": "cross-env GOOGLE_APPLICATION_CREDENTIALS=../serviceAccountKey.json firebase emulators:start",
-    "prepare": "husky install scripts/.husky"
+    "prepare": "husky install scripts/husky"
   },
   "engines": {
     "node": "14.x"
@@ -104,7 +104,7 @@
     }
   },
   "lint-staged": {
-    "{firebase,src}/**/*.{js,vue}": [
+    "{scripts,src}/**/*.{mjs,js,vue}": [
       "eslint --fix"
     ]
   },
