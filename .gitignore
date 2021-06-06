@@ -15,7 +15,7 @@ Desktop.ini
 .vscode
 dist
 node_modules
-serviceAccountKey.json
+service-account-key.json
 .runtimeconfig.json
 .env.*
 .env
