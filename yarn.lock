@@ -4345,7 +4345,7 @@ jsbn@~0.1.0:
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
 
-jsdom@^16.5.3:
+jsdom@^16.6.0:
   version "16.6.0"
   resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-16.6.0.tgz#f79b3786682065492a3da6a60a4695da983805ac"
   integrity sha512-Ty1vmF4NHJkolaEmdjtxTfSfkdb8Ywarwf63f+F8/mDD1uLSSWDxDuMiZxiPhwunLrn9LOSVItWj4bLYsLN3Dg==
@@ -5988,10 +5988,10 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier@^2.3.0:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
-  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
+prettier@^2.3.1:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
+  integrity sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==
 
 printj@~1.1.0:
   version "1.1.2"
@@ -7647,15 +7647,15 @@ vite-plugin-windicss@^1.0:
     windicss "^3.1.0"
 
 vite-ssg@^0.11:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/vite-ssg/-/vite-ssg-0.11.2.tgz#d422ed7ce51a9239d5b6d058824e348ebb47d5e7"
-  integrity sha512-OQk950M8RQCxBdm1IRO75keAf/Dkv9OmqnK6ZtwXxaNgr9qnKK0A8H9pybrhp5CNDnndyBUZ2ll3QNb/KuGzcQ==
+  version "0.11.4"
+  resolved "https://registry.yarnpkg.com/vite-ssg/-/vite-ssg-0.11.4.tgz#e38fdeb6531063b1172cb43111e7b3e6bf3acf0b"
+  integrity sha512-JVq45h5IRGxYpHu2yjLdWKAUaTISXrWKjPPDHetNVhP8wp/MGZ1gYhns9XOSfYfLbWSMQgDIjbANAS9XzE/X3Q==
   dependencies:
     chalk "^4.1.1"
     fs-extra "^10.0.0"
     html-minifier "^4.0.0"
-    jsdom "^16.5.3"
-    prettier "^2.3.0"
+    jsdom "^16.6.0"
+    prettier "^2.3.1"
     yargs "^17.0.1"
 
 vite@^2.1.5:
