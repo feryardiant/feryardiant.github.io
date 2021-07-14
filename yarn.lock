@@ -7598,9 +7598,9 @@ vite-plugin-components@^0.12:
     minimatch "^3.0.4"
 
 vite-plugin-icons@^0.6:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/vite-plugin-icons/-/vite-plugin-icons-0.6.4.tgz#1e9e9a5b310f6b596e6c564a8367735e9a65de02"
-  integrity sha512-NLIUZNpeJV4fH314fn+iI5wxvKOgx2yDzVz6jqaKUyNIi41cv+Ud8J+dueCHVZSxepCIQmMYeCayaPEuhhetbg==
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/vite-plugin-icons/-/vite-plugin-icons-0.6.5.tgz#3f6bd08358bb126344e46ed08dc76808ce1f1887"
+  integrity sha512-lfePr8juO2ajp0571iLL+9zIoyBD9nSSSHlC4JYXbAeMOJB6WTP+Vdc2gze8yI8JRO+Z0TXCCvvL9bPgvkI4Cg==
   dependencies:
     "@iconify/json-tools" "^1.0.10"
     vue-template-es2015-compiler "^1.9.1"
