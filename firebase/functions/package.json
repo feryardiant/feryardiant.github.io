@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "dotenv": "^10.0",
-    "eslint": "^7.21",
+    "eslint": "^7.31",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.20",
     "eslint-plugin-node": "^11.1",
