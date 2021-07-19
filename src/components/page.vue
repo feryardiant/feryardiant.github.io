@@ -9,9 +9,12 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
-
-const { frontmatter } = defineProps(['frontmatter'])
+const { frontmatter } = defineProps({
+  frontmatter: {
+    type: Object,
+    required: true
+  }
+})
 </script>
 
 <style lang="postcss">

@@ -18,18 +18,18 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
-
-const { frontmatter, excerpt } = defineProps({
+const { excerpt, frontmatter } = defineProps({
   frontmatter: {
     type: Object,
+    required: true
   },
   excerpt: {
     type: Boolean,
-    default: () => true,
-  },
+    default: () => true
+  }
 })
-const postDate = frontmatter.modified || frontmatter.date
+
+const postDate = frontmatter.modified || frontmatter?.date
 const formatDate = (date) => new Date(date).toLocaleDateString()
 </script>
 

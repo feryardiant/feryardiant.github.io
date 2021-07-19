@@ -5,7 +5,7 @@ import purgeIcons from 'vite-plugin-purge-icons'
 import pages from 'vite-plugin-pages'
 import layouts from 'vite-plugin-vue-layouts'
 import windiCSS from 'vite-plugin-windicss'
-import components from 'vite-plugin-components'
+import components, { VueUseComponentsResolver } from 'vite-plugin-components'
 
 import markdown from 'vite-plugin-md'
 import matter from 'gray-matter'
@@ -28,7 +28,7 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight'
 module.exports = defineConfig({
   resolve: {
     alias: {
-      '/~': resolve(__dirname, 'src')
+      '/@/': `/${resolve(__dirname, 'src')}/`
     },
   },
 
@@ -68,24 +68,34 @@ module.exports = defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     pages({
       extensions: ['vue', 'md'],
-      extendRoute(page) {
-        const path = resolve(__dirname, page.component.slice(1))
-        const md = readFileSync(path, 'utf-8')
-        const { data, excerpt } = matter(md, {
-          excerpt: true,
-          excerpt_separator: '<!-- more -->',
-        })
+      extendRoute({ title, description, meta, ...route }) {
+        const frontmatter = {
+          title,
+          comments: true,
+          layout: 'default',
+          locale: 'en',
+          date: null
+        }
 
-        page.meta = Object.assign(page.meta || {}, {
-          frontmatter: Object.assign({}, {
-            comments: true,
+        meta = meta || {}
+        if (typeof route.component === 'string' && route.component.endsWith('.md')) {
+          const path = resolve(__dirname, route.component.slice(1))
+          const { data, excerpt } = matter(readFileSync(path, 'utf-8'), {
+            excerpt: true,
+            excerpt_separator: '<!-- more -->',
+          })
+
+          meta.frontmatter = Object.assign({}, frontmatter, {
             excerpt: mdIt().render(excerpt),
-            layout: 'default',
-            locale: 'id',
           }, data)
-        })
+        }
 
-        return page
+        route.meta = Object.assign({}, {
+          title: frontmatter.title,
+          description: description || '',
+        }, meta)
+
+        return route
       }
     }),
 
@@ -127,12 +137,16 @@ module.exports = defineConfig({
     components({
       extensions: ['vue', 'md'],
       customLoaderMatcher: path => path.endsWith('.md'),
-      customComponentResolvers: ViteIconsResolver({
-        componentPrefix: '',
-      }),
+      customComponentResolvers: [
+        VueUseComponentsResolver(),
+        ViteIconsResolver({
+          componentPrefix: '',
+        }),
+      ],
     }),
 
     purgeIcons(),
+
     // https://github.com/antfu/vite-plugin-icons
     icons(),
 

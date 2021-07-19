@@ -1,5 +1,5 @@
 ---
-lang: en
+locale: en
 title: About Me
 menu:
   position: top

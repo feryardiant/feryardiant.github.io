@@ -11,19 +11,15 @@
   "scripts": {
     "dev": "vite",
     "build": "run-s build:ssg build:rss",
-    "build:ssg": "cross-env NODE_ENV=production vite-ssg build --entry=src/main.js",
+    "build:ssg": "cross-env NODE_ENV=production vite-ssg build",
     "build:rss": "node scripts/feed.mjs",
-    "firebase": "cross-env GOOGLE_APPLICATION_CREDENTIALS=./service-account-key.json firebase",
-    "firebase:start": "yarn firebase emulators:start",
-    "firebase:deploy": "yarn firebase deploy",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "prepare": "husky install scripts/husky"
   },
   "engines": {
     "node": "14.x"
   },
-  "workspaces": [
-    "firebase/*"
-  ],
   "dependencies": {
     "@gtm-support/vue-gtm": "^1.0.0",
     "@iconify/iconify": "^2.0.0-rc.6",
@@ -38,6 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
     "@feryardiant/commitlint-config": "^0.1",
+    "@feryardiant/eslint-config-standard": "^0.0.3",
     "@iconify/json": "^1.1.326",
     "@vitejs/plugin-vue": "^1.2.1",
     "@vue/compiler-sfc": "^3.0.11",
@@ -50,7 +47,6 @@
     "eslint-plugin-vue": "^7.8.0",
     "fast-glob": "^3.2.5",
     "feed": "^4.2.2",
-    "firebase-tools": "^9.9.0",
     "gray-matter": "^4.0.2",
     "husky": "^7.0",
     "lint-staged": "^11.0",
@@ -61,16 +57,17 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.2",
     "postcss-nested": "^5.0",
+    "prettier": "^2.3.2",
     "prismjs": "^1.23",
     "vite": "^2.1.5",
-    "vite-plugin-components": "^0.12",
+    "vite-plugin-components": "^0.13",
     "vite-plugin-icons": "^0.6",
-    "vite-plugin-md": "^0.6.3",
-    "vite-plugin-pages": "^0.14",
+    "vite-plugin-md": "^0.8",
+    "vite-plugin-pages": "^0.15",
     "vite-plugin-purge-icons": "^0.7",
     "vite-plugin-vue-layouts": "^0.3",
     "vite-plugin-windicss": "^1.0",
-    "vite-ssg": "^0.11",
+    "vite-ssg": "^0.12.0",
     "windicss": "^3.1"
   },
   "browserslist": [
@@ -84,13 +81,23 @@
     ]
   },
   "eslintConfig": {
-    "extends": "plugin:vue/vue3-recommended",
-    "parser": "vue-eslint-parser",
+    "extends": [
+      "@feryardiant/standard",
+      "plugin:vue/vue3-recommended"
+    ],
     "ignorePatterns": [
       "dist/",
       "node_modules/",
       "public/",
-      "**.old"
+      "*.old/"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.vue"
+        ],
+        "parser": "vue-eslint-parser"
+      }
     ],
     "rules": {
       "vue/max-attributes-per-line": [
@@ -101,12 +108,14 @@
       ],
       "vue/singleline-html-element-content-newline": "off",
       "vue/html-self-closing": "off",
+      "vue/no-setup-props-destructure": "off",
       "vue/no-v-html": "off",
+      "no-undef": "off",
       "no-unused-vars": "off"
     }
   },
   "lint-staged": {
-    "{scripts,src}/**/*.{mjs,js,vue}": [
+    "**/*.{mjs,js,vue}": [
       "eslint --fix"
     ]
   },

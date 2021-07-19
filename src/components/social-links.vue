@@ -17,8 +17,7 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
-import socialLinks from '/~/assets/social-links'
+import socialLinks from '../assets/social-links.json'
 
 const { title, display, noTitle, noLabel, iconSize } = defineProps({
   title: {

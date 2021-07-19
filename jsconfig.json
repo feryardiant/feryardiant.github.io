@@ -1,9 +1,11 @@
 {
-  "exclude": ["node_modules", "**/node_modules"],
+  "exclude": ["dist", "node_modules", "**/node_modules"],
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "lib": ["esnext", "dom", "dom.iterable"],
     "paths": {
-      "/~/*": ["./src/*"]
+      "/@/*": ["src/*"]
     }
   }
 }

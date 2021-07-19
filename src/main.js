@@ -5,7 +5,8 @@ import { setupLayouts } from 'layouts-generated'
 
 import App from './app.vue'
 
-import 'windi.css'
+import 'virtual:windi.css'
+import 'virtual:windi-devtools'
 import './main.css'
 
 const routes = autoRoutes.map((route) => {

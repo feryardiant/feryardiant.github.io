@@ -1,4 +1,4 @@
-import vueGtm from 'vue-gtm'
+import vueGtm from '@gtm-support/vue-gtm'
 
 /**
  * @param {import('vite-ssg').ViteSSGContext} ctx

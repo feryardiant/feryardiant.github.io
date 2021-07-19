@@ -23,3 +23,7 @@ p {
   margin-bottom: 2rem;
 }
 </style>
+
+<route lang="yaml">
+  title: 'Home'
+</route>
