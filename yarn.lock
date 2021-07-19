@@ -5062,7 +5062,7 @@ markdown-it-prism@^2.1.6:
   dependencies:
     prismjs "1.24.1"
 
-markdown-it@^12.0.4, markdown-it@^12.0.6:
+markdown-it@^12.0.4, markdown-it@^12.1.0:
   version "12.1.0"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-12.1.0.tgz#7ad572caddd336bd27a68d20e86bac1fafe8fb20"
   integrity sha512-7temG6IFOOxfU0SgzhqR+vr2diuMhyO5uUIEZ3C5NbXhqC9uFUHoU41USYuDFoZRsaY7BEIEei874Z20VMLF6A==
@@ -7605,13 +7605,13 @@ vite-plugin-icons@^0.6:
     "@iconify/json-tools" "^1.0.10"
     vue-template-es2015-compiler "^1.9.1"
 
-vite-plugin-md@^0.6.3:
-  version "0.6.7"
-  resolved "https://registry.yarnpkg.com/vite-plugin-md/-/vite-plugin-md-0.6.7.tgz#6318b059a6d968030c908c81f066a8e81ed0c0bc"
-  integrity sha512-R9i61r1y6gfelJKtHiHkw6NOkucFzGRgy7VL7bqMufiSh1UNyYKZrpiQtagzavpBlJSVk34lfEyfyKpQyeuocQ==
+vite-plugin-md@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-md/-/vite-plugin-md-0.8.0.tgz#7a201d5a5d49d6da257f597bbc56b923de36a6a7"
+  integrity sha512-/fSCaK/UWONGtPFdzxZcxaddLbbibyqLHQlyOqE5aC9ntTSLEQB9WAlzSmXQ0yjzUxG8o3Q8NjX/0w8dXy43gw==
   dependencies:
     gray-matter "^4.0.3"
-    markdown-it "^12.0.6"
+    markdown-it "^12.1.0"
 
 vite-plugin-pages@^0.15:
   version "0.15.0"
