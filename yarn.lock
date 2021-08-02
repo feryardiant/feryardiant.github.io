@@ -3984,10 +3984,10 @@ vite-plugin-icons@^0.6:
     "@iconify/json-tools" "^1.0.10"
     vue-template-es2015-compiler "^1.9.1"
 
-vite-plugin-md@^0.8:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-md/-/vite-plugin-md-0.8.0.tgz#7a201d5a5d49d6da257f597bbc56b923de36a6a7"
-  integrity sha512-/fSCaK/UWONGtPFdzxZcxaddLbbibyqLHQlyOqE5aC9ntTSLEQB9WAlzSmXQ0yjzUxG8o3Q8NjX/0w8dXy43gw==
+vite-plugin-md@^0.10:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-md/-/vite-plugin-md-0.10.0.tgz#0e611f7cc700440b778425f7efe37da7e2c99899"
+  integrity sha512-HjSNKZ7q/c8P+DeStOl2/MmuRDDinZJY39Kb1+HIo6fP3l5Tpkr3Ba7jaaJZiYDFEi5VKdHWb+pkxDXAqMuk9A==
   dependencies:
     gray-matter "^4.0.3"
     markdown-it "^12.1.0"
