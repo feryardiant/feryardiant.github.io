@@ -4298,10 +4298,10 @@ vite-ssg@^0.14.7:
     read-pkg-up "^7.0.1"
     yargs "^17.1.1"
 
-vite@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.5.1.tgz#953c71a034c07b3ae0448d57664ec9c6862f23a8"
-  integrity sha512-FwmLbbz8MB1pBs9dKoRDgpiqoijif8hSK1+NNUYc12/cnf+pM2UFhhQ1rcpXgbMhm/5c2USZdVAf0FSkSxaFDA==
+vite@^2.5.7:
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.5.7.tgz#e495be9d8bcbf9d30c7141efdccacde746ee0125"
+  integrity sha512-hyUoWmRPhjN1aI+ZSBqDINKdIq7aokHE2ZXiztOg4YlmtpeQtMwMeyxv6X9YxHZmvGzg/js/eATM9Z1nwyakxg==
   dependencies:
     esbuild "^0.12.17"
     postcss "^8.3.6"
