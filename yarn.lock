@@ -364,7 +364,7 @@
     "@vue/compiler-core" "3.2.19"
     "@vue/shared" "3.2.19"
 
-"@vue/compiler-sfc@3.2.19", "@vue/compiler-sfc@^3.0.11":
+"@vue/compiler-sfc@3.2.19", "@vue/compiler-sfc@^3.0.11", "@vue/compiler-sfc@^3.2.4":
   version "3.2.19"
   resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.2.19.tgz#d412195a98ebd49b84602f171719294a1d9549be"
   integrity sha512-pLlbgkO1UHTO02MSpa/sFOXUwIDxSMiKZ1ozE5n71CY4DM+YmI+G3gT/ZHZ46WBId7f3VTF/D8pGwMygcQbrQA==
@@ -4221,16 +4221,14 @@ vite-plugin-purge-icons@^0.7:
     "@purge-icons/generated" "^0.7.0"
     rollup-plugin-purge-icons "^0.7.0"
 
-vite-plugin-vue-layouts@^0.3:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-vue-layouts/-/vite-plugin-vue-layouts-0.3.1.tgz#0782390995f8d3ed1c7a1b02e3a35522a676f7b5"
-  integrity sha512-Chw+gEJX51+vwikWIp2R3GbBIkSQFi0CdOBKTqAktn+thVWn4mleE2pbdr2jM2Ylc0lL2bm/NpOHE0Pe6YUGqg==
+vite-plugin-vue-layouts@^0.5:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-vue-layouts/-/vite-plugin-vue-layouts-0.5.0.tgz#2dd05f7682e5aba5e4d29b8169efc2611fe75e53"
+  integrity sha512-KN03GMSGNrWxeHJo5OO9fvdZh44PfievNAoLeMbf20UQPBBO6kpIMVTYB6sFPMWmiTbqZmq3we4z/ocJkxAEiA==
   dependencies:
-    "@vue/compiler-sfc" "^3.0.11"
+    "@vue/compiler-sfc" "^3.2.4"
     debug "^4.3.2"
-    fast-glob "^3.2.5"
-    vue "^3.0.11"
-    vue-router "^4.0.6"
+    fast-glob "^3.2.7"
 
 vite-plugin-windicss@^1.4:
   version "1.4.9"
@@ -4297,7 +4295,7 @@ vue-template-es2015-compiler@^1.9.1:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^3.0.11, vue@^3.2.19:
+vue@^3.2.19:
   version "3.2.19"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.19.tgz#da2c80a6a0271c7097fee9e31692adfd9d569c8f"
   integrity sha512-6KAMdIfAtlK+qohTIUE4urwAv4A3YRuo8uAbByApUmiB0CziGAAPs6qVugN6oHPia8YIafHB/37K0O6KZ7sGmA==
