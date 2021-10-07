@@ -12,10 +12,15 @@
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+const sortByDate = (a, b) => {
+  if (!a.meta.frontmatter || !b.meta.frontmatter) return 0
+
+  return +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date)
+}
 const posts = router
   .getRoutes()
-  .filter(({ path, meta }) => path.startsWith('/posts') && meta.frontmatter.date)
-  .sort((a, b) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date))
+  .filter(({ path, meta }) => path.startsWith('/posts') && meta.frontmatter?.date)
+  .sort(sortByDate)
   .filter((post) => !post.path.endsWith('.html'))
 </script>
 
