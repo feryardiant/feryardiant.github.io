@@ -1,11 +1,16 @@
+import { resolve } from 'path'
+import { readFileSync } from 'fs'
+
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import icons, { ViteIconsResolver } from 'vite-plugin-icons'
-import purgeIcons from 'vite-plugin-purge-icons'
+import components from 'unplugin-vue-components/vite'
+import { VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
+import icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import pages from 'vite-plugin-pages'
+import purgeIcons from 'vite-plugin-purge-icons'
 import layouts from 'vite-plugin-vue-layouts'
 import windiCSS from 'vite-plugin-windicss'
-import components, { VueUseComponentsResolver } from 'vite-plugin-components'
 
 import markdown from 'vite-plugin-md'
 import matter from 'gray-matter'
@@ -13,9 +18,6 @@ import mdIt from 'markdown-it'
 import mdAnchor from 'markdown-it-anchor'
 import mdPrism from 'markdown-it-prism'
 import mdLinkAttr from 'markdown-it-link-attributes'
-
-import { resolve } from 'path'
-import { readFileSync } from 'fs'
 
 import 'prismjs/components/prism-diff'
 import 'prismjs/plugins/autolinker/prism-autolinker'
@@ -133,13 +135,13 @@ module.exports = defineConfig({
       },
     }),
 
-    // https://github.com/antfu/vite-plugin-components
+    // https://github.com/antfu/unplugin-vue-components
     components({
-      extensions: ['vue', 'md'],
-      customLoaderMatcher: path => path.endsWith('.md'),
-      customComponentResolvers: [
+      // extensions: ['vue', 'md'],
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      resolvers: [
         VueUseComponentsResolver(),
-        ViteIconsResolver({
+        IconsResolver({
           componentPrefix: '',
         }),
       ],
@@ -147,8 +149,10 @@ module.exports = defineConfig({
 
     purgeIcons(),
 
-    // https://github.com/antfu/vite-plugin-icons
-    icons(),
+    // https://github.com/antfu/unplugin-icons
+    icons({
+      compiler: 'vue3'
+    }),
 
     // https://github.com/antfu/vite-plugin-windicss
     windiCSS({

@@ -59,9 +59,9 @@
     "postcss-nested": "^5.0",
     "prettier": "^2.3.2",
     "prismjs": "^1.25",
+    "unplugin-icons": "^0.12.10",
+    "unplugin-vue-components": "^0.15.6",
     "vite": "^2.6.3",
-    "vite-plugin-components": "^0.13",
-    "vite-plugin-icons": "^0.6",
     "vite-plugin-md": "^0.11",
     "vite-plugin-pages": "^0.18",
     "vite-plugin-purge-icons": "^0.7",
@@ -82,7 +82,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "@feryardiant/standard",
+      "@feryardiant/eslint-config",
       "plugin:vue/vue3-recommended"
     ],
     "ignorePatterns": [
