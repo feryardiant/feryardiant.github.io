@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@gtm-support/vue-gtm": "^1.0.0",
-    "@iconify/iconify": "^2.0.0-rc.6",
+    "@iconify/iconify": "^2.1.0",
     "dayjs": "^1.10.4",
     "feather-icons": "^4.28.0",
     "nprogress": "^0.2.0",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@feryardiant/commitlint-config": "^0.1",
-    "@feryardiant/eslint-config": "^0.0.3",
+    "@feryardiant/eslint-config": "^0.0.5",
     "@iconify/json": "^1.1.411",
     "@vitejs/plugin-vue": "^1.2.1",
     "@vue/compiler-sfc": "^3.0.11",
@@ -61,7 +61,7 @@
     "prismjs": "^1.25",
     "unplugin-icons": "^0.12.10",
     "unplugin-vue-components": "^0.15.6",
-    "vite": "^2.6.3",
+    "vite": "^2.6.14",
     "vite-plugin-md": "^0.11",
     "vite-plugin-pages": "^0.18",
     "vite-plugin-purge-icons": "^0.7",
