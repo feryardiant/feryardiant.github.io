@@ -37,7 +37,7 @@
     "@feryardiant/eslint-config": "^0.0.5",
     "@iconify/json": "^1.1.411",
     "@vitejs/plugin-vue": "^1.2.1",
-    "@vue/compiler-sfc": "^3.0.11",
+    "@vue/compiler-sfc": "^3.2.24",
     "@vue/server-renderer": "^3.2.20",
     "@vueuse/core": "^6.5",
     "@vueuse/head": "^0.6",
