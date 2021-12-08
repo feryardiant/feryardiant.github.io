@@ -29,7 +29,7 @@
     "prism-theme-vars": "^0.2.2",
     "qs": "^6.10.1",
     "vue": "^3.2.20",
-    "vue-router": "^4.0.6"
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
