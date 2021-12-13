@@ -69,7 +69,7 @@
     "vite-plugin-vue-layouts": "^0.5",
     "vite-plugin-windicss": "^1.4",
     "vite-ssg": "^0.16.2",
-    "windicss": "^3.1"
+    "windicss": "^3.3"
   },
   "browserslist": [
     "> 1%",
