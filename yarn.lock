@@ -515,27 +515,27 @@
   dependencies:
     vue-demi "*"
 
-"@windicss/config@1.5.4":
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/@windicss/config/-/config-1.5.4.tgz#69b10fb02cfea1103a4ca9a65a738ef7d3734b29"
-  integrity sha512-muRPFulqh7nU3VrsPb5+k6ulNyiw8VGg62zAWRZIBfeCRXZb2gV1Q8a/tPn8X1T/+HTt4f/1bzFiusqMKscmlw==
+"@windicss/config@1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@windicss/config/-/config-1.6.1.tgz#f0db67e8d426b961b65f746015b7d17e9f766094"
+  integrity sha512-E4FKtWdYl5HwFknBQ+Z2JIF58TZiR4/ZiP8B30sfRxNlG6clh4agn5MJqTb4ER0MLkDb30Hugl2tGun0AQNbFw==
   dependencies:
     debug "^4.3.3"
     jiti "^1.12.9"
-    windicss "^3.2.1"
+    windicss "^3.4.0"
 
-"@windicss/plugin-utils@1.5.4":
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/@windicss/plugin-utils/-/plugin-utils-1.5.4.tgz#a283b1fe040b9559542462c80bbf1db9fd2850e8"
-  integrity sha512-fS4y52OYB9rIzEUolIWIrrHYuaQfcqTaX3ISbFUiNbvNgH97JATjzB2iOnNqWNy6pH3M8RP0TqYQOOCCeanDoA==
+"@windicss/plugin-utils@1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@windicss/plugin-utils/-/plugin-utils-1.6.1.tgz#0459428beaa3b9053838c047ccb6001493a926a9"
+  integrity sha512-hFQY27bOr9SSpekIvSwBpIX25nR4cwrU5/1kJFqCwAzqyazvd7U9c/iI1E2sTEQOkPbpTTJkY2Act21Q70oSDQ==
   dependencies:
     "@antfu/utils" "^0.3.0"
-    "@windicss/config" "1.5.4"
+    "@windicss/config" "1.6.1"
     debug "^4.3.3"
     fast-glob "^3.2.7"
     magic-string "^0.25.7"
     micromatch "^4.0.4"
-    windicss "^3.2.1"
+    windicss "^3.4.0"
 
 JSONStream@^1.0.4:
   version "1.3.5"
@@ -2402,7 +2402,7 @@ kind-of@^6.0.0, kind-of@^6.0.2, kind-of@^6.0.3:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
-kolorist@^1.5.0, kolorist@^1.5.1:
+kolorist@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/kolorist/-/kolorist-1.5.1.tgz#c3d66dc4fabde4f6b7faa6efda84c00491f9e52b"
   integrity sha512-lxpCM3HTvquGxKGzHeknB/sUjuVoUElLlfYnXZT73K8geR9jQbroGlSCFBax9/0mpGoD3kzcMLnOlGQPJJNyqQ==
@@ -3054,10 +3054,10 @@ postcss-selector-parser@^6.0.6:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
-postcss@^8.1.10, postcss@^8.2, postcss@^8.3.11:
-  version "8.4.4"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.4.tgz#d53d4ec6a75fd62557a66bb41978bf47ff0c2869"
-  integrity sha512-joU6fBsN6EIer28Lj6GDFoC/5yOZzLCfn0zHAn/MYXI7aPt4m4hK5KC5ovEZXy+lnCjmYIbQWngvju2ddyEr8Q==
+postcss@^8.1.10, postcss@^8.3.11, postcss@^8.4:
+  version "8.4.5"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.5.tgz#bae665764dfd4c6fcc24dc0fdf7e7aa00cc77f95"
+  integrity sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg==
   dependencies:
     nanoid "^3.1.30"
     picocolors "^1.0.0"
@@ -3861,15 +3861,15 @@ vite-plugin-vue-layouts@^0.5:
     debug "^4.3.2"
     fast-glob "^3.2.7"
 
-vite-plugin-windicss@^1.4:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/vite-plugin-windicss/-/vite-plugin-windicss-1.5.4.tgz#b3bda784e50a9b6603ff4c253614271ac300d9d3"
-  integrity sha512-bG2IERA9J50MGq1QEbGC/PjrkVIaq2b3LilCeidyIpmFV/4aR14/wGDe83SobF+8coIeJ+23S0uDK/fXX5X0pQ==
+vite-plugin-windicss@^1.6:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-windicss/-/vite-plugin-windicss-1.6.1.tgz#89c6790d6fff2ea17fc540a8487759da9d7d4ec0"
+  integrity sha512-63uv4HqBxtSZB0WOtrZS8yhyfQPgGQwYgcBald+/BpLSlYJREcDKgX9Xd/qDgTAjpDRozxKQj/JWreIlyIahGg==
   dependencies:
-    "@windicss/plugin-utils" "1.5.4"
+    "@windicss/plugin-utils" "1.6.1"
     debug "^4.3.3"
-    kolorist "^1.5.0"
-    windicss "^3.2.1"
+    kolorist "^1.5.1"
+    windicss "^3.4.0"
 
 vite-ssg@^0.17.2:
   version "0.17.2"
@@ -4022,7 +4022,7 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-windicss@^3.2.1, windicss@^3.4:
+windicss@^3.4, windicss@^3.4.0:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/windicss/-/windicss-3.4.2.tgz#257795c9be8b6e93117ffa3fb27874d225da6679"
   integrity sha512-YieqWaXiwPu0JJoB7z03RXdjZjQQJtMZAeXUXu/j3JXSMhIgV/2rUXu4Q7QrworRlbaASZlFhxjnL/78aAty+Q==
