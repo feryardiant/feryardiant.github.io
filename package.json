@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@gtm-support/vue-gtm": "^1.0.0",
-    "@iconify/iconify": "^2.0.0-rc.6",
+    "@iconify/iconify": "^2.1.1",
     "dayjs": "^1.10.4",
     "feather-icons": "^4.28.0",
     "nprogress": "^0.2.0",

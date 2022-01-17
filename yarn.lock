@@ -289,10 +289,10 @@
   dependencies:
     cross-fetch "^3.0.6"
 
-"@iconify/iconify@>=2.0.0-rc.6", "@iconify/iconify@^2.0.0-rc.6":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@iconify/iconify/-/iconify-2.1.0.tgz#f7ee5a0f7ec91cb1f8642f02238678e6a32a832f"
-  integrity sha512-YXKrDVXIGUeFIRqr6QC/l6MRj9kDOlES4sWx/ty8SXUk0pCZnBwsj0/to9Q3g79TAyh2wG3/yzrkf6fHKichwA==
+"@iconify/iconify@>=2.0.0-rc.6", "@iconify/iconify@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@iconify/iconify/-/iconify-2.1.1.tgz#eb17e9559f95cade5fbf5163f849790f1406dd12"
+  integrity sha512-g3d9lxUdGtnqM0aZkZNjnZkgIzh8CeqkkSwcrgzYyWg8urPuQtryhpRHPaYEqmYct4e9Mo0LSP7BqfTU5WeaPw==
   dependencies:
     cross-fetch "^3.1.4"
 
