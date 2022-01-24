@@ -296,10 +296,10 @@
   dependencies:
     cross-fetch "^3.1.4"
 
-"@iconify/json@^1.1.452":
-  version "1.1.453"
-  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-1.1.453.tgz#23e0c0a0f7ad328c9a131144ce4a680a7757dbb4"
-  integrity sha512-ib+e1kwbIXGf2AuDYNN3HIgfq5q3ejAsgxdCAvhXMHmT0XZXUi2ZVAXVhOsTLmTvE8kydbSeJ1nDjPrl3KnXCw==
+"@iconify/json@^1.1.460":
+  version "1.1.460"
+  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-1.1.460.tgz#8d18feaba040972f292acdc3f101207a62899793"
+  integrity sha512-iPIJceykY8fmp7kjZGt6iWcicRKNFgeqYmsdXKnI7QmI+M/tuMOxn9qGV35RMFaB9ZOYGbQ90X3TM3hB9lX+ZA==
 
 "@iconify/types@^1.0.12":
   version "1.0.12"
