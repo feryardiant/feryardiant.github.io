@@ -548,27 +548,27 @@
   dependencies:
     vue-demi "*"
 
-"@windicss/config@1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@windicss/config/-/config-1.6.1.tgz#f0db67e8d426b961b65f746015b7d17e9f766094"
-  integrity sha512-E4FKtWdYl5HwFknBQ+Z2JIF58TZiR4/ZiP8B30sfRxNlG6clh4agn5MJqTb4ER0MLkDb30Hugl2tGun0AQNbFw==
+"@windicss/config@1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@windicss/config/-/config-1.7.1.tgz#f0c432796bff75bad58c72f168329fbe34619025"
+  integrity sha512-bT4Ze8d1kTKbVdQZ7yal9vjhIfuYypco2gVTy4OXvg6eAHFNZaOB/Ai4FqdRKvbgOqChHGiC32r5J55hmq6tDw==
   dependencies:
     debug "^4.3.3"
     jiti "^1.12.9"
-    windicss "^3.4.0"
+    windicss "^3.4.3"
 
-"@windicss/plugin-utils@1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@windicss/plugin-utils/-/plugin-utils-1.6.1.tgz#0459428beaa3b9053838c047ccb6001493a926a9"
-  integrity sha512-hFQY27bOr9SSpekIvSwBpIX25nR4cwrU5/1kJFqCwAzqyazvd7U9c/iI1E2sTEQOkPbpTTJkY2Act21Q70oSDQ==
+"@windicss/plugin-utils@1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@windicss/plugin-utils/-/plugin-utils-1.7.1.tgz#f1d5ac3d0d437d88c93ee4ea575c41907537523d"
+  integrity sha512-VMBLZ11s5kQt1RIIwfB45xFswb+SI1cvI5mK07dUSlfpomG1d1bqnB57bioo/jFNZh2Rl8wVnEvLTl7iZ4r09Q==
   dependencies:
-    "@antfu/utils" "^0.3.0"
-    "@windicss/config" "1.6.1"
+    "@antfu/utils" "^0.4.0"
+    "@windicss/config" "1.7.1"
     debug "^4.3.3"
-    fast-glob "^3.2.7"
+    fast-glob "^3.2.11"
     magic-string "^0.25.7"
     micromatch "^4.0.4"
-    windicss "^3.4.0"
+    windicss "^3.4.3"
 
 JSONStream@^1.0.4:
   version "1.3.5"
@@ -1711,6 +1711,17 @@ fast-diff@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
   integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
+
+fast-glob@^3.2.11:
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.11.tgz#a1172ad95ceb8a16e20caa5c5e56480e5129c1d9"
+  integrity sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==
+  dependencies:
+    "@nodelib/fs.stat" "^2.0.2"
+    "@nodelib/fs.walk" "^1.2.3"
+    glob-parent "^5.1.2"
+    merge2 "^1.3.0"
+    micromatch "^4.0.4"
 
 fast-glob@^3.2.5, fast-glob@^3.2.7:
   version "3.2.8"
@@ -3863,15 +3874,15 @@ vite-plugin-vue-layouts@^0.5:
     debug "^4.3.2"
     fast-glob "^3.2.7"
 
-vite-plugin-windicss@^1.4:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-windicss/-/vite-plugin-windicss-1.6.1.tgz#89c6790d6fff2ea17fc540a8487759da9d7d4ec0"
-  integrity sha512-63uv4HqBxtSZB0WOtrZS8yhyfQPgGQwYgcBald+/BpLSlYJREcDKgX9Xd/qDgTAjpDRozxKQj/JWreIlyIahGg==
+vite-plugin-windicss@^1.7:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-windicss/-/vite-plugin-windicss-1.7.1.tgz#23fadfcb400bd0d7e991d0264f547f499bd57ddc"
+  integrity sha512-eEDeTPaeQAfe0widkTkm9X51BVpOE/yDIuFbULIKjXI7CfY1yjsPcxA6E3aZbLBYQcUmfhVUTYVaH5iAE5L8Hg==
   dependencies:
-    "@windicss/plugin-utils" "1.6.1"
+    "@windicss/plugin-utils" "1.7.1"
     debug "^4.3.3"
     kolorist "^1.5.1"
-    windicss "^3.4.0"
+    windicss "^3.4.3"
 
 vite-ssg@^0.17.2:
   version "0.17.5"
@@ -4024,10 +4035,10 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-windicss@^3.4, windicss@^3.4.0:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/windicss/-/windicss-3.4.2.tgz#257795c9be8b6e93117ffa3fb27874d225da6679"
-  integrity sha512-YieqWaXiwPu0JJoB7z03RXdjZjQQJtMZAeXUXu/j3JXSMhIgV/2rUXu4Q7QrworRlbaASZlFhxjnL/78aAty+Q==
+windicss@^3.4, windicss@^3.4.3:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/windicss/-/windicss-3.4.3.tgz#347d09fee8eb6b3fc5e6e68b435c76ccb24a748c"
+  integrity sha512-UnugThsvEgy8RsPm4/B5DYMCAqvZzD6yWU7Anh+f07t5RSJ8zvmAylGLbXrHPJEmCKzo2Mf+fOUvISH7IJqM3A==
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"
