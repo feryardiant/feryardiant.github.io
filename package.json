@@ -59,7 +59,7 @@
     "postcss": "^8.4",
     "postcss-nested": "^5.0",
     "prettier": "^2.3.2",
-    "prismjs": "^1.25",
+    "prismjs": "^1.27",
     "unplugin-icons": "^0.13.0",
     "unplugin-vue-components": "^0.17.11",
     "vite": "^2.6.14",
