@@ -288,12 +288,17 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@iconify/iconify@2.1.2", "@iconify/iconify@>=2.0.0-rc.6", "@iconify/iconify@^2.0.0-rc.6":
+"@iconify/iconify@2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@iconify/iconify/-/iconify-2.1.2.tgz#978e8f08c3b834816c82ae2933b3a70f143f7685"
   integrity sha512-QcUzFeEWkE/mW+BVtEGmcWATClcCOIJFiYUD/PiCWuTcdEA297o8D4oN6Ra44WrNOHu1wqNW4J0ioaDIiqaFOQ==
   dependencies:
     cross-fetch "^3.1.5"
+
+"@iconify/iconify@>=2.0.0-rc.6", "@iconify/iconify@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@iconify/iconify/-/iconify-2.2.0.tgz#935b9f573c1b06e930cd6b58c13c5f7701c5a630"
+  integrity sha512-dqb0Y3e7kU5a0EolmOEY7PPtLec08MfJagVmyeMFJ6sk4Dp8wyvr64aWVxBpCvMqQXtbqSN87XNgJnOfcE6trQ==
 
 "@iconify/json@^2.1.12":
   version "2.1.13"
