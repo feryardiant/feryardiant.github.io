@@ -295,18 +295,18 @@
   dependencies:
     cross-fetch "^3.1.5"
 
-"@iconify/json@^2.1.12":
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-2.1.13.tgz#3cfd52a38ddfff41d4ca05c41ccce3b9a9be3812"
-  integrity sha512-+riwfBZXVqln166mqylGlOrtsLW/28K4o4E8eKUX85wU67/6/QI8nhvymXcwFmyluROCcMYe2uKSriaQqcGpdQ==
+"@iconify/json@^2.1.25":
+  version "2.1.25"
+  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-2.1.25.tgz#e31ecf71f2ebe0ffb37b928d73a1c2c27690cdba"
+  integrity sha512-yrWcRQ+nqgIZCNtDyT2kVzvkD3NplAlq64Dqix2Y0q2XbuvZx7FOYnjWWnuc9LW6IaxLB3tHuLiuZp7XkK1gJw==
   dependencies:
-    "@iconify/types" "^1.0.9"
-    pathe "^0.0.2"
+    "@iconify/types" "^1.1.0"
+    pathe "^0.2.0"
 
-"@iconify/types@^1.0.12", "@iconify/types@^1.0.9":
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/@iconify/types/-/types-1.0.12.tgz#839f1f784b7030b94482d51996570f4dbd7d6796"
-  integrity sha512-6er6wSGF3hgc1JEZqiGpg21CTCjHBYOUwqLmb2Idzkjiw6ogalGP0ZMLVutCzah+0WB4yP+Zd2oVPN8jvJ+Ftg==
+"@iconify/types@^1.0.12", "@iconify/types@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify/types/-/types-1.1.0.tgz#dc15fc988b1b3fd558dd140a24ede7e0aac11280"
+  integrity sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==
 
 "@iconify/utils@^1.0.23":
   version "1.0.23"
@@ -3050,10 +3050,10 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-pathe@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.0.2.tgz#d690780e578a8127e1d65828387609c153afc309"
-  integrity sha512-mmK20YtPb4yXHlaPuOD/uPIpRu7iIK45GA/GiRSlNpIdfWDG5aEQmFT1HHtBmJB+t/6DvFOtOsEipsPA8Bx2cw==
+pathe@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.2.0.tgz#30fd7bbe0a0d91f0e60bae621f5d19e9e225c339"
+  integrity sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==
 
 picocolors@^1.0.0:
   version "1.0.0"
@@ -3116,10 +3116,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.3.2, prettier@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
-  integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
+prettier@^2.3.2, prettier@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.0.tgz#12f8f504c4d8ddb76475f441337542fa799207d4"
+  integrity sha512-m2FgJibYrBGGgQXNzfd0PuDGShJgRavjUoRCw1mZERIWVSXF0iLzLm+aOqTAbLnC3n6JzUhAA8uZnFVghHJ86A==
 
 prism-theme-vars@^0.2.2:
   version "0.2.2"
@@ -3919,17 +3919,17 @@ vite-plugin-windicss@^1.4:
     kolorist "^1.5.1"
     windicss "^3.5.1"
 
-vite-ssg@^0.17.2:
-  version "0.17.11"
-  resolved "https://registry.yarnpkg.com/vite-ssg/-/vite-ssg-0.17.11.tgz#47018e7b479e45f66ea0a6053788aed07785ceec"
-  integrity sha512-Fr64PausOt65RY6ROfrAGtUuwOoQXMAQLlpSAvCRGeOVZ6BvTyBW3gH+eAkJO3vCJXlHLQJFs8mA74g2Tx48mw==
+vite-ssg@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/vite-ssg/-/vite-ssg-0.19.0.tgz#731b3461438c0420da5d35bcb7677d7e052babdd"
+  integrity sha512-LpjMTs12BgTpb4YwLKhvGd6ZRMxDf02Hq+B4uxdIe1+565nYsLkaem9U5vsuSMOu7lN9Y3XTXd752fmtuG2xHA==
   dependencies:
-    fs-extra "^10.0.0"
+    fs-extra "^10.0.1"
     html-minifier "^4.0.0"
     html5parser "^2.0.2"
     jsdom "^19.0.0"
     kolorist "^1.5.1"
-    prettier "^2.5.1"
+    prettier "^2.6.0"
     yargs "^17.3.1"
 
 vite@^2.6.14:
