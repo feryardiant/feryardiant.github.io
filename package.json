@@ -35,7 +35,7 @@
     "@commitlint/cli": "^16.2.3",
     "@feryardiant/commitlint-config": "^0.2",
     "@feryardiant/eslint-config": "^0.1.0",
-    "@iconify/json": "^2.1.25",
+    "@iconify/json": "^2.1.29",
     "@types/markdown-it": "^12.2.3",
     "@vitejs/plugin-vue": "^2.0.1",
     "@vue/compiler-sfc": "^3.0.11",
