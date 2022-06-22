@@ -28,7 +28,7 @@
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.2.3",
     "qs": "^6.10.1",
-    "vue": "^3.2.26",
+    "vue": "^3.2.37",
     "vue-router": "^4.0.6"
   },
   "devDependencies": {
