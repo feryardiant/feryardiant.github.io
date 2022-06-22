@@ -67,7 +67,7 @@
     "vite-plugin-pages": "^0.24",
     "vite-plugin-purge-icons": "^0.8",
     "vite-plugin-vue-layouts": "^0.6",
-    "vite-plugin-windicss": "^1.4",
+    "vite-plugin-windicss": "^1.8",
     "vite-ssg": "^0.19.0",
     "windicss": "^3.5"
   },
