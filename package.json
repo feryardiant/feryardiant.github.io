@@ -28,7 +28,7 @@
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.2.2",
     "qs": "^6.10.1",
-    "vue": "^3.2.26",
+    "vue": "^3.2.37",
     "vue-router": "^4.0.6"
   },
   "devDependencies": {
@@ -39,7 +39,7 @@
     "@types/markdown-it": "^12.2.3",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/compiler-sfc": "^3.0.11",
-    "@vue/server-renderer": "^3.2.26",
+    "@vue/server-renderer": "^3.2.37",
     "@vueuse/core": "^8.7",
     "@vueuse/head": "^0.7",
     "cross-env": "^7.0.3",
