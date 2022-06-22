@@ -21,7 +21,7 @@
     "node": "14.x || 16.x"
   },
   "dependencies": {
-    "@gtm-support/vue-gtm": "^1.0.0",
+    "@gtm-support/vue-gtm": "^1.6.0",
     "@iconify/iconify": "^2.2.1",
     "dayjs": "^1.11.3",
     "feather-icons": "^4.29.0",
