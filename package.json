@@ -50,7 +50,7 @@
     "feed": "^4.2.2",
     "gray-matter": "^4.0.2",
     "husky": "^8.0",
-    "lint-staged": "^12.1",
+    "lint-staged": "^13.0",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.4",
     "markdown-it-link-attributes": "^4.0.0",
