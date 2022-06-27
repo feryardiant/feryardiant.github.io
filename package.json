@@ -61,7 +61,7 @@
     "prettier": "^2.7.1",
     "prismjs": "^1.28",
     "unplugin-icons": "^0.14.5",
-    "unplugin-vue-components": "^0.19.6",
+    "unplugin-vue-components": "^0.20.1",
     "vite": "^2.9.12",
     "vite-plugin-md": "^0.17",
     "vite-plugin-pages": "^0.24",
