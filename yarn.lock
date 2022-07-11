@@ -3554,7 +3554,7 @@ resolve-global@1.0.0, resolve-global@^1.0.0:
   dependencies:
     global-dirs "^0.1.1"
 
-resolve@^1.10.0, resolve@^1.10.1, resolve@^1.20.0, resolve@^1.22.0:
+resolve@^1.10.0, resolve@^1.10.1, resolve@^1.20.0, resolve@^1.22.0, resolve@^1.22.1:
   version "1.22.1"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.1.tgz#27cb2ebb53f91abb49470a928bba7558066ac177"
   integrity sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==
@@ -4152,10 +4152,10 @@ unplugin-icons@^0.14.5:
     local-pkg "^0.4.1"
     unplugin "^0.7.0"
 
-unplugin-vue-components@^0.19.6:
-  version "0.19.9"
-  resolved "https://registry.yarnpkg.com/unplugin-vue-components/-/unplugin-vue-components-0.19.9.tgz#87e913f3cf8cd1d36c6f5b597ca7a46cddb6229b"
-  integrity sha512-i5mZtg85euPWZrGswFkoa9pf4WjKCP5qOjnwOyg3KOKVzFjnP3osCdrunQMjtoMKehTdz1vV6baZH8bZR4PNgg==
+unplugin-vue-components@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/unplugin-vue-components/-/unplugin-vue-components-0.21.1.tgz#8ff156da1faaef368d8fad9fa7573c80ad4ccfa0"
+  integrity sha512-8MhIT323q1EUu7rz6NfQeiHqDrZKtygy6s9jzcQAuuZUM2T38SHlPT5YJjBOZmM0Bau6YuNTKfBBX4iHzeusaQ==
   dependencies:
     "@antfu/utils" "^0.5.2"
     "@rollup/pluginutils" "^4.2.1"
@@ -4165,18 +4165,18 @@ unplugin-vue-components@^0.19.6:
     local-pkg "^0.4.1"
     magic-string "^0.26.2"
     minimatch "^5.1.0"
-    resolve "^1.22.0"
-    unplugin "^0.7.0"
+    resolve "^1.22.1"
+    unplugin "^0.7.1"
 
-unplugin@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/unplugin/-/unplugin-0.7.0.tgz#8c8e28a7ca454a13313483ddd4c1f9cc1809d966"
-  integrity sha512-OsiFrgybmqm5bGuaodvbLYhqUrvGuRHRMZDhddKEXTDbuQ1x+hR7M1WpQguXj03whVYjEYChhFo738cZH5RNig==
+unplugin@^0.7.0, unplugin@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/unplugin/-/unplugin-0.7.1.tgz#1e8cb1ff26a76655eb5b40b4f67999594f43fac1"
+  integrity sha512-Z6hNDXDNh9aimMkPU1mEjtk+2ova8gh0y7rJeJdGH1vWZOHwF2lLQiQ/R97rv9ymmzEQXsR2fyMet72T8jy6ew==
   dependencies:
     acorn "^8.7.1"
     chokidar "^3.5.3"
     webpack-sources "^3.2.3"
-    webpack-virtual-modules "^0.4.3"
+    webpack-virtual-modules "^0.4.4"
 
 upper-case@^1.1.1:
   version "1.1.3"
@@ -4364,7 +4364,7 @@ webpack-sources@^3.2.3:
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.2.3.tgz#2d4daab8451fd4b240cc27055ff6a0c2ccea0cde"
   integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
 
-webpack-virtual-modules@^0.4.3:
+webpack-virtual-modules@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/webpack-virtual-modules/-/webpack-virtual-modules-0.4.4.tgz#a19fcf371923c59c4712d63d7d194b1e4d8262cc"
   integrity sha512-h9atBP/bsZohWpHnr+2sic8Iecb60GxftXsWNLLLSqewgIsGzByd2gcIID4nXcG+3tNe4GQG3dLcff3kXupdRA==
