@@ -1,9 +1,10 @@
-import dayjs from 'dayjs'
-import localizedFormat from 'dayjs/plugin/localizedFormat'
+import dayjs, { localizedFormat } from 'dayjs'
 
 /**
  * @param {import('vite-ssg').ViteSSGContext} ctx
  */
-export const install = () => {
-  dayjs.extend(localizedFormat)
+export const install = ({ isClient }) => {
+  if (isClient) {
+    dayjs.extend(localizedFormat)
+  }
 }
