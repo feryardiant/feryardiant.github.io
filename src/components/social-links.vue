@@ -1,22 +1,5 @@
-<template>
-  <div class="else-where inline-flex">
-    <h4 v-if="!noTitle" v-html="title" />
-
-    <a
-      v-for="link in socialLinks"
-      :key="link.icon"
-      :href="link.url"
-      rel="nofolow"
-      class="flex-1"
-      target="__blank"
-    >
-      <icon :name="link.icon" :width="iconSize" :height="iconSize" />
-      <span v-if="!noLabel" v-html="link.label" />
-    </a>
-  </div>
-</template>
-
 <script setup>
+import { Icon } from '@iconify/vue'
 import socialLinks from '../assets/social-links.json'
 
 const { title, display, noTitle, noLabel, iconSize } = defineProps({
@@ -51,3 +34,20 @@ const { title, display, noTitle, noLabel, iconSize } = defineProps({
   },
 })
 </script>
+
+<template>
+  <div class="else-where inline-flex">
+    <h4 v-if="!noTitle" v-html="title" />
+
+    <a
+      v-for="link in socialLinks"
+      :key="link.icon"
+      :href="link.url"
+      rel="nofolow"
+      class="flex-1"
+      target="__blank"
+    >
+      <span v-if="!noLabel" v-html="link.label" />
+    </a>
+  </div>
+</template>

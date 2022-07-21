@@ -1,5 +1,11 @@
 @import 'prism-theme-vars/base.css';
 
+@import '@fontsource/merriweather-sans/400.css';
+@import '@fontsource/merriweather-sans/400-italic.css';
+@import '@fontsource/merriweather-sans/700.css';
+@import '@fontsource/merriweather-sans/700-italic.css';
+@import '@fontsource/fira-code/400.css';
+
 :root {
   --prism-font-size: .9em;
   --prism-line-height: 1.8em;

@@ -1,7 +1,6 @@
-/**
- * @param {import('vite-ssg').ViteSSGContext} ctx
- */
- export const install = ({ isClient, router }) => {
+import type { UserModule } from '~/types'
+
+export const install: UserModule = ({ isClient }) => {
   if (isClient) {
     const { matches: prefersDark } = window.matchMedia?.('(prefers-color-scheme: dark)')
     const setting = localStorage.getItem('color-schema') || 'auto'

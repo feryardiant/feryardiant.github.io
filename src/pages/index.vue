@@ -5,8 +5,12 @@
     </figure>
 
     <div class="column">
-      <h1 class="title">Hi, I'm Fery Wardiyanto</h1>
-      <h2 class="subtitle">Freelance Web Developer</h2>
+      <h1 class="title">
+        Hi, I'm Fery Wardiyanto
+      </h1>
+      <h2 class="subtitle">
+        Freelance Web Developer
+      </h2>
       <p>Nice to meet you! I work for clients or Companies as Freelancer with more than 7 years of experiences on web development.</p>
       <social-links no-title no-label icon-size="24" />
     </div>
@@ -25,5 +29,5 @@ p {
 </style>
 
 <route lang="yaml">
-  title: 'Home'
+title: Home
 </route>
