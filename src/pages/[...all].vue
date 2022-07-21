@@ -5,5 +5,5 @@
 </template>
 
 <route lang="yaml">
-  title: 'Not Found'
+title: Not Found
 </route>

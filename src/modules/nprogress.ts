@@ -1,9 +1,7 @@
 import nProgress from 'nprogress'
+import type { UserModule } from '~/types'
 
-/**
- * @param {import('vite-ssg').ViteSSGContext} ctx
- */
-export const install = ({ isClient, router }) => {
+export const install: UserModule = ({ isClient, router }) => {
   if (isClient) {
     router.beforeEach(() => { nProgress.start() })
     router.afterEach(() => { nProgress.done() })
