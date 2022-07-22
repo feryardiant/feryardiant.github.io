@@ -3,10 +3,10 @@ name: GitHub Page
 on:
   pull_request:
     branches:
-      - source
+      - master
   push:
     branches:
-      - source
+      - master
     paths:
       - .github/workflows/deployment.yml
       - src/pages/*
@@ -40,7 +40,7 @@ jobs:
         cp .gitignore dist/
 
     - name: Deploy
-      if: github.event_name == 'push' && github.ref == 'refs/heads/source'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
