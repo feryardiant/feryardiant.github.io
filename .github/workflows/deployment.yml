@@ -13,30 +13,23 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v3
+
+    - name: Set up pnpm
+      uses: pnpm/action-setup@v2.2.1
 
     - name: Setup Node.JS
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '14'
+        node-version: '16.x'
+        cache: 'pnpm'
 
-    - name: Get cache path
-      id: yarn-cache
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: ${{ steps.yarn-cache.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: ${{ runner.os }}-yarn-
-
-    - name: Install Dependencies
-      run: yarn
+    - name: Install dependencies
+      run: pnpm install
 
     - name: Generate pages
       env:
