@@ -9,7 +9,8 @@ on:
       - master
     paths:
       - .github/workflows/deployment.yml
-      - src/pages/*
+      - locales/*
+      - src/*
 
 jobs:
   build:
