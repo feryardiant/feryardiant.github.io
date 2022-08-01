@@ -1,8 +1,8 @@
+import { readFileSync, writeFileSync } from 'fs'
 import glob from 'fast-glob'
 import matter from 'gray-matter'
 import markdownIt from 'markdown-it'
 import { Feed } from 'feed'
-import { readFileSync, writeFileSync } from 'fs'
 
 const pkg = readFileSync('package.json', 'utf-8')
 const { author } = JSON.parse(pkg)
@@ -31,8 +31,8 @@ async function buildRSS() {
 
   const posts = await Promise.all(
     files.filter(file => !file.includes('index'))
-      .map(async file => {
-        const raw = await readFileSync(file, 'utf-8')
+      .map(async (file) => {
+        const raw = readFileSync(file, 'utf-8')
         const { data, content } = matter(raw)
 
         const html = markdown.render(content)
@@ -43,9 +43,9 @@ async function buildRSS() {
         return {
           ...data,
           content: html,
-          author: [author]
+          author: [author],
         }
-      })
+      }),
   )
 
   await writeFeed('feed', options, posts.filter(Boolean).sort((a, b) => b.date - a.date))
@@ -60,15 +60,16 @@ async function writeFeed(name, options, items) {
 
   items.forEach(item => feed.addItem(item))
 
-  await writeFileSync(`./dist/${name}.xml`, await feed.rss2(), 'utf-8')
-  await writeFileSync(`./dist/${name}.atom`, await feed.atom1(), 'utf-8')
-  await writeFileSync(`./dist/${name}.json`, await feed.json1(), 'utf-8')
+  writeFileSync(`./dist/${name}.xml`, feed.rss2(), 'utf-8')
+  writeFileSync(`./dist/${name}.atom`, feed.atom1(), 'utf-8')
+  writeFileSync(`./dist/${name}.json`, feed.json1(), 'utf-8')
 }
 
 (async function run() {
   try {
     await buildRSS()
-  } catch (err) {
+  }
+  catch (err) {
     console.error(err)
     process.exit(1)
   }
