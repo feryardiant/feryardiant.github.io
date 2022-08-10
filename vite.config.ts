@@ -22,14 +22,6 @@ import mdPrism from 'markdown-it-prism'
 import matter from 'gray-matter'
 import mdIt from 'markdown-it'
 
-// import 'prismjs/components/prism-diff'
-// import 'prismjs/plugins/autolinker/prism-autolinker'
-// import 'prismjs/plugins/autoloader/prism-autoloader'
-// import 'prismjs/plugins/command-line/prism-command-line'
-// import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
-// import 'prismjs/plugins/diff-highlight/prism-diff-highlight'
-// import 'prismjs/plugins/line-highlight/prism-line-highlight'
-
 export default defineConfig({
   resolve: {
     alias: {
