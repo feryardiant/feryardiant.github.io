@@ -1,11 +1,13 @@
 <script setup lang="ts">
 const router = useRouter()
-const sortByDate = (a: any, b: any) => {
+
+function sortByDate(a: any, b: any) {
   if (!a.meta.frontmatter || !b.meta.frontmatter)
     return 0
 
   return +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date)
 }
+
 const posts = router
   .getRoutes()
   .filter(({ path, meta }) => path.startsWith('/posts') && meta.frontmatter?.date)
