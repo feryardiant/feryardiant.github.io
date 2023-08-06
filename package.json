@@ -92,7 +92,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "@antfu/vue"
+      "@creasico/eslint-config/vue"
     ],
     "globals": {
       "vi": true,
