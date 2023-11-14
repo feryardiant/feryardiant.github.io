@@ -2,7 +2,7 @@
 import { Icon } from '@iconify/vue'
 import socialLinks from '../assets/social-links.json'
 
-const { title, display, noTitle, noLabel, iconSize } = defineProps({
+const { title, display, noTitle, iconSize } = defineProps({
   title: {
     type: String,
     default() {
@@ -47,7 +47,7 @@ const { title, display, noTitle, noLabel, iconSize } = defineProps({
       class="flex-1"
       target="__blank"
     >
-      <span v-if="!noLabel" v-html="link.label" />
+      <icon :icon="`mdi:${link.icon}`" :display="display" :width="iconSize" :height="iconSize" />
     </a>
   </div>
 </template>

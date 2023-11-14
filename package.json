@@ -1,6 +1,7 @@
 {
   "name": "@feryardiant/website",
   "version": "0.2.0",
+  "type": "module",
   "private": true,
   "author": {
     "name": "Fery Wardiyanto",
@@ -8,12 +9,10 @@
     "url": "https://feryardiant.id"
   },
   "license": "MIT",
-  "packageManager": "pnpm@7.5.0",
-  "engines": {
-    "node": "14.x || 16.x"
-  },
+  "packageManager": "pnpm@8.5.0",
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
     "build": "run-s build:ssg build:rss",
     "build:ssg": "cross-env NODE_ENV=production vite-ssg build",
     "build:rss": "node scripts/feed.mjs",
@@ -22,9 +21,9 @@
     "prepare": "husky install scripts/husky"
   },
   "dependencies": {
-    "@gtm-support/vue-gtm": "^1.6.0",
-    "@vueuse/core": "^9.13.0",
-    "@vueuse/head": "^0.7.13",
+    "@gtm-support/vue-gtm": "^2.2.0",
+    "@vueuse/core": "^10.6.1",
+    "@vueuse/head": "^2.0.0",
     "dayjs": "^1.11.10",
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.2.4",
@@ -35,17 +34,17 @@
   },
   "devDependencies": {
     "@antfu/eslint-config-vue": "^0.26.3",
-    "@commitlint/cli": "^17.8.1",
-    "@commitlint/config-conventional": "^17.8.1",
-    "@fontsource/fira-code": "^4.5.13",
-    "@fontsource/merriweather-sans": "^4.5.11",
-    "@iconify/vue": "^3.2.1",
-    "@intlify/vite-plugin-vue-i18n": "^6.0.3",
-    "@types/markdown-it": "^12.2.3",
+    "@commitlint/cli": "^18.4.1",
+    "@commitlint/config-conventional": "^18.4.0",
+    "@fontsource/fira-code": "^5.0.15",
+    "@fontsource/merriweather-sans": "^5.0.8",
+    "@iconify/vue": "^4.1.1",
+    "@intlify/unplugin-vue-i18n": "^1.5.0",
+    "@types/markdown-it": "^13.0.6",
     "@types/markdown-it-link-attributes": "^3.0.4",
     "@types/node": "^20.9.0",
     "@types/nprogress": "^0.2.3",
-    "@vitejs/plugin-vue": "^2.3.4",
+    "@vitejs/plugin-vue": "^4.4.1",
     "@vue/compiler-sfc": "^3.3.8",
     "@vue/server-renderer": "^3.3.8",
     "@vue/test-utils": "^2.4.1",
@@ -65,21 +64,21 @@
     "markdown-it-prism": "^2.3.0",
     "npm-run-all": "^4.1.5",
     "prismjs": "^1.29.0",
-    "rollup": "^2.79.1",
+    "rollup": "^4.4.0",
     "typescript": "^4.9.5",
-    "unplugin-auto-import": "^0.11.5",
-    "unplugin-vue-components": "^0.22.12",
-    "vite": "^2.9.16",
-    "vite-plugin-md": "^0.20.6",
-    "vite-plugin-pages": "^0.25.0",
-    "vite-plugin-vue-layouts": "^0.7.0",
+    "unplugin-auto-import": "^0.16.7",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^4.5.0",
+    "vite-plugin-md": "^0.21.5",
+    "vite-plugin-pages": "^0.31.0",
+    "vite-plugin-vue-layouts": "^0.8.0",
     "vite-plugin-windicss": "^1.9.1",
-    "vite-ssg": "^0.20.2",
-    "vite-ssg-sitemap": "^0.3.2",
-    "vitest": "^0.21.1",
-    "vue-tsc": "^0.40.13",
+    "vite-ssg": "^0.23.5",
+    "vite-ssg-sitemap": "^0.6.0",
+    "vitest": "^0.34.6",
+    "vue-tsc": "^1.8.22",
     "windicss": "^3.5.6",
-    "workbox-window": "^6.6.0"
+    "workbox-window": "^7.0.0"
   },
   "browserslist": [
     "> 1%",
@@ -93,7 +92,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "@antfu/vue"
+      "@creasico/eslint-config/vue"
     ],
     "globals": {
       "vi": true,

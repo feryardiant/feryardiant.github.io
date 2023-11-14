@@ -26,7 +26,7 @@ export const createApp = ViteSSG(App, {
     return position || { top: 0 }
   },
 }, (ctx) => {
-  Object.values(
-    import.meta.globEager<SiteModule>('./modules/*.ts'),
-  ).map(i => i.install(ctx))
+  Object.values(import.meta.glob<SiteModule>('./modules/*.ts', { eager: true })).forEach(i =>
+    i.install?.(ctx),
+  )
 })
