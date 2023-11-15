@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Frontmatter } from 'vite-plugin-md'
 
-const { excerpt, frontmatter } = defineProps<{
+const { frontmatter } = defineProps<{
   excerpt?: boolean
   frontmatter: Frontmatter
 }>()
@@ -32,5 +32,5 @@ const postDate = computed(() => {
     <img :alt="frontmatter.title" loading="lazy" :src="`/uploads/${frontmatter.thumb}`" />
   </figure>
 
-  <section v-if="excerpt && frontmatter.excerpt" class="text-dark-100" v-html="frontmatter.excerpt" />
+  <section v-if="frontmatter.excerpt" class="text-dark-100" v-html="frontmatter.excerpt" />
 </template>
