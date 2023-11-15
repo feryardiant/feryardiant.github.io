@@ -1,7 +1,7 @@
 ---
 title: Bikin dokument viewer menggunakan sendiri PDF.JS dan WebODF
 date: 2014-01-16 15:58:03 +0700
-tags: [Playgrounds, Document Viewer]
+category: [Playgrounds, Document Viewer]
 ---
 Berhadapan dengan project yang dituntut untuk dapat menampilkan berbagai macam dokumen membuat saya penasaran dan berkeinginan untuk membuat semacam Document Viewer sendiri, karena sebelumnya saya slalu menggunakan dan mengkombinasikan source program buatan orang lain. Terutama untuk dokumen teks seperti: .PDF, .ODT, .ODS, .DOC dsb.<!-- more -->
 
@@ -23,8 +23,8 @@ _Note: Sementara baru 2 resource itu yang rencanannya akan saya gunakan untuk pe
 Oke, saya mulai dari PDF.JS. Pertama kali saya coba menggunakan [Twitter Bower](http://bower), niatnya sih biar Source lebih gampang ngatur repo nya. Tapi nggak tau kenapa, pas compiling build status nya error terus. Berikut hasil compilenya.
 
 ```js
-PDFJS.version = '0.8.2';
-PDFJS.build = 'fatal: Not a git repository (or any parent up to mount point /home)Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).';
+PDFJS.version = '0.8.2'
+PDFJS.build = 'fatal: Not a git repository (or any parent up to mount point /home)Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).'
 ```
 
 Well, dari situ kemungkinan si PDF.JS butuh source dari git repo nya. Jadi saya coba dengan clone langsung dari official repo nya yang ada di github.
@@ -41,8 +41,8 @@ $ node make generic
 Dan hasilnya,
 
 ```js
-PDFJS.version = '0.8.872';
-PDFJS.build = 'ab4f27b';
+PDFJS.version = '0.8.872'
+PDFJS.build = 'ab4f27b'
 ```
 
 Oke, compiling nya udah selesai dan setelah dicoba, kelihatannya nggak ada masalah. Misi selanjutnya adalah ngutak-atik source code nya dan disesuaiin dengan kebutuhan saya.

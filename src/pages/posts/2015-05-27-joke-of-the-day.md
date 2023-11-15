@@ -2,7 +2,7 @@
 title: "Joke of the day"
 date: 2015-05-27 23:05:39 +0700
 thumb: me-on-google.png
-tags: [Joke]
+category: [Joke]
 ---
 Beberapa waktu lalu sempat dua kali dapet tawaran project web development, dan waktu saya menanyakan soal __Anda tau kontak saya darimana?__ mereka menjawab __Dari internet mas__. __Eh?! beneran??__ dalam hati saya bertanya-tanya.<!-- more -->
 

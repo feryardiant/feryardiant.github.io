@@ -2,7 +2,7 @@
 title: Facebook Autotag
 date: 2014-01-30 13:35:56 +0700
 thumb: facebook.jpg
-tags: [Tulisan, Facebook, Spam]
+category: [Tulisan, Facebook, Spam]
 ---
 Belakangan ini mulai marak dengan kasus autotag di Facebook, dimana setiap orang akan secara otomatis mention/summon semua friendlist nya kedalam komentar.<!-- more --> Seperti yang saya alami beberapa waktu lalu, saya di-mention oleh beberapa teman ke beberapa post. Setelah saya coba check post tersebut ternyata hanya post bodoh yang nggak ada gunanya sama sekali, antara lain _Hack password teman_, _Melihat isi inbox dari akun FB temen_ bahkan ada juga yang pake modus _Memperoleh ribuan follower cewek-cewek seksi_. WTF!
 
