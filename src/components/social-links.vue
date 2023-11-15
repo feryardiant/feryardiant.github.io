@@ -36,7 +36,7 @@ const { title, display, noTitle, iconSize } = defineProps({
 </script>
 
 <template>
-  <div class="else-where inline-flex">
+  <div class="flex flex-row gap-4">
     <h4 v-if="!noTitle" v-html="title" />
 
     <a
@@ -44,7 +44,6 @@ const { title, display, noTitle, iconSize } = defineProps({
       :key="link.icon"
       :href="link.url"
       rel="nofolow"
-      class="flex-1"
       target="__blank"
     >
       <icon :icon="`mdi:${link.icon}`" :display="display" :width="iconSize" :height="iconSize" />

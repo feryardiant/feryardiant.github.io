@@ -212,6 +212,7 @@ export default defineConfig(({ mode }) => {
        */
       components({
         dts: 'src/components.d.ts',
+        directoryAsNamespace: true,
         // allow auto load markdown components under `./src/components/`
         extensions: ['vue', 'md'],
         // allow auto import and register components used in markdown

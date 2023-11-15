@@ -9,7 +9,7 @@ const menu = [
 <template>
   <header id="masthead">
     <div class="container">
-      <nav class="nav-primary">
+      <nav class="nav-primary text-center">
         <router-link v-for="{ to, title } in menu" :key="to" :to="to">
           {{ title }}
         </router-link>

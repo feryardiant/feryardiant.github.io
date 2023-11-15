@@ -15,58 +15,25 @@ const formatDate = (date: string) => new Date(date).toLocaleDateString()
 </script>
 
 <template>
-  <p class="page-meta">
-    <time v-if="postDate" class="published" :datetime="postDate" :title="postDate">{{
-      formatDate(postDate)
-    }}</time>
-    <span v-for="tag in frontmatter.tags" :key="tag" class="tag">#{{ tag }}</span>
+  <p class="leading-none !my-0 text-sm text-gray-500">
+    <time
+      v-if="postDate"
+      class="mr-2"
+      :datetime="postDate"
+      :title="postDate"
+      v-html="formatDate(postDate)"
+    />
+
+    <template v-for="tag in frontmatter.tags" :key="tag">
+      <span class="mr-2">#{{ tag }}</span>
+    </template>
   </p>
 
-  <slot v-bind="{ title: frontmatter.title }">
-    <h1 class="page-title entry-title">
-      {{ frontmatter.title }}
-    </h1>
-  </slot>
+  <slot v-bind="{ title: frontmatter.title }" />
 
-  <figure v-if="frontmatter.thumb">
+  <figure v-if="frontmatter.thumb" class="mb-5 rounded overflow-hidden border border-gray-300">
     <img :alt="frontmatter.title" :src="`/uploads/${frontmatter.thumb}`" />
   </figure>
 
-  <p v-if="excerpt && frontmatter.excerpt" class="excerpt" v-html="frontmatter.excerpt" />
+  <section v-if="excerpt && frontmatter.excerpt" class="text-dark-100" v-html="frontmatter.excerpt" />
 </template>
-
-<style lang="postcss" scoped>
-h1,
-h3 {
-  &.page-title {
-    font-weight: 700;
-    line-height: 1.6em;
-    margin-top: 0;
-    margin-bottom: 0;
-
-    > a {
-      @apply inline-block;
-      text-decoration: none;
-      font-weight: inherit;
-    }
-  }
-}
-
-h3.page-title {
-  font-size: 1.8rem;
-}
-
-.page-title {
-  padding-bottom: 0.5em;
-}
-
-p.page-meta {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  @apply text-sm text-gray-500;
-
-  * {
-    margin-right: 0.5rem;
-  }
-}
-</style>

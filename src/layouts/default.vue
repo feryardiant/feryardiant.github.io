@@ -1,5 +1,16 @@
+<script lang="ts" setup>
+const route = useRoute()
+const title = computed(() => {
+  return route.meta.frontmatter?.title || route.meta.title
+})
+
+useTitle(title, {
+  titleTemplate: '%s - Fery Wardiyanto',
+})
+</script>
+
 <template>
-  <article class="container py-5 prose">
+  <section class="container py-5">
     <router-view />
-  </article>
+  </section>
 </template>
