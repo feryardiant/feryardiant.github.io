@@ -32,7 +32,7 @@ const formatDate = (date: string) => new Date(date).toLocaleDateString()
   <slot v-bind="{ title: frontmatter.title }" />
 
   <figure v-if="frontmatter.thumb" class="mb-5 rounded overflow-hidden border border-gray-300">
-    <img :alt="frontmatter.title" :src="`/uploads/${frontmatter.thumb}`" />
+    <img :alt="frontmatter.title" loading="lazy" :src="`/uploads/${frontmatter.thumb}`" />
   </figure>
 
   <section v-if="excerpt && frontmatter.excerpt" class="text-dark-100" v-html="frontmatter.excerpt" />
