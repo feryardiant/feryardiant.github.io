@@ -24,6 +24,7 @@
     "@gtm-support/vue-gtm": "^2.2.0",
     "@vueuse/core": "^10.6.1",
     "@vueuse/head": "^2.0.0",
+    "axios": "^1.6.2",
     "dayjs": "^1.11.10",
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.2.4",
