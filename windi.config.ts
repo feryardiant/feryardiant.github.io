@@ -6,7 +6,7 @@ import forms from 'windicss/plugin/forms'
 export default defineConfig({
   darkMode: 'class',
   extract: {
-    include: ['index.html', 'src/**/*.{vue,html,js,ts}'],
+    include: ['index.html', 'src/**/*.{md,vue,html,js,ts}'],
     exclude: ['node_modules', '.git'],
   },
   plugins: [
