@@ -11,6 +11,12 @@ useTitle(title, {
 
 <template>
   <section class="container py-5">
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <template v-if="Component">
+        <suspense>
+          <component :is="Component" />
+        </suspense>
+      </template>
+    </router-view>
   </section>
 </template>

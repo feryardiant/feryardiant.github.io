@@ -1,6 +1,6 @@
 <script setup>
 import { Icon } from '@iconify/vue'
-import socialLinks from '../assets/social-links.json'
+import socialLinks from '../static/social-links.json'
 
 const { title, display, noTitle, iconSize } = defineProps({
   title: {

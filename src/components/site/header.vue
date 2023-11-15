@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const menu = [
   { to: '/', title: 'Home' },
-  { to: '/about', title: 'About Me' },
   { to: '/posts', title: 'Blog' },
 ]
 </script>
