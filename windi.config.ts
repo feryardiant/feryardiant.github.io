@@ -1,5 +1,7 @@
 import { defineConfig } from 'windicss/helpers'
 import defaultTheme from 'windicss/defaultTheme'
+import typography from 'windicss/plugin/typography'
+import forms from 'windicss/plugin/forms'
 
 export default defineConfig({
   darkMode: 'class',
@@ -8,8 +10,8 @@ export default defineConfig({
     exclude: ['node_modules', '.git'],
   },
   plugins: [
-    require('windicss/plugin/typography'),
-    require('windicss/plugin/forms'),
+    typography(),
+    forms,
   ],
   theme: {
     extend: {

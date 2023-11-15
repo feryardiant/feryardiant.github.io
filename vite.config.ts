@@ -1,6 +1,3 @@
-/// <reference types="vitest" />
-/// <reference types="vite-ssg" />
-
 import { resolve } from 'node:path'
 import { readFileSync } from 'node:fs'
 
@@ -44,12 +41,32 @@ export default defineConfig(({ mode }) => {
     //   ],
     // },
 
-    // https://github.com/antfu/vite-ssg
+    build: {
+      reportCompressedSize: false,
+      chunkSizeWarningLimit: 2000,
+      rollupOptions: {
+        output: {
+          /**
+           * @see https://rollupjs.org/configuration-options/#output-manualchunks
+           */
+          manualChunks: (id) => {
+            if (id.includes('node_modules'))
+              return 'vendor'
+          },
+        },
+      },
+    },
+
+    /**
+     * @see https://github.com/antfu/vite-ssg
+     */
     ssgOptions: {
       script: 'async',
       formatting: 'minify',
       onFinished() {
-        // https://github.com/jbaubree/vite-ssg-sitemap
+        /**
+         * @see https://github.com/jbaubree/vite-ssg-sitemap
+         */
         sitemap({
           hostname: env.BASE_URL || 'http://localhost',
           exclude: ['/index', '/404'],
@@ -62,7 +79,9 @@ export default defineConfig(({ mode }) => {
       },
     },
 
-    // https://github.com/vitest-dev/vitest
+    /**
+     * @see https://github.com/vitest-dev/vitest
+     */
     test: {
       include: ['test/**/*.test.ts'],
       environment: 'happy-dom',
@@ -77,10 +96,14 @@ export default defineConfig(({ mode }) => {
         reactivityTransform: true,
       }),
 
-      // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
+      /**
+       * @see https://github.com/JohnCampionJr/vite-plugin-vue-layouts
+       */
       layouts(),
 
-      // https://github.com/antfu/vite-plugin-windicss
+      /**
+       * @see https://github.com/antfu/vite-plugin-windicss
+       */
       windicss({
         safelist: 'prose prose-sm m-auto text-left',
         preflight: {
@@ -88,14 +111,18 @@ export default defineConfig(({ mode }) => {
         },
       }),
 
-      // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
+      /**
+       * @see https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
+       */
       i18n({
         runtimeOnly: true,
         compositionOnly: true,
         include: [resolve(__dirname, 'locales/**')],
       }),
 
-      // https://github.com/hannoeru/vite-plugin-pages
+      /**
+       * @see https://github.com/hannoeru/vite-plugin-pages
+       */
       pages({
         extensions: ['vue', 'md'],
         extendRoute({ title, description, meta, ...route }) {
@@ -129,7 +156,9 @@ export default defineConfig(({ mode }) => {
         },
       }),
 
-      // https://github.com/antfu/vite-plugin-md
+      /**
+       * @see https://github.com/antfu/vite-plugin-md
+       */
       markdown({
         wrapperComponent: 'page',
         wrapperClasses: 'prose max-w-none',
@@ -178,7 +207,9 @@ export default defineConfig(({ mode }) => {
         },
       }),
 
-      // https://github.com/antfu/unplugin-vue-components
+      /**
+       * @see https://github.com/antfu/unplugin-vue-components
+       */
       components({
         dts: 'src/components.d.ts',
         // allow auto load markdown components under `./src/components/`
