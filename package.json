@@ -16,7 +16,7 @@
     "build": "run-s build:ssg build:rss",
     "build:ssg": "cross-env NODE_ENV=production vite-ssg build",
     "build:rss": "node scripts/feed.mjs",
-    "lint": "eslint .",
+    "lint": "eslint --ext .mjs,.ts,.vue .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install scripts/husky"
   },
@@ -33,9 +33,9 @@
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@antfu/eslint-config-vue": "^0.26.3",
     "@commitlint/cli": "^18.4.1",
     "@commitlint/config-conventional": "^18.4.0",
+    "@creasico/eslint-config": "^0.0.1",
     "@fontsource/fira-code": "^5.0.15",
     "@fontsource/merriweather-sans": "^5.0.8",
     "@iconify/vue": "^4.1.1",
@@ -47,7 +47,7 @@
     "@vitejs/plugin-vue": "^4.4.1",
     "@vue/compiler-sfc": "^3.3.8",
     "@vue/server-renderer": "^3.3.8",
-    "@vue/test-utils": "^2.4.1",
+    "@vue/test-utils": "^2.4.2",
     "@yankeeinlondon/meta-builder": "^1.4.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
@@ -55,16 +55,16 @@
     "fast-glob": "^3.3.2",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
-    "happy-dom": "^6.0.4",
+    "happy-dom": "^12.10.3",
     "husky": "^8.0.3",
-    "lint-staged": "^13.3.0",
+    "lint-staged": "^15.1.0",
     "markdown-it": "^13.0.2",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-link-attributes": "^4.0.1",
     "markdown-it-prism": "^2.3.0",
     "npm-run-all": "^4.1.5",
     "prismjs": "^1.29.0",
-    "rollup": "^4.4.0",
+    "rollup": "^4.4.1",
     "typescript": "^4.9.5",
     "unplugin-auto-import": "^0.16.7",
     "unplugin-vue-components": "^0.25.2",
@@ -97,16 +97,6 @@
     "globals": {
       "vi": true,
       "vitest": true
-    },
-    "ignorePatterns": [
-      "**/*.d.ts"
-    ],
-    "rules": {
-      "vue/component-definition-name-casing": [
-        "error",
-        "kebab-case"
-      ],
-      "vue/html-self-closing": "off"
     }
   },
   "lint-staged": {

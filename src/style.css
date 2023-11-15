@@ -1,10 +1,10 @@
 @import 'prism-theme-vars/base.css';
 
-@import '@fontsource/merriweather-sans/400.css';
-@import '@fontsource/merriweather-sans/400-italic.css';
-@import '@fontsource/merriweather-sans/700.css';
-@import '@fontsource/merriweather-sans/700-italic.css';
-@import '@fontsource/fira-code/400.css';
+@import '@fontsource/merriweather-sans/latin-400.css';
+@import '@fontsource/merriweather-sans/latin-400-italic.css';
+@import '@fontsource/merriweather-sans/latin-700.css';
+@import '@fontsource/merriweather-sans/latin-700-italic.css';
+@import '@fontsource/fira-code/latin-400.css';
 
 :root {
   --prism-font-size: .9em;

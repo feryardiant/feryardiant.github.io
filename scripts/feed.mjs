@@ -1,4 +1,5 @@
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { exit } from 'node:process'
 import glob from 'fast-glob'
 import matter from 'gray-matter'
 import markdownIt from 'markdown-it'
@@ -71,6 +72,6 @@ async function writeFeed(name, options, items) {
   }
   catch (err) {
     console.error(err)
-    process.exit(1)
+    exit(1)
   }
 })()
