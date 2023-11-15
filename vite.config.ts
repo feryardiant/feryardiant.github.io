@@ -149,6 +149,7 @@ export default defineConfig(({ mode }) => {
 
           route.meta = Object.assign({}, {
             title: frontmatter.title,
+            locale: frontmatter.locale,
             description: description || undefined,
           }, meta)
 

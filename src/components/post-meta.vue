@@ -1,33 +1,30 @@
 <script setup lang="ts">
-const { excerpt, frontmatter } = defineProps({
-  frontmatter: {
-    type: Object,
-    required: true,
-  },
-  excerpt: {
-    type: Boolean,
-    default: () => true,
-  },
-})
+import type { Frontmatter } from 'vite-plugin-md'
 
-const postDate = frontmatter.modified || frontmatter?.date
-const formatDate = (date: string) => new Date(date).toLocaleDateString()
+const { excerpt, frontmatter } = defineProps<{
+  excerpt?: boolean
+  frontmatter: Frontmatter
+}>()
+
+const postDate = computed(() => {
+  const date = frontmatter.modified || frontmatter?.date
+  return new Date(date as string).toLocaleDateString()
+})
 </script>
 
 <template>
-  <p class="leading-none !my-0 text-sm text-gray-500">
+  <div class="flex gap-1 leading-none !my-0 text-sm text-gray-500">
     <time
       v-if="postDate"
-      class="mr-2"
       :datetime="postDate"
       :title="postDate"
-      v-html="formatDate(postDate)"
+      v-html="postDate"
     />
 
-    <template v-for="tag in frontmatter.tags" :key="tag">
-      <span class="mr-2">#{{ tag }}</span>
+    <template v-for="category in frontmatter.category" :key="category">
+      <span>#{{ category }}</span>
     </template>
-  </p>
+  </div>
 
   <slot v-bind="{ title: frontmatter.title }" />
 

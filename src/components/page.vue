@@ -1,10 +1,9 @@
 <script setup lang="ts">
-const { frontmatter } = defineProps({
-  frontmatter: {
-    type: Object,
-    required: true,
-  },
-})
+import type { Frontmatter } from 'vite-plugin-md'
+
+const { frontmatter } = defineProps<{
+  frontmatter: Frontmatter
+}>()
 </script>
 
 <template>
