@@ -2,14 +2,9 @@ name: Build and Deploy
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
   push:
-    branches:
-      - main
-
-env:
-  BASE_URL: https://feryardiant.id/
+    branches: [main]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -43,7 +38,7 @@ jobs:
 
     - name: Generate pages
       env:
-        VITE_GTM_KEY: GTM-5G6FXJ7
+        VITE_GTM_ID: ${{ secrets.VITE_GTM_ID }}
       run: |
         pnpm build
         cp .gitignore dist/
@@ -60,7 +55,7 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{ env.BASE_URL }}
+      url: ${{ vars.BASE_URL }}
 
     steps:
     - name: Deploy pages
