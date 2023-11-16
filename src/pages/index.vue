@@ -35,5 +35,6 @@
 </style>
 
 <route lang="yaml">
-title: Home
+meta:
+  title: Home
 </route>

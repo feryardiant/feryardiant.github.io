@@ -125,16 +125,16 @@ export default defineConfig(({ mode }) => {
        */
       pages({
         extensions: ['vue', 'md'],
-        extendRoute({ title, description, meta, ...route }) {
-          const frontmatter = {
-            title,
+        extendRoute({ meta, ...route }) {
+          meta = meta || {}
+          meta.frontmatter = Object.assign({
+            title: meta.title,
+            description: meta.description,
             comments: true,
             layout: 'default',
             locale: 'en',
-            date: null,
-          }
+          }, meta.frontmatter || {})
 
-          meta = meta || {}
           if (typeof route.component === 'string' && route.component.endsWith('.md')) {
             const path = resolve(__dirname, route.component.slice(1))
             const { data, excerpt } = matter(readFileSync(path, 'utf-8'), {
@@ -142,15 +142,15 @@ export default defineConfig(({ mode }) => {
               excerpt_separator: '<!-- more -->',
             })
 
-            meta.frontmatter = Object.assign({}, frontmatter, {
+            meta.frontmatter = Object.assign(meta.frontmatter, {
               excerpt: excerpt ? mdIt().render(excerpt) : undefined,
             }, data)
           }
 
           route.meta = Object.assign({}, {
-            title: frontmatter.title,
-            locale: frontmatter.locale,
-            description: description || undefined,
+            locale: meta.frontmatter.locale,
+            title: meta.frontmatter.title,
+            description: meta.frontmatter.description,
           }, meta)
 
           return route
@@ -163,7 +163,7 @@ export default defineConfig(({ mode }) => {
       markdown({
         wrapperComponent: 'page',
         wrapperClasses: 'prose max-w-none',
-        // headEnabled: true,
+        headEnabled: true,
         excerpt: true,
         style: {
           baseStyle: 'github',

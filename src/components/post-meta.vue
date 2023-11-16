@@ -6,10 +6,11 @@ const { frontmatter } = defineProps<{
   frontmatter: Frontmatter
 }>()
 
-const postDate = computed(() => {
-  const date = frontmatter.modified || frontmatter?.date
-  return new Date(date as string).toLocaleDateString()
-})
+const postDate = computed(() => frontmatter.updated || frontmatter.date)
+
+function formatDate(date: string) {
+  return new Date(date).toLocaleDateString()
+}
 </script>
 
 <template>
@@ -18,7 +19,7 @@ const postDate = computed(() => {
       v-if="postDate"
       :datetime="postDate"
       :title="postDate"
-      v-html="postDate"
+      v-html="formatDate(postDate)"
     />
 
     <template v-for="category in frontmatter.category" :key="category">

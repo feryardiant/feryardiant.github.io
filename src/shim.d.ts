@@ -10,9 +10,9 @@ declare module 'vite-plugin-md' {
     container?: 'wide' | 'narrow'
     locale?: SiteLocale
     comments?: boolean
-    date?: string
     thumb?: string
-    modified?: string
+    date?: string
+    updated?: string
   }
 }
 
@@ -24,9 +24,9 @@ declare module 'vue-router' {
 
   interface RouteMeta {
     layout?: Frontmatter['layout']
-    title?: Frontmatter['title']
-    description?: Frontmatter['description']
-    frontmatter?: Frontmatter
-    locale?: SiteLocale,
+    title: Frontmatter['title']
+    description: Frontmatter['description']
+    frontmatter: Frontmatter
+    locale: SiteLocale,
   }
 }

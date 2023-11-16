@@ -35,8 +35,9 @@ const posts = router
 </style>
 
 <route lang="yaml">
-title: Blog
-menu:
-  position: top
+meta:
   title: Blog
+  menu:
+    position: top
+    title: Blog
 </route>
