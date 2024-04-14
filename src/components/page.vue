@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { Frontmatter } from 'vite-plugin-md'
+import type { Frontmatter } from 'unplugin-vue-markdown/types'
 
 const { frontmatter } = defineProps<{
   frontmatter: Frontmatter
+  excerpt?: string
 }>()
 </script>
 

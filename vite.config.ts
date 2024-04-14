@@ -1,4 +1,4 @@
-import { resolve } from 'node:path'
+import { basename, resolve } from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import i18n from '@intlify/unplugin-vue-i18n/vite'
@@ -15,7 +15,9 @@ import router from 'unplugin-vue-router/vite'
 import layouts from 'vite-plugin-vue-layouts'
 import mdLinkAttr from 'markdown-it-link-attributes'
 import mdPrism from 'markdown-it-prism'
-import { feeds } from './scripts/feed'
+
+import { extractFrontmatter, feeds } from './scripts/feed'
+import { author } from './package.json'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '', ['SITE', 'FIREBASE', 'VITE'])
@@ -38,9 +40,11 @@ export default defineConfig(({ mode }) => {
 
     define: {
       'FIREBASE_CONFIG': JSON.stringify(FIREBASE_CONFIG),
-      'import.meta.env.SITE_NAME': JSON.stringify(env.BASE_NAME),
-      'import.meta.env.SITE_DESCRIPTION': JSON.stringify(env.BASE_DESCRIPTION),
-      'import.meta.env.SITE_URL': JSON.stringify(env.BASE_URL),
+      'import.meta.env.SITE_NAME': JSON.stringify(env.SITE_NAME),
+      'import.meta.env.SITE_DESCRIPTION': JSON.stringify(env.SITE_DESCRIPTION),
+      'import.meta.env.SITE_URL': JSON.stringify(env.SITE_URL),
+      'import.meta.env.SITE_AUTHOR_NAME': JSON.stringify(author.name),
+      'import.meta.env.SITE_AUTHOR_EMAIL': JSON.stringify(author.email),
     },
 
     // optimizeDeps: {
@@ -171,38 +175,33 @@ export default defineConfig(({ mode }) => {
       router({
         dts: 'src/.typed-router.d.ts',
         extensions: ['.vue', '.md'],
-        extendRoute(route) {
+        async extendRoute(route) {
           if (route.path === '/404')
             route.name = 'not-found'
 
-          const frontmatter = Object.assign({
-            description: route.meta.description,
-            locale: 'en',
-          }, route.meta.frontmatter || {})
+          const component = route.components.get('default')
 
-          route.meta = Object.assign({}, {
-            locale: frontmatter.locale,
-          }, route.meta)
+          route.addToMeta({
+            frontmatter: {},
+          })
+
+          if (component && component.endsWith('.md')) {
+            const { data, excerpt } = extractFrontmatter(component)
+            const filename = basename(component)
+              .match(/(?<date>[0-9]{4}-[0-9]{2}-[0-9]{2})/)
+
+            data.date = new Date(data.date || (filename?.[0] as string))
+            data.published = 'published' in data ? new Date(data.published) : data.date
+            data.updated = 'updated' in data ? new Date(data.updated) : undefined
+
+            route.addToMeta({
+              title: data.title,
+              description: data.description || excerpt,
+              locale: data.locale || 'en',
+              frontmatter: data,
+            })
+          }
         },
-      }),
-
-      /**
-       * @see https://github.com/antfu/vite-plugin-windicss
-       */
-      windicss({
-        safelist: 'prose prose-sm m-auto text-left',
-        preflight: {
-          enableAll: true,
-        },
-      }),
-
-      /**
-       * @see https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
-       */
-      i18n({
-        runtimeOnly: true,
-        compositionOnly: true,
-        include: [resolve(__dirname, 'locales/**')],
       }),
 
       /**
@@ -211,16 +210,7 @@ export default defineConfig(({ mode }) => {
       markdown({
         wrapperComponent: 'page',
         wrapperClasses: 'prose max-w-none',
-        headEnabled: true,
         excerpt: true,
-
-        /**
-         * @see https://markdown-it.github.io/markdown-it
-         */
-        markdownItOptions: {
-          html: true,
-          typographer: true,
-        },
 
         markdownItSetup(md) {
           md.use(mdPrism)
@@ -241,6 +231,25 @@ export default defineConfig(({ mode }) => {
             },
           })
         },
+      }),
+
+      /**
+       * @see https://github.com/antfu/vite-plugin-windicss
+       */
+      windicss({
+        safelist: 'prose prose-sm m-auto text-left',
+        preflight: {
+          enableAll: true,
+        },
+      }),
+
+      /**
+       * @see https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
+       */
+      i18n({
+        runtimeOnly: true,
+        compositionOnly: true,
+        include: [resolve(__dirname, 'locales/**')],
       }),
     ],
   }

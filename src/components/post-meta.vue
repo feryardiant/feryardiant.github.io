@@ -1,16 +1,45 @@
 <script setup lang="ts">
-import type { Frontmatter } from 'vite-plugin-md'
+import type { Meta } from '@unhead/vue'
+import type { Frontmatter } from 'unplugin-vue-markdown/types'
 
-const { frontmatter } = defineProps<{
-  excerpt?: boolean
+const { frontmatter, excerpt } = defineProps<{
   frontmatter: Frontmatter
+  excerpt?: string
 }>()
 
+function thumbnailUrl(image: string): string {
+  return `${import.meta.env.SITE_URL}/uploads/${image}`
+}
+
 const postDate = computed(() => frontmatter.updated || frontmatter.date)
+const imageUrl = computed(() => frontmatter.thumb ? thumbnailUrl(frontmatter.thumb) : undefined)
+const meta: Meta[] = []
+
+if (excerpt) {
+  meta.push({
+    name: 'description',
+    content: excerpt,
+  }, {
+    property: 'og:description',
+    content: excerpt,
+  })
+}
+
+if (imageUrl.value) {
+  meta.push({
+    property: 'og:image',
+    content: imageUrl.value,
+  })
+}
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString()
 }
+
+useHead({
+  title: frontmatter.title,
+  meta,
+})
 </script>
 
 <template>
@@ -30,10 +59,10 @@ function formatDate(date: string) {
   <slot v-bind="{ title: frontmatter.title }" />
 
   <div class="mb-5">
-    <figure v-if="frontmatter.thumb" class="w-[fit-content] mx-auto rounded overflow-hidden border border-gray-300">
-      <img :alt="frontmatter.title" loading="lazy" :src="`/uploads/${frontmatter.thumb}`">
+    <figure v-if="imageUrl" class="w-[fit-content] mx-auto rounded overflow-hidden border border-gray-300">
+      <img :alt="frontmatter.title" loading="lazy" :src="imageUrl">
     </figure>
   </div>
 
-  <section v-if="frontmatter.excerpt" class="text-dark-100" v-html="frontmatter.excerpt" />
+  <section v-if="excerpt" class="text-dark-100" v-html="excerpt" />
 </template>

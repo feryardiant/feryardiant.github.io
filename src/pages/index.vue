@@ -1,4 +1,9 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
+useHead({
+  title: t('title'),
+})
 </script>
 
 <template>
@@ -34,7 +39,9 @@
 }
 </style>
 
-<route lang="yaml">
-meta:
-  title: Home
-</route>
+<i18n lang="yaml">
+  id:
+    title: Beranda
+  en:
+    title: Home
+</i18n>

@@ -19,6 +19,12 @@ interface Options {
   url: string
 }
 
+export function extractFrontmatter(filepath: string) {
+  const content = readFileSync(filepath, 'utf-8')
+
+  return matter(content)
+}
+
 export async function feeds(option: Partial<Options>) {
   const files = await glob('src/pages/posts/*.md')
   const year = new Date().getFullYear()
@@ -26,8 +32,7 @@ export async function feeds(option: Partial<Options>) {
   const posts = await Promise.all(
     files.filter(file => !file.includes('index'))
       .map(async (file) => {
-        const raw = readFileSync(file, 'utf-8')
-        const { data, content } = matter(raw)
+        const { data, content } = extractFrontmatter(file)
 
         const html = markdown.render(content)
           .replace('src="/', `src="${option.url}/`)
@@ -46,7 +51,7 @@ export async function feeds(option: Partial<Options>) {
     description: option.description || 'Yet another blog',
     id: `${option.url}/`,
     link: `${option.url}/`,
-    copyright: `CC BY-NC 4.0 2013 - ${year} © ${author.name}`,
+    copyright: `CC BY-NC 4.0 2012 - ${year} © ${author.name}`,
     feedLinks: {
       json: `${option.url}/feed.json`,
       atom: `${option.url}/feed.atom`,
