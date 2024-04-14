@@ -75,6 +75,14 @@ export default defineConfig(({ mode }) => {
       },
     },
 
+    ssr: {
+      /**
+       * TODO: workaround until they support native ESM
+       * @link https://github.com/antfu/vite-ssg/issues/286#issuecomment-1285885878
+       */
+      noExternal: [/vue-i18n/],
+    },
+
     /**
      * @see https://github.com/antfu/vite-ssg
      */
