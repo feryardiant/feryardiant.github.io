@@ -14,7 +14,7 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import router from 'unplugin-vue-router/vite'
 import layouts from 'vite-plugin-vue-layouts'
 import mdLinkAttr from 'markdown-it-link-attributes'
-import mdPrism from 'markdown-it-prism'
+import shiki from '@shikijs/markdown-it'
 
 import { extractFrontmatter, feeds } from './scripts/feed'
 import { author } from './package.json'
@@ -220,8 +220,14 @@ export default defineConfig(({ mode }) => {
         wrapperClasses: 'prose max-w-none',
         excerpt: true,
 
-        markdownItSetup(md) {
-          md.use(mdPrism)
+        async markdownItSetup(md) {
+          md.use(await shiki({
+            defaultColor: false,
+            themes: {
+              light: 'github-light',
+              dark: 'github-dark',
+            },
+          }))
 
           // md.use(mdAnchor, {
           //   permalink: mdAnchor.permalink.ariaHidden({
