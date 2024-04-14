@@ -3,6 +3,6 @@
     "cpylua.language-postcss",
     "toba.vsfire",
     "voorjaar.windicss-intellisense",
-    "vue.volar",
+    "vue.volar"
   ]
 }

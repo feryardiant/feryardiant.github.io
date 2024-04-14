@@ -46,7 +46,7 @@ const { title, display, noTitle, iconSize } = defineProps({
       rel="nofolow"
       target="__blank"
     >
-      <icon :icon="`mdi:${link.icon}`" :display="display" :width="iconSize" :height="iconSize" />
+      <Icon :icon="`mdi:${link.icon}`" :display="display" :width="iconSize" :height="iconSize" />
     </a>
   </div>
 </template>

@@ -1,27 +1,31 @@
 {
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "dist",
-    "module": "esnext",
-    "target": "esnext",
+    "target": "ESNext",
     "jsx": "preserve",
-    "strict": true,
-    "sourceMap": true,
-    "allowJs": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "declaration": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "useDefineForClassFields": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
     "lib": ["ESNext", "DOM"],
-    "typeRoots": ["./src"],
-    "types": [],
+    "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "paths": {
       "~/*": ["src/*"]
-    }
-  }
+    },
+    "resolveJsonModule": true,
+    "typeRoots": ["./src"],
+    "types": [],
+    "allowJs": true,
+    "strict": true,
+    "declaration": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "*.config.*",
+    "src",
+    "scripts"
+  ]
 }

@@ -1,7 +1,7 @@
 import 'vue-router'
 import 'vite-plugin-md'
 
-import { SiteLocale } from '~/types'
+import type { SiteLocale } from '~/types'
 
 export {}
 
@@ -20,13 +20,13 @@ declare module 'vite-plugin-md' {
  * @see https://router.vuejs.org/guide/advanced/meta.html#TypeScript
  */
 declare module 'vue-router' {
-  import type { Frontmatter } from 'vite-plugin-md'
+  import type { Frontmatter } from 'unplugin-vue-markdown'
 
   interface RouteMeta {
     layout?: Frontmatter['layout']
     title: Frontmatter['title']
     description: Frontmatter['description']
     frontmatter: Frontmatter
-    locale: SiteLocale,
+    locale: SiteLocale
   }
 }

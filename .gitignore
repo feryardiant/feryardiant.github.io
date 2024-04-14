@@ -22,8 +22,9 @@ dist
 gcp-zeitnow.json
 node_modules
 service-account-key.json
-src/auto-imports.d.ts
-src/components.d.ts
+src/.auto-imports.d.ts
+src/.components.d.ts
+src/.typed-router.d.ts
 
 # But Keep these
 # --------------------------

@@ -31,7 +31,7 @@ function formatDate(date: string) {
 
   <div class="mb-5">
     <figure v-if="frontmatter.thumb" class="w-[fit-content] mx-auto rounded overflow-hidden border border-gray-300">
-      <img :alt="frontmatter.title" loading="lazy" :src="`/uploads/${frontmatter.thumb}`" />
+      <img :alt="frontmatter.title" loading="lazy" :src="`/uploads/${frontmatter.thumb}`">
     </figure>
   </div>
 

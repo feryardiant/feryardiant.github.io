@@ -1,32 +1,46 @@
 import { resolve } from 'node:path'
-import { readFileSync } from 'node:fs'
-
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import i18n from '@intlify/unplugin-vue-i18n/vite'
+import unhead from '@unhead/addons/vite'
+import { SchemaOrgResolver, schemaAutoImports } from '@unhead/schema-org/vue'
+import { unheadVueComposablesImports } from '@unhead/vue'
 import sitemap from 'vite-ssg-sitemap'
 import windicss from 'vite-plugin-windicss'
 import autoImport from 'unplugin-auto-import/vite'
 import components from 'unplugin-vue-components/vite'
-import markdown from 'vite-plugin-md'
-import meta from '@yankeeinlondon/meta-builder'
-import pages from 'vite-plugin-pages'
+import markdown from 'unplugin-vue-markdown/vite'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
+import router from 'unplugin-vue-router/vite'
 import layouts from 'vite-plugin-vue-layouts'
-import mdAnchor from 'markdown-it-anchor'
 import mdLinkAttr from 'markdown-it-link-attributes'
 import mdPrism from 'markdown-it-prism'
-
-import matter from 'gray-matter'
-import mdIt from 'markdown-it'
+import { feeds } from './scripts/feed'
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, '', [])
+  const env = loadEnv(mode, '', ['SITE', 'FIREBASE', 'VITE'])
+  const FIREBASE_CONFIG = {
+    projetId: env.VITE_PROJECT_ID,
+    appId: env.FIREBASE_APP_ID,
+    apiKey: env.FIREBASE_API_KEY,
+    messagingSenderId: env.FIREBASE_MESSAGING_SENDER_ID,
+    measurementId: env.FIREBASE_MEASUREMENT_ID,
+    storageBucket: `${env.VITE_PROJECT_ID}.appspot.com`,
+    authDomain: `${env.VITE_PROJECT_ID}.firebaseapp.com`,
+  }
 
   return {
     resolve: {
       alias: {
-        '~/': `${resolve(__dirname, 'src')}/`,
+        '~': resolve(__dirname, 'src'),
       },
+    },
+
+    define: {
+      'FIREBASE_CONFIG': JSON.stringify(FIREBASE_CONFIG),
+      'import.meta.env.SITE_NAME': JSON.stringify(env.BASE_NAME),
+      'import.meta.env.SITE_DESCRIPTION': JSON.stringify(env.BASE_DESCRIPTION),
+      'import.meta.env.SITE_URL': JSON.stringify(env.BASE_URL),
     },
 
     // optimizeDeps: {
@@ -63,18 +77,21 @@ export default defineConfig(({ mode }) => {
     ssgOptions: {
       script: 'async',
       formatting: 'minify',
-      onFinished() {
+      async onFinished() {
         /**
          * @see https://github.com/jbaubree/vite-ssg-sitemap
          */
         sitemap({
-          hostname: env.BASE_URL || 'http://localhost',
+          hostname: env.SITE_URL || 'http://localhost',
           exclude: ['/index', '/404'],
           robots: [
-            { userAgent: '*', allow: '/' },
-            { userAgent: '*', disallow: ['/assets', '/images', '/CNAME', '/.nojekyll', '/404.html'] },
+            { userAgent: '*', disallow: ['/assets', '/images', '/CNAME', '/.nojekyll'] },
             { userAgent: 'Googlebot-Image', disallow: '/' },
           ],
+        })
+
+        await feeds({
+          url: env.SITE_URL || 'http://localhost',
         })
       },
     },
@@ -85,21 +102,89 @@ export default defineConfig(({ mode }) => {
     test: {
       include: ['test/**/*.test.ts'],
       environment: 'happy-dom',
+      globals: true,
       deps: {
-        inline: ['@vue', '@vueuse', 'vue-demi'],
+        inline: ['@unhead', '@vue', '@vueuse', 'vue-demi'],
       },
     },
 
     plugins: [
       vue({
         include: [/\.vue$/, /\.md$/],
-        reactivityTransform: true,
+      }),
+
+      /**
+       * @see https://github.com/unplugin/unplugin-auto-import
+       */
+      autoImport({
+        dts: 'src/.auto-imports.d.ts',
+        dirs: [
+          'src/composables',
+          'src/store',
+        ],
+        imports: [
+          '@vueuse/core',
+          'vue-i18n',
+          unheadVueComposablesImports,
+          VueRouterAutoImports,
+          {
+            '@unhead/schema-org': schemaAutoImports,
+          },
+          {
+            // add any other imports you were relying on
+            'vue-router/auto': ['useLink'],
+          },
+          'vue/macros',
+          'vue',
+        ],
+        vueTemplate: true,
+      }),
+
+      /**
+       * @see https://github.com/unplugin/unplugin-vue-components
+       */
+      components({
+        dts: 'src/.components.d.ts',
+        directoryAsNamespace: true,
+        // allow auto load markdown components under `./src/components/`
+        extensions: ['vue', 'md'],
+        // allow auto import and register components used in markdown
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        resolvers: [
+          SchemaOrgResolver(),
+        ],
       }),
 
       /**
        * @see https://github.com/JohnCampionJr/vite-plugin-vue-layouts
        */
       layouts(),
+
+      /**
+       * @see https://unhead.unjs.io
+       */
+      unhead(),
+
+      /**
+       * @see https://github.com/posva/unplugin-vue-router
+       */
+      router({
+        dts: 'src/.typed-router.d.ts',
+        extensions: ['.vue', '.md'],
+        extendRoute(route) {
+          if (route.path === '/404')
+            route.name = 'not-found'
+
+          const frontmatter = Object.assign({
+            description: route.meta.description,
+            locale: 'en',
+          }, route.meta.frontmatter || {})
+
+          route.meta = Object.assign({}, {
+            locale: frontmatter.locale,
+          }, route.meta)
+        },
+      }),
 
       /**
        * @see https://github.com/antfu/vite-plugin-windicss
@@ -121,82 +206,32 @@ export default defineConfig(({ mode }) => {
       }),
 
       /**
-       * @see https://github.com/hannoeru/vite-plugin-pages
-       */
-      pages({
-        extensions: ['vue', 'md'],
-        extendRoute({ meta, ...route }) {
-          meta = meta || {}
-          meta.frontmatter = Object.assign({
-            title: meta.title,
-            description: meta.description,
-            comments: true,
-            layout: 'default',
-            locale: 'en',
-          }, meta.frontmatter || {})
-
-          if (typeof route.component === 'string' && route.component.endsWith('.md')) {
-            const path = resolve(__dirname, route.component.slice(1))
-            const { data, excerpt } = matter(readFileSync(path, 'utf-8'), {
-              excerpt: true,
-              excerpt_separator: '<!-- more -->',
-            })
-
-            meta.frontmatter = Object.assign(meta.frontmatter, {
-              excerpt: excerpt ? mdIt().render(excerpt) : undefined,
-            }, data)
-          }
-
-          route.meta = Object.assign({}, {
-            locale: meta.frontmatter.locale,
-            title: meta.frontmatter.title,
-            description: meta.frontmatter.description,
-          }, meta)
-
-          return route
-        },
-      }),
-
-      /**
-       * @see https://github.com/antfu/vite-plugin-md
+       * @see https://github.com/unplugin/unplugin-vue-markdown
        */
       markdown({
         wrapperComponent: 'page',
         wrapperClasses: 'prose max-w-none',
         headEnabled: true,
         excerpt: true,
-        style: {
-          baseStyle: 'github',
-        },
 
-        frontmatterDefaults: {
-          container: 'wide',
-          locale: 'id',
-          layout: 'default',
-        },
-
-        // see: https://markdown-it.github.io/markdown-it/
+        /**
+         * @see https://markdown-it.github.io/markdown-it
+         */
         markdownItOptions: {
-          quotes: '""\'\'',
+          html: true,
+          typographer: true,
         },
-
-        builders: [
-          meta({
-            metaProps: ['title', 'description', 'tags'],
-            routeMetaProps: ['layout', 'locale', 'container', 'title', 'description'],
-          }),
-        ],
 
         markdownItSetup(md) {
           md.use(mdPrism)
 
-          md.use(mdAnchor, {
-            permalink: mdAnchor.permalink.ariaHidden({
-              renderAttrs: () => ({ 'aria-hidden': 'true' }),
-              space: false,
-              symbol: '🔗',
-            }),
-          })
+          // md.use(mdAnchor, {
+          //   permalink: mdAnchor.permalink.ariaHidden({
+          //     renderAttrs: () => ({ 'aria-hidden': 'true' }),
+          //     space: false,
+          //     symbol: '🔗',
+          //   }),
+          // })
 
           md.use(mdLinkAttr, {
             matcher: (link: string) => /^(https?:\/\/|\/\/)/.test(link),
@@ -207,36 +242,6 @@ export default defineConfig(({ mode }) => {
           })
         },
       }),
-
-      /**
-       * @see https://github.com/antfu/unplugin-vue-components
-       */
-      components({
-        dts: 'src/components.d.ts',
-        directoryAsNamespace: true,
-        // allow auto load markdown components under `./src/components/`
-        extensions: ['vue', 'md'],
-        // allow auto import and register components used in markdown
-        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      }),
-
-      autoImport({
-        dts: 'src/auto-imports.d.ts',
-        dirs: [
-          'src/composables',
-          'src/store',
-        ],
-        imports: [
-          'vue',
-          'vue-router',
-          'vue-i18n',
-          'vue/macros',
-          '@vueuse/head',
-          '@vueuse/core',
-        ],
-        vueTemplate: true,
-      }),
-
     ],
   }
 })
