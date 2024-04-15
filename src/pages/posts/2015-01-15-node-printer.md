@@ -1,6 +1,7 @@
 ---
 title: "Direct Print menggunakan Node.JS"
 date: 2015-01-15 15:00:39 +0700
+locale: id
 thumb: node-printer.png
 category: [Workarounds, NodeJs, Print]
 ---

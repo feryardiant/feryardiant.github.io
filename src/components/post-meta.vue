@@ -38,6 +38,9 @@ function formatDate(date: string) {
 
 useHead({
   title: frontmatter.title,
+  htmlAttrs: {
+    lang: frontmatter.locale,
+  },
   meta,
 })
 </script>

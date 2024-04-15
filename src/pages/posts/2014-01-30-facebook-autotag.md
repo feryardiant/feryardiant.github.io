@@ -1,6 +1,7 @@
 ---
 title: Facebook Autotag
 date: 2014-01-30 13:35:56 +0700
+locale: id
 thumb: facebook.jpg
 category: [Tulisan, Facebook, Spam]
 ---

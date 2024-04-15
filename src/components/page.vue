@@ -9,7 +9,7 @@ const { frontmatter } = defineProps<{
 
 <template>
   <header class="page-header">
-    <post-meta v-slot="{ title }" :excerpt="false" :frontmatter="frontmatter">
+    <post-meta v-slot="{ title }" :frontmatter="frontmatter">
       <h1 class="font-bold !mt-4 !mb-6 !text-3xl">
         {{ title }}
       </h1>

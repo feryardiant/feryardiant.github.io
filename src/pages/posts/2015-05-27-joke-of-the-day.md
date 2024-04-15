@@ -1,6 +1,7 @@
 ---
 title: "Joke of the day"
 date: 2015-05-27 23:05:39 +0700
+locale: id
 thumb: me-on-google.png
 category: [Joke]
 ---

@@ -1,7 +1,7 @@
 ---
 title: SQL Query untuk nampilin data/baris sebagai field/kolom
 date: 2012-11-13 14:29:41 +0700
-comments: true
+locale: id
 category: [Playgrounds, Workarounds, MySQL, Query]
 ---
 Beberapa hari lalu qu sempet bingung, bijimana Query SQL nya nampilin Data/Rows sebagai Field/Kolom. Mungkin konsepnya hampir sama dengan struktur database di Wordpress.<!-- more -->
