@@ -11,7 +11,7 @@ const allowComments = computed(() => import.meta.env.PROD && frontmatter.comment
 
 <template>
   <header class="page-header">
-    <post-meta v-slot="{ title }" :frontmatter="frontmatter">
+    <post-meta v-slot="{ title }" singular :frontmatter="frontmatter">
       <h1 class="font-bold !mt-4 !mb-6 !text-3xl">
         {{ title }}
       </h1>

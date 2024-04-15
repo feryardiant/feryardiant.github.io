@@ -2,9 +2,10 @@
 import type { Meta } from '@unhead/vue'
 import type { Frontmatter } from 'unplugin-vue-markdown/types'
 
-const { frontmatter, excerpt } = defineProps<{
+const { frontmatter, excerpt, singular } = defineProps<{
   frontmatter: Frontmatter
   excerpt?: string
+  singular?: boolean
 }>()
 
 function thumbnailUrl(image: string): string {
@@ -15,21 +16,31 @@ const postDate = computed(() => frontmatter.updated || frontmatter.date)
 const imageUrl = computed(() => frontmatter.thumb ? thumbnailUrl(frontmatter.thumb) : undefined)
 const meta: Meta[] = []
 
-if (excerpt) {
+if (singular) {
   meta.push({
-    name: 'description',
-    content: excerpt,
+    property: 'og:type',
+    content: 'article',
   }, {
-    property: 'og:description',
-    content: excerpt,
+    property: 'og:title',
+    content: frontmatter.title,
   })
-}
 
-if (imageUrl.value) {
-  meta.push({
-    property: 'og:image',
-    content: imageUrl.value,
-  })
+  if (frontmatter.description) {
+    meta.push({
+      name: 'description',
+      content: frontmatter.description,
+    }, {
+      property: 'og:description',
+      content: frontmatter.description,
+    })
+  }
+
+  if (imageUrl.value) {
+    meta.push({
+      property: 'og:image',
+      content: imageUrl,
+    })
+  }
 }
 
 function formatDate(date: string) {

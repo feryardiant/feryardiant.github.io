@@ -20,6 +20,8 @@ useHead({
     site: {
       name: import.meta.env.SITE_NAME,
       url: import.meta.env.SITE_URL,
+      description: import.meta.env.SITE_DESCRIPTION,
+      author: import.meta.env.SITE_AUTHOR_NAME,
     },
   },
   htmlAttrs: {
@@ -28,27 +30,34 @@ useHead({
   meta: [
     {
       name: 'author',
-      content: 'Fery Wardiyanto',
+      content: '%site.author',
     },
     {
-      property: 'og:site_name',
+      property: 'og:site:name',
       content: '%site.name',
+    },
+    {
+      property: 'og:description',
+      content: '%site.description',
+    },
+    {
+      property: 'og:url',
+      content: '%site.url',
     },
   ],
   link: [
     {
       rel: 'icon',
-      type: 'image/svg+xml',
-      href: '/assets/favicon.svg',
+      sizes: '32x32',
+      href: '/icons/favicon-32x32.png',
     },
     {
       rel: 'apple-touch-icon',
-      type: 'image/svg+xml',
-      href: '/icon-192x192.png',
+      href: '/icons/mobile-icon-192x192.png',
     },
     {
       rel: 'mask-icon',
-      color: '#388370',
+      color: '#5bbad5',
       href: '/assets/safari-pinned-tab.svg',
     },
   ],

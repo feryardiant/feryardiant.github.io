@@ -1,4 +1,4 @@
-import { defineConfig } from 'windicss/helpers'
+import { defineConfig } from 'vite-plugin-windicss'
 import defaultTheme from 'windicss/defaultTheme'
 import typography from 'windicss/plugin/typography'
 import forms from 'windicss/plugin/forms'
