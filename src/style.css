@@ -41,6 +41,10 @@ html {
   @apply bg-gray-200;
 }
 
+.prose blockquote {
+  @apply border-gray-400;
+}
+
 #nprogress {
   pointer-events: none;
 
