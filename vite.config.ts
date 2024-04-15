@@ -14,6 +14,7 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import router from 'unplugin-vue-router/vite'
 import layouts from 'vite-plugin-vue-layouts'
 import mdLinkAttr from 'markdown-it-link-attributes'
+import mdAnchor from 'markdown-it-anchor'
 import shiki from '@shikijs/markdown-it'
 
 import { extractFrontmatter, feeds } from './scripts/feed'
@@ -229,13 +230,12 @@ export default defineConfig(({ mode }) => {
             },
           }))
 
-          // md.use(mdAnchor, {
-          //   permalink: mdAnchor.permalink.ariaHidden({
-          //     renderAttrs: () => ({ 'aria-hidden': 'true' }),
-          //     space: false,
-          //     symbol: '🔗',
-          //   }),
-          // })
+          md.use(mdAnchor, {
+            permalink: mdAnchor.permalink.ariaHidden({
+              space: false,
+              symbol: '🔗',
+            }),
+          })
 
           md.use(mdLinkAttr, {
             matcher: (link: string) => /^(https?:\/\/|\/\/)/.test(link),
