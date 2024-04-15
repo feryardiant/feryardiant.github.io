@@ -33,6 +33,10 @@ useHead({
       content: '%site.author',
     },
     {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
       property: 'og:site:name',
       content: '%site.name',
     },

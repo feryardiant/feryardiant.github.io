@@ -8,6 +8,8 @@ const { frontmatter, excerpt, singular } = defineProps<{
   singular?: boolean
 }>()
 
+const route = useRoute()
+
 function thumbnailUrl(image: string): string {
   return `${import.meta.env.SITE_URL}/uploads/${image}`
 }
@@ -23,22 +25,25 @@ if (singular) {
   }, {
     property: 'og:title',
     content: frontmatter.title,
+  }, {
+    property: 'og:url',
+    content: `${import.meta.env.SITE_URL}${route.fullPath}`,
   })
 
   if (frontmatter.description) {
     meta.push({
       name: 'description',
-      content: frontmatter.description,
+      content: frontmatter.description.trim(),
     }, {
       property: 'og:description',
-      content: frontmatter.description,
+      content: frontmatter.description.trim(),
     })
   }
 
   if (imageUrl.value) {
     meta.push({
       property: 'og:image',
-      content: imageUrl,
+      content: imageUrl.value,
     })
   }
 }
