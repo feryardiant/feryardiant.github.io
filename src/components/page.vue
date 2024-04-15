@@ -5,6 +5,8 @@ const { frontmatter } = defineProps<{
   frontmatter: Frontmatter
   excerpt?: string
 }>()
+
+const allowComments = computed(() => import.meta.env.PROD && frontmatter.comments)
 </script>
 
 <template>
@@ -19,6 +21,8 @@ const { frontmatter } = defineProps<{
   <article class="page-content">
     <slot />
   </article>
+
+  <Utterances v-if="allowComments" />
 </template>
 
 <style lang="postcss">
