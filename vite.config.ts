@@ -199,15 +199,14 @@ export default defineConfig(({ mode }) => {
             const filename = basename(component)
               .match(/(?<date>[0-9]{4}-[0-9]{2}-[0-9]{2})/)
 
-            data.date = new Date(data.date || (filename?.[0] as string))
-            data.published = 'published' in data ? new Date(data.published) : data.date
-            data.updated = 'updated' in data ? new Date(data.updated) : undefined
+            data.date = data.date || (filename?.[0] as string)
 
             route.addToMeta({
               title: data.title,
               excerpt,
               description: data.description,
               locale: data.locale || 'en',
+              published: (new Date(data.date)).getTime(),
               frontmatter: data,
             })
           }

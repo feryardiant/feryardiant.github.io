@@ -28,5 +28,6 @@ declare module 'vue-router' {
     description: Frontmatter['description']
     frontmatter: Frontmatter
     locale: SiteLocale
+    published: number
   }
 }

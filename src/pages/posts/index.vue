@@ -5,11 +5,11 @@ import { routes } from 'vue-router/auto-routes'
 const { t } = useI18n()
 const route = useRoute()
 
-function sortByDate(a: any, b: any) {
-  if (!a.meta.frontmatter || !b.meta.frontmatter)
+function sortByDate(a: RouteRecordRaw, b: RouteRecordRaw) {
+  if (!a.meta?.published || !b.meta?.published)
     return 0
 
-  return +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date)
+  return b.meta.published - a.meta.published
 }
 
 const posts = (routes.find(r => r.path === route.path)?.children as RouteRecordRaw[])
