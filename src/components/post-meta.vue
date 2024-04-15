@@ -67,5 +67,5 @@ useHead({
     </figure>
   </div>
 
-  <section v-if="excerpt" class="text-dark-100" v-html="excerpt" />
+  <section v-if="excerpt" class="text-dark-100 prose" v-html="excerpt" />
 </template>

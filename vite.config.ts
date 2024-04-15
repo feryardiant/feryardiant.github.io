@@ -205,7 +205,8 @@ export default defineConfig(({ mode }) => {
 
             route.addToMeta({
               title: data.title,
-              description: data.description || excerpt,
+              excerpt,
+              description: data.description,
               locale: data.locale || 'en',
               frontmatter: data,
             })

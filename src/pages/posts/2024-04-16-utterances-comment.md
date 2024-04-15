@@ -10,7 +10,7 @@ Well, sudah cukup lama gak post di website ini. Mungkin bisa dibilang kalau webs
 
 Anyway, seperti kalian ketahui bahwa website ini adalah static site yang di serve oleh github pages. Dari awalnya pakai [Jekyll](https://jekyllrb.com/), sempat mau nyobain pakai [eleventy](https://www.11ty.dev/) (tapi gak jadi), dan sekarang pake [vite-ssg](https://github.com/antfu/vite-ssg).
 
-Sejak mulai pakai vite-ssg saya nggak pakai comment system sama sekali, waktu masih di jekyll saya pakai [disqus](https://disqus.com/) tapi gak tau kenapa males aja pake disqus lagi (bukan karena disqus gak bagus, tapi saya aja yang males). Dan belum lama inget kalo ada comment system yang basisnya adalah github issues, sekilas sepertinya menarik tapi belum pernah nyobain secara langsing dan kali ini mungkin waktu yang tepat untuk mulai [utterances](https://utteranc.es/).
+Sejak mulai pakai vite-ssg saya nggak pakai comment system sama sekali, waktu masih di jekyll saya pakai [disqus](https://disqus.com/) tapi gak tau kenapa males aja pake disqus lagi (bukan karena disqus gak bagus, tapi saya aja yang males). Dan belum lama inget kalo ada comment system yang basisnya adalah github issues, sekilas sepertinya menarik tapi belum pernah nyobain secara langsing dan kali ini mungkin waktu yang tepat untuk mulai [utterances](https://utteranc.es/).<!-- more -->
 
 ### Utterances
 

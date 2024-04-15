@@ -21,8 +21,12 @@ interface Options {
 
 export function extractFrontmatter(filepath: string) {
   const content = readFileSync(filepath, 'utf-8')
+  const parsed = matter(content, { excerpt: true, excerpt_separator: '<!-- more -->' })
 
-  return matter(content)
+  if (parsed.excerpt && parsed.excerpt !== '')
+    parsed.excerpt = markdown.render(parsed.excerpt)
+
+  return parsed
 }
 
 export async function feeds(option: Partial<Options>) {

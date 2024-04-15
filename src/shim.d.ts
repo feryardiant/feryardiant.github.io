@@ -23,6 +23,7 @@ declare module 'vue-router' {
 
   interface RouteMeta {
     layout?: Frontmatter['layout']
+    excerpt?: string
     title: Frontmatter['title']
     description: Frontmatter['description']
     frontmatter: Frontmatter

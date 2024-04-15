@@ -23,7 +23,7 @@ useHead({
 
 <template>
   <article v-for="{ path, meta, name } of posts" :key="path" class="page-item h-item">
-    <PostMeta v-slot="{ title }" :frontmatter="meta?.frontmatter || {}">
+    <PostMeta v-slot="{ title }" :excerpt="meta?.excerpt" :frontmatter="meta?.frontmatter || {}">
       <h3 class="font-bold !mt-4 !mb-6 !text-2xl">
         <router-link :to="(name as string)">
           {{ title }}
