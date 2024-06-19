@@ -74,7 +74,7 @@ devDependencies:
     version: 1.9.11
   '@unhead/schema-org':
     specifier: ^1.9.5
-    version: 1.9.11(@unhead/shared@1.9.11)(unhead@1.9.12)
+    version: 1.9.11(@unhead/shared@1.9.11)(unhead@1.9.13)
   '@vitejs/plugin-vue':
     specifier: ^5.0.4
     version: 5.0.5(vite@5.2.12)(vue@3.4.27)
@@ -1484,14 +1484,14 @@ packages:
       '@unhead/schema': 1.9.12
       '@unhead/shared': 1.9.12
 
-  /@unhead/dom@1.9.7:
-    resolution: {integrity: sha512-suZVi8apZCNEMKuasGboBB3njJJm+gd8G0NA89geVozJ0bz40FvLyLEJZ9LirbzpujmhgHhsUSvlq4QyslRqdQ==}
+  /@unhead/dom@1.9.13:
+    resolution: {integrity: sha512-Fzc929W+5f88c90kn9aKs7EbgRBhphArMqBbifre134GWgrgDVR0odoadNa7i9eH4roPEDE1FIGcKVWuxOIHbg==}
     dependencies:
-      '@unhead/schema': 1.9.7
-      '@unhead/shared': 1.9.7
+      '@unhead/schema': 1.9.13
+      '@unhead/shared': 1.9.13
     dev: true
 
-  /@unhead/schema-org@1.9.11(@unhead/shared@1.9.11)(unhead@1.9.12):
+  /@unhead/schema-org@1.9.11(@unhead/shared@1.9.11)(unhead@1.9.13):
     resolution: {integrity: sha512-62e9KvAqOkayfE8ezDhlmzE+03b28t24DwDmVU2rIOG20UEYycB/1vLiGCBou8fFcdEMByaihXmIwNQeCf8TcA==}
     peerDependencies:
       '@unhead/shared': 1.9.11
@@ -1499,7 +1499,7 @@ packages:
     dependencies:
       '@unhead/shared': 1.9.11
       ufo: 1.5.3
-      unhead: 1.9.12
+      unhead: 1.9.13
     dev: true
 
   /@unhead/schema@1.9.11:
@@ -1515,8 +1515,8 @@ packages:
       hookable: 5.5.3
       zhead: 2.2.4
 
-  /@unhead/schema@1.9.7:
-    resolution: {integrity: sha512-naQGY1gQqq8DmQCxVTOeeXIqaRwbqnLEgvQl12zPEDviYxmg7TCbmKyN9uT4ZarQbJ2WYT2UtYvdSrmTXcwlBw==}
+  /@unhead/schema@1.9.13:
+    resolution: {integrity: sha512-keOfTXC/tI21fURcEszBHgGvIg2AszQVQEXBG5BYgC2TQph25Bmv7Fk8W2ogFmj+DdZmFiDnSJdz/NKv3bqnTQ==}
     dependencies:
       hookable: 5.5.3
       zhead: 2.2.4
@@ -1533,10 +1533,10 @@ packages:
     dependencies:
       '@unhead/schema': 1.9.12
 
-  /@unhead/shared@1.9.7:
-    resolution: {integrity: sha512-srji+qaBkkGOTdtTmFxt3AebFYcpt1qQHeQva7X3dSm5nZJDoKj35BJJTZfBSRCjgvkTtsdVUT14f9p9/4BCMA==}
+  /@unhead/shared@1.9.13:
+    resolution: {integrity: sha512-zNlJ2i5WonQZu/UMHJJzYMyBLhlCCxj1JxHL6lEG+Z6XiERfJDFr8mEAsQY7M2KrGAHR+WRBxNVoLw03j/kfrA==}
     dependencies:
-      '@unhead/schema': 1.9.7
+      '@unhead/schema': 1.9.13
     dev: true
 
   /@unhead/vue@1.9.12(vue@3.4.27):
@@ -3473,6 +3473,7 @@ packages:
 
   /glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -4022,7 +4023,7 @@ packages:
       whatwg-encoding: 3.1.1
       whatwg-mimetype: 4.0.0
       whatwg-url: 14.0.0
-      ws: 8.16.0
+      ws: 8.17.1
       xml-name-validator: 5.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -5646,6 +5647,15 @@ packages:
       '@unhead/shared': 1.9.12
       hookable: 5.5.3
 
+  /unhead@1.9.13:
+    resolution: {integrity: sha512-r7O7s5nw1vUrolueEitawh1HnrzXoekHPM1gsYMF3Tu0A2SzochDJw/1F+Nhu3e073rJ9cUGZqobZY3+RZS4Ew==}
+    dependencies:
+      '@unhead/dom': 1.9.13
+      '@unhead/schema': 1.9.13
+      '@unhead/shared': 1.9.13
+      hookable: 5.5.3
+    dev: true
+
   /unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
@@ -5919,7 +5929,7 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      '@unhead/dom': 1.9.7
+      '@unhead/dom': 1.9.13
       '@unhead/vue': 1.9.12(vue@3.4.27)
       fs-extra: 11.2.0
       html-minifier: 4.0.0
@@ -6013,7 +6023,7 @@ packages:
       local-pkg: 0.5.0
       magic-string: 0.30.10
       pathe: 1.1.2
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       std-env: 3.7.0
       strip-literal: 2.1.0
       tinybench: 2.7.0
@@ -6248,8 +6258,8 @@ packages:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
     dev: true
 
-  /ws@8.16.0:
-    resolution: {integrity: sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==}
+  /ws@8.17.1:
+    resolution: {integrity: sha512-6XQFvXTkbfUOZOKKILFG1PDK2NDQs4azKQl26T0YS5CxqWLgXajbPZ+h4gZekJyRqFU8pvnbAbbs/3TgRPy+GQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
