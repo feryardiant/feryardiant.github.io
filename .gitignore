@@ -3,21 +3,26 @@
 # Generic
 Thumbs.db
 Desktop.ini
+.directory
 .DS_Store
-._
+._*
 *.cache
+*.crt
 *.log
 *.old
-*.zip
+*.key
 *.pem
+*.tmp
+*.zip
 *~
 
 # Developments
 # --------------------------
 .env.*
 .env
-.vite-ssg-temp
 .runtimeconfig.json
+.tool-versions
+.vite-ssg-temp
 dist
 gcp-zeitnow.json
 node_modules
