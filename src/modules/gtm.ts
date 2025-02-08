@@ -1,5 +1,5 @@
-import { createGtm } from '@gtm-support/vue-gtm'
 import type { UserModule } from '~/types'
+import { createGtm } from '@gtm-support/vue-gtm'
 
 export const install: UserModule = ({ app, isClient, router }) => {
   if (!isClient && !import.meta.env.VITE_GTM_ID)

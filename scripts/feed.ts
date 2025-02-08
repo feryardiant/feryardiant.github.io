@@ -1,9 +1,9 @@
+import type { FeedOptions, Item } from 'feed'
 import { readFileSync, writeFileSync } from 'node:fs'
 import glob from 'fast-glob'
+import { Feed } from 'feed'
 import matter from 'gray-matter'
 import markdownIt from 'markdown-it'
-import type { FeedOptions, Item } from 'feed'
-import { Feed } from 'feed'
 
 import { author } from '../package.json'
 
@@ -35,7 +35,7 @@ export async function feeds(option: Partial<Options>) {
 
   const posts = await Promise.all(
     files.filter(file => !file.includes('index'))
-      .map(async (file) => {
+      .map((file) => {
         const { data, content } = extractFrontmatter(file)
 
         const html = markdown.render(content)
@@ -50,7 +50,7 @@ export async function feeds(option: Partial<Options>) {
       }),
   )
 
-  await writeFeed('feed', {
+  writeFeed('feed', {
     title: option.title || author.name,
     description: option.description || 'Yet another blog',
     id: `${option.url}/`,
@@ -64,7 +64,7 @@ export async function feeds(option: Partial<Options>) {
   }, posts)
 }
 
-async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
+function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   options.author = author
   options.image = `${options.id}avatar.png`
   options.favicon = `${options.id}favicon.ico`

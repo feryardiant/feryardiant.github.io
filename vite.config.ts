@@ -1,24 +1,24 @@
 import { basename, resolve } from 'node:path'
-import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
 import i18n from '@intlify/unplugin-vue-i18n/vite'
+import shiki from '@shikijs/markdown-it'
 import unhead from '@unhead/addons/vite'
-import { SchemaOrgResolver, schemaAutoImports } from '@unhead/schema-org/vue'
+import { schemaAutoImports, SchemaOrgResolver } from '@unhead/schema-org/vue'
 import { unheadVueComposablesImports } from '@unhead/vue'
-import sitemap from 'vite-ssg-sitemap'
-import windicss from 'vite-plugin-windicss'
+import vue from '@vitejs/plugin-vue'
+import mdAnchor from 'markdown-it-anchor'
+import mdLinkAttr from 'markdown-it-link-attributes'
 import autoImport from 'unplugin-auto-import/vite'
 import components from 'unplugin-vue-components/vite'
 import markdown from 'unplugin-vue-markdown/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import router from 'unplugin-vue-router/vite'
+import { defineConfig, loadEnv } from 'vite'
 import layouts from 'vite-plugin-vue-layouts'
-import mdLinkAttr from 'markdown-it-link-attributes'
-import mdAnchor from 'markdown-it-anchor'
-import shiki from '@shikijs/markdown-it'
+import windicss from 'vite-plugin-windicss'
+import sitemap from 'vite-ssg-sitemap'
 
-import { extractFrontmatter, feeds } from './scripts/feed'
 import { author } from './package.json'
+import { extractFrontmatter, feeds } from './scripts/feed'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '', ['SITE', 'FIREBASE', 'VITE'])
@@ -197,7 +197,7 @@ export default defineConfig(({ mode }) => {
           if (component && component.endsWith('.md')) {
             const { data, excerpt } = extractFrontmatter(component)
             const filename = basename(component)
-              .match(/(?<date>[0-9]{4}-[0-9]{2}-[0-9]{2})/)
+              .match(/(?<date>\d{4}-\d{2}-\d{2})/)
 
             data.date = data.date || (filename?.[0] as string)
 
@@ -238,7 +238,7 @@ export default defineConfig(({ mode }) => {
           })
 
           md.use(mdLinkAttr, {
-            matcher: (link: string) => /^(https?:\/\/|\/\/)/.test(link),
+            matcher: (link: string) => /^https?:\/\/|\/\//.test(link),
             attrs: {
               target: '_blank',
               rel: 'noopener',

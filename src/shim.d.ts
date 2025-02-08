@@ -1,6 +1,6 @@
-import 'vue-router'
-
 import type { SiteLocale } from '~/types'
+
+import 'vue-router'
 
 export {}
 

@@ -1,14 +1,14 @@
+import type { SiteModule } from './types'
+
+import { setupLayouts } from 'virtual:generated-layouts'
 import { ViteSSG } from 'vite-ssg'
 
 import { routes } from 'vue-router/auto-routes'
-import { setupLayouts } from 'virtual:generated-layouts'
+import App from './app.vue'
 
 import 'virtual:windi-devtools'
 import 'virtual:windi.css'
-
-import App from './app.vue'
 import './style.css'
-import type { SiteModule } from './types'
 
 export const createApp = ViteSSG(App, {
   base: import.meta.env.BASE_URL,
