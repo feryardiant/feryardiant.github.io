@@ -2,7 +2,7 @@ import { basename, resolve } from 'node:path'
 import i18n from '@intlify/unplugin-vue-i18n/vite'
 import shiki from '@shikijs/markdown-it'
 import unhead from '@unhead/addons/vite'
-import { schemaAutoImports, SchemaOrgResolver } from '@unhead/schema-org/vue'
+// import { schemaAutoImports, SchemaOrgResolver } from '@unhead/schema-org/vue'
 import { unheadVueComposablesImports } from '@unhead/vue'
 import vue from '@vitejs/plugin-vue'
 import mdAnchor from 'markdown-it-anchor'
@@ -140,9 +140,9 @@ export default defineConfig(({ mode }) => {
           'vue-i18n',
           unheadVueComposablesImports,
           VueRouterAutoImports,
-          {
-            '@unhead/schema-org': schemaAutoImports,
-          },
+          // {
+          //   '@unhead/schema-org': schemaAutoImports,
+          // },
           {
             // add any other imports you were relying on
             'vue-router/auto': ['useLink'],
@@ -164,7 +164,7 @@ export default defineConfig(({ mode }) => {
         // allow auto import and register components used in markdown
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         resolvers: [
-          SchemaOrgResolver(),
+          // SchemaOrgResolver(),
         ],
       }),
 
