@@ -119,10 +119,10 @@ importers:
         version: 15.5.2
       markdown-it:
         specifier: ^14.1.0
-        version: 14.1.0
+        version: 14.1.1
       markdown-it-anchor:
         specifier: ^9.2.0
-        version: 9.2.0(@types/markdown-it@14.1.2)(markdown-it@14.1.0)
+        version: 9.2.0(@types/markdown-it@14.1.2)(markdown-it@14.1.1)
       markdown-it-link-attributes:
         specifier: ^4.0.1
         version: 4.0.1
@@ -1755,10 +1755,6 @@ packages:
     resolution: {integrity: sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==}
     engines: {node: '>=0.12'}
 
-  entities@7.0.0:
-    resolution: {integrity: sha512-FDWG5cmEYf2Z00IkYRhbFrwIwvdFKH07uV8dvNy0omp/Qb1xcyCWp2UDtcwJF4QZZvk0sLudP6/hAu42TaqVhQ==}
-    engines: {node: '>=0.12'}
-
   entities@7.0.1:
     resolution: {integrity: sha512-TWrgLOFUQTH994YUyl1yT4uyavY5nNB5muff+RtWaqNVCAK408b5ZnnbNAUEWLTCpum9w6arT70i1XdQ4UeOPA==}
     engines: {node: '>=0.12'}
@@ -2721,8 +2717,8 @@ packages:
   markdown-it-link-attributes@4.0.1:
     resolution: {integrity: sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==}
 
-  markdown-it@14.1.0:
-    resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
+  markdown-it@14.1.1:
+    resolution: {integrity: sha512-BuU2qnTti9YKgK5N+IeMubp14ZUKUUw7yeJbkjtosvHiP0AZ5c8IAgEMk79D0eC8F23r4Ac/q8cAIFdm2FtyoA==}
     hasBin: true
 
   markdown-table@3.0.4:
@@ -4632,14 +4628,14 @@ snapshots:
   '@mdit-vue/plugin-component@2.1.4':
     dependencies:
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.1.1
 
   '@mdit-vue/plugin-frontmatter@2.1.4':
     dependencies:
       '@mdit-vue/types': 2.1.4
       '@types/markdown-it': 14.1.2
       gray-matter: 4.0.3
-      markdown-it: 14.1.0
+      markdown-it: 14.1.1
 
   '@mdit-vue/types@2.1.4': {}
 
@@ -4768,7 +4764,7 @@ snapshots:
 
   '@shikijs/markdown-it@3.20.0(markdown-it-async@2.2.0)':
     dependencies:
-      markdown-it: 14.1.0
+      markdown-it: 14.1.1
       shiki: 3.20.0
     optionalDependencies:
       markdown-it-async: 2.2.0
@@ -5078,7 +5074,7 @@ snapshots:
     dependencies:
       '@babel/parser': 7.28.5
       '@vue/shared': 3.5.26
-      entities: 7.0.0
+      entities: 7.0.1
       estree-walker: 2.0.2
       source-map-js: 1.2.1
 
@@ -5696,8 +5692,6 @@ snapshots:
   entities@4.5.0: {}
 
   entities@6.0.1: {}
-
-  entities@7.0.0: {}
 
   entities@7.0.1: {}
 
@@ -6800,19 +6794,19 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  markdown-it-anchor@9.2.0(@types/markdown-it@14.1.2)(markdown-it@14.1.0):
+  markdown-it-anchor@9.2.0(@types/markdown-it@14.1.2)(markdown-it@14.1.1):
     dependencies:
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.1.1
 
   markdown-it-async@2.2.0:
     dependencies:
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.1.1
 
   markdown-it-link-attributes@4.0.1: {}
 
-  markdown-it@14.1.0:
+  markdown-it@14.1.1:
     dependencies:
       argparse: 2.0.1
       entities: 4.5.0
@@ -8075,7 +8069,7 @@ snapshots:
       '@mdit-vue/plugin-frontmatter': 2.1.4
       '@mdit-vue/types': 2.1.4
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.1.1
       markdown-it-async: 2.2.0
       unplugin: 2.3.4
       unplugin-utils: 0.2.4
