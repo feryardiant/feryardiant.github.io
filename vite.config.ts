@@ -10,14 +10,14 @@ import mdLinkAttr from 'markdown-it-link-attributes'
 import autoImport from 'unplugin-auto-import/vite'
 import components from 'unplugin-vue-components/vite'
 import markdown from 'unplugin-vue-markdown/vite'
-import { VueRouterAutoImports } from 'unplugin-vue-router'
-import router from 'unplugin-vue-router/vite'
 import { defineConfig, loadEnv } from 'vite'
 import layouts from 'vite-plugin-vue-layouts'
 import windicss from 'vite-plugin-windicss'
 import sitemap from 'vite-ssg-sitemap'
+import { VueRouterAutoImports } from 'vue-router/unplugin'
+import router from 'vue-router/vite'
 
-import { author } from './package.json'
+import { author } from './package.json' with { type: 'json' }
 import { extractFrontmatter, feeds } from './scripts/feed'
 
 export default defineConfig(({ mode }) => {
@@ -35,7 +35,7 @@ export default defineConfig(({ mode }) => {
   return {
     resolve: {
       alias: {
-        '~': resolve(__dirname, 'src'),
+        '~': resolve(import.meta.dirname, 'src'),
       },
     },
 
@@ -179,7 +179,7 @@ export default defineConfig(({ mode }) => {
       unhead(),
 
       /**
-       * @see https://github.com/posva/unplugin-vue-router
+       * @see https://router.vuejs.org/file-based-routing/configuration.html
        */
       router({
         dts: 'src/.typed-router.d.ts',
@@ -199,7 +199,7 @@ export default defineConfig(({ mode }) => {
             const filename = basename(component)
               .match(/(?<date>\d{4}-\d{2}-\d{2})/)
 
-            data.date = data.date || (filename?.[0] as string)
+            data.date = data.date || (filename?.groups?.date as string)
 
             route.addToMeta({
               title: data.title,
@@ -263,7 +263,7 @@ export default defineConfig(({ mode }) => {
       i18n({
         runtimeOnly: true,
         compositionOnly: true,
-        include: [resolve(__dirname, 'locales/**')],
+        include: [resolve(import.meta.dirname, 'locales/**')],
       }),
     ],
   }

@@ -1,8 +1,8 @@
 import type { UserModule } from '~/types'
 import nProgress from 'nprogress'
 
-export const install: UserModule = ({ isClient, router }) => {
-  if (isClient) {
+export const install: UserModule = ({ router }) => {
+  if (!import.meta.env.SSR) {
     router.beforeEach(() => {
       nProgress.start()
     })

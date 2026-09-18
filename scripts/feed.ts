@@ -5,7 +5,7 @@ import { Feed } from 'feed'
 import matter from 'gray-matter'
 import markdownIt from 'markdown-it'
 
-import { author } from '../package.json'
+import { author } from '../package.json' with { type: 'json' }
 
 const markdown = markdownIt({
   html: true,
